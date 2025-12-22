@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profile</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Roboto+Slab:wght@300;400;500;700&family=Roboto+Serif&family=Sedan+SC&family=Rokkitt:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="overflow-hidden font-roboto">
+    <div class="flex min-h-screen h-screen overflow-hidden">
+      <aside
+        class="w-64 text-white p-6"
+        style="
+          background: radial-gradient(
+            circle,
+            #ade4c0 0%,
+            #7dccb5 50%,
+            #53afaa 100%
+          );
+        "
+      >
+        <nav class="space-y-12 m-4 text-lg">
+          <button
+            onclick="window.location.href='home.html'"
+            class="w-full py-3 rounded flex justify-center items-center gap-3 text-black hover:text-white hover:bg-black font-[roboto_condensed]"
+          >
+            <i class="fa-solid fa-house"></i> Home
+          </button>
+          <button
+            onclick="window.location.href='AssessmentCatalog.html'"
+            class="w-full py-3 rounded flex justify-center items-center gap-3 text-black hover:text-white hover:bg-black font-[roboto_condensed]"
+          >
+            <i class="fa-solid fa-book"></i> Assessments
+          </button>
+          <button
+            onclick="window.location.href='MySubmission.html'"
+            class="w-full py-3 rounded flex justify-center items-center gap-3 text-black hover:text-white hover:bg-black font-[roboto_condensed]"
+          >
+            <i class="fa-solid fa-file-lines"></i> My Submissions
+          </button>
+          <button
+            onclick="window.location.href='AnalyticsPage.html'"
+            class="w-full py-3 rounded flex justify-center items-center gap-3 text-black hover:text-white hover:bg-black font-[roboto_condensed]"
+          >
+            <i class="fa-solid fa-chart-line"></i>
+            Analytics
+          </button>
+          <button
+            onclick="location.reload()"
+            class="w-full py-3 rounded flex justify-center items-center gap-3 text-black hover:text-white hover:bg-black font-[roboto_condensed] bg-black/20"
+          >
+            <i class="fa-solid fa-user"></i> Profile
+          </button>
+          <button
+            onclick="window.location.href='../index.html'"
+            class="w-full py-3 rounded flex justify-center items-center gap-3 text-black hover:text-white hover:bg-black font-[roboto_condensed]"
+          >
+            <i class="fa-solid fa-right-from-bracket"></i> Logout
+          </button>
+        </nav>
+      </aside>
+      <div class="flex-1 flex flex-col overflow-hidden">
+        <header
+          class="w-full flex justify-between items-center px-8 py-4 shadow text-white"
+          style="background: linear-gradient(to left, #7dccb5, #53afaa)"
+        >
+          <a href="#" class="text-xl text-black font-sedan_sc">
+            Unified Assessment Platform
+          </a>
+          <div class="flex items-center space-x-12 text-2xl">
+            <div class="relative cursor-pointer">
+              <a href="Notifications.html">
+                <i class="fa-regular fa-bell text-black"></i>
+              </a>
+              <span
+                id="notifyCount"
+                class="absolute -top-1 -right-3 bg-red-600 text-white text-xs w-4 h-4 flex items-center justify-center rounded-full font-bold hidden"
+              >
+              </span>
+            </div>
+            <a href="#"
+              ><i class="fa-solid fa-user text-black cursor-pointer"></i
+            ></a>
+          </div>
+        </header>
+        <div class="p-10 overflow-y-auto h-full space-y-10">
+          <div
+            class="bg-white shadow-lg p-6 rounded-xl border border-[#AC7F5E] transform transition duration-300 hover:scale-[1.03]"
+          >
+            <div class="flex justify-between items-center">
+              <div class="flex gap-4">
+                <i class="fa-solid fa-user text-5xl"></i>
+                <div>
+                  <p class="text-2xl text-[#AC7F5E] font-roboto_slab">
+                    Welcome back,
+                  </p>
+                  <p
+                    class="font-roboto_slab text-xl font-semibold profile-name"
+                    id="p-display-name"
+                  >
+                    Vijay
+                  </p>
+                  <p
+                    class="text-sm text-gray-600 profile-email"
+                    id="p-display-email"
+                  >
+                    vijay@gmail.com
+                  </p>
+                </div>
+              </div>
+              <i
+                onclick="window.location.href='EditProfile.html'"
+                class="fa-solid fa-pen cursor-pointer transform duration-300 hover:scale-125"
+              >
+              </i>
+            </div>
+          </div>
+          <div
+            class="bg-white border border-[#AC7F5E] shadow-lg p-6 rounded-xl space-y-4 transform transition duration-300 hover:scale-[1.03]"
+          >
+            <h2 class="text-xl font-roboto_slab text-[#AC7F5E]">
+              Basic Information’s
+            </h2>
+            <div class="grid grid-cols-2 gap-4 font-roboto_serif">
+              <p><strong>Name :</strong> <span id="p-name">Vijay</span></p>
+              <p>
+                <strong>Email :</strong>
+                <span id="p-email">vijay@gmail.com</span>
+              </p>
+              <p><strong>Gender :</strong> <span id="p-gender">Male</span></p>
+              <p><strong>DOB :</strong> <span id="p-dob">00/00/0000</span></p>
+              <p>
+                <strong>Contact :</strong>
+                <span id="p-contact">0123456789</span>
+              </p>
+              <p>
+                <strong>Father’s Name :</strong>
+                <span id="p-father">Sakthivel</span>
+              </p>
+              <p>
+                <strong>Mother’s Name :</strong>
+                <span id="p-mother">Arasi</span>
+              </p>
+              <p>
+                <strong>Parent’s Contact :</strong>
+                <span id="p-parent">0123456789</span>
+              </p>
+            </div>
+          </div>
+          <div
+            class="bg-white border border-[#AC7F5E] shadow-lg p-6 rounded-xl space-y-4 transform transition duration-300 hover:scale-[1.03]"
+          >
+            <h2 class="text-xl font-roboto_slab text-[#AC7F5E]">
+              Academic Information’s
+            </h2>
+            <div class="grid grid-cols-2 gap-4 font-roboto_serif">
+              <p>
+                <strong>Institution Name :</strong>
+                <span id="p-inst">Institute of Technology</span>
+              </p>
+              <p>
+                <strong>Specification :</strong>
+                <span id="p-spec">B.E - CSE</span>
+              </p>
+              <p>
+                <strong>Current Year :</strong> <span id="p-year">2025</span>
+              </p>
+              <p>
+                <strong>CGPA upto current Semester :</strong>
+                <span id="p-cgpa">8.79</span>
+              </p>
+              <p>
+                <strong>Previous Degree :</strong>
+                <span id="p-prev-degree">NIL</span>
+              </p>
+              <p>
+                <strong>Institution Name :</strong>
+                <span id="p-prev-inst">NIL</span>
+              </p>
+              <p><strong>CGPA :</strong> <span id="p-prev-cgpa">NIL</span></p>
+            </div>
+          </div>
+          <div
+            class="bg-white border border-[#AC7F5E] shadow-lg p-6 rounded-xl space-y-6"
+          >
+            <h2 class="text-xl font-roboto_slab text-[#AC7F5E]">
+              Achievements
+            </h2>
+            <div class="grid grid-cols-2 gap-6">
+              <div
+                class="border border-[#00C3D0] p-4 rounded-lg space-y-3  font-roboto_serif transform transition duration-300 hover:scale-[1.03]"
+                id="badges-container"
+              >
+                <h3 class="font-[Rokkitt] text-lg">Performance Badges</h3>
+                <p>
+                  <strong>Top Scorer 🏆</strong><br />Above 90% in assessments.
+                </p>
+                <p>
+                  <strong>Consistent Performer 🎯</strong><br />Maintained 75%+
+                  in 5 assessments.
+                </p>
+                <p>
+                  <strong>Fast Finisher ⚡</strong><br />Completed assessments
+                  faster than average.
+                </p>
+              </div>
+              <div
+                class="border border-[#00C3D0] p-4 rounded-lg font-roboto_serif space-y-3 transform transition duration-300 hover:scale-[1.03]"
+                id="milestones-container"
+              >
+                <h3 class="font-[Rokkitt] text-lg">Participation Milestones</h3>
+                <p>
+                  <strong>Active Learner 📘</strong><br />Attempted 20+
+                  assessments.
+                </p>
+                <p>
+                  <strong>On-Time Submitter ⏳</strong><br />All submissions
+                  before deadline.
+                </p>
+                <p>
+                  <strong>Collaborative Learner 👥</strong><br />Participated in
+                  team assessments.
+                </p>
+              </div>
+            </div>
+            <div
+              class="border border-[#00C3D0] p-4 rounded-lg font-roboto_serif transform transition duration-300 hover:scale-[1.03]"
+              id="leaderboard-container"
+            >
+              <h3 class="font-[Rokkitt] text-lg mb-2">Leaderboard Summary</h3>
+              <p><strong>Rank :</strong> <span id="p-rank">3</span></p>
+              <p>
+                <strong>Highest Score :</strong>
+                <span id="p-highscore">98</span>%
+              </p>
+            </div>
+          </div>
+        </div>
+        <footer
+          class="w-full py-4 text-center bg-white shadow-inner text-gray-600 text-sm"
+        >
+          © 2025 Unified Assessment Platform. All rights reserved.<br />
+          Test Your Limits, Track Your Growth.
+        </footer>
+      </div>
+    </div>
+    <script>
+      const notificationCount = 3;
+      const badge = document.getElementById("notifyCount");
+      if (notificationCount > 0) {
+        badge.innerText = notificationCount;
+        badge.classList.remove("hidden");
+      }
+      
+      const storedDataString = localStorage.getItem("profileData");
+      if (storedDataString) {
+        const data = JSON.parse(storedDataString);
+        document.getElementById("p-display-name").innerText = data.name;
+        document.getElementById("p-display-email").innerText = data.email;
+        document.getElementById("p-name").innerText = data.name;
+        document.getElementById("p-email").innerText = data.email;
+        document.getElementById("p-gender").innerText = data.gender;
+        document.getElementById("p-dob").innerText = data.dob;
+        document.getElementById("p-contact").innerText = data.contact;
+        document.getElementById("p-father").innerText = data.father;
+        document.getElementById("p-mother").innerText = data.mother;
+        document.getElementById("p-parent").innerText = data.parentContact;
+        document.getElementById("p-inst").innerText = data.inst;
+        document.getElementById("p-spec").innerText = data.spec;
+        document.getElementById("p-year").innerText = data.year;
+        document.getElementById("p-cgpa").innerText = data.cgpa;
+        document.getElementById("p-prev-degree").innerText = data.prevDegree;
+        document.getElementById("p-prev-inst").innerText = data.prevInst;
+        document.getElementById("p-prev-cgpa").innerText = data.prevCgpa;
+        const badgeBox = document.getElementById("badges-container");
+        const milestoneBox = document.getElementById("milestones-container");
+        badgeBox.innerHTML = "";
+        milestoneBox.innerHTML = "";
+        data.badges.forEach((b) => {
+          badgeBox.innerHTML += `<p>${b}</p>`;
+        });
+
+        data.milestones.forEach((m) => {
+          milestoneBox.innerHTML += `<p>${m}</p>`;
+        });
+        document.getElementById("p-rank").innerText = data.rank;
+        document.getElementById("p-highscore").innerText = data.highscore;
+      }
+    </script>
+  </body>
+</html>

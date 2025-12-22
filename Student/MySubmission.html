@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Submissions</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Roboto+Slab:wght@300;400;500;700&family=Roboto+Serif&family=Sedan+SC&family=Rokkitt:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="overflow-hidden font-roboto">
+    <div class="flex min-h-screen h-screen overflow-hidden">
+      <aside
+        class="w-64 text-white p-6"
+        style="
+          background: radial-gradient(
+            circle,
+            #ade4c0 0%,
+            #7dccb5 50%,
+            #53afaa 100%
+          );
+        "
+      >
+        <nav class="space-y-12 m-4 text-lg">
+          <button
+            onclick="window.location.href='home.html'"
+            class="w-full py-3 rounded flex justify-center items-center gap-3 text-black hover:text-white hover:bg-black"
+          >
+            <i class="fa-solid fa-house"></i> Home
+          </button>
+          <button
+            onclick="window.location.href='AssessmentCatalog.html'"
+            class="w-full py-3 rounded flex justify-center items-center gap-3 text-black hover:text-white hover:bg-black"
+          >
+            <i class="fa-solid fa-book"></i> Assessments
+          </button>
+          <button
+            onclick="location.reload()"
+            class="w-full py-3 rounded flex justify-center items-center gap-3 text-black hover:text-white hover:bg-black font-[roboto_condensed] bg-black/20"
+          >
+            <i class="fa-solid fa-file-lines"></i> My Submissions
+          </button>
+          <button
+            onclick="window.location.href='AnalyticsPage.html'"
+            class="w-full py-3 rounded flex justify-center items-center gap-3 text-black hover:text-white hover:bg-black font-[roboto_condensed]"
+          >
+            <i class="fa-solid fa-chart-line"></i>
+            Analytics
+          </button>
+          <button onclick="window.location.href='profile.html'"
+            class="w-full py-3 rounded flex justify-center items-center gap-3 text-black hover:text-white hover:bg-black"
+          >
+            <i class="fa-solid fa-user"></i> Profile
+          </button>
+          <button onclick="window.location.href='../index.html'"
+            class="w-full py-3 rounded flex justify-center items-center gap-3 text-black hover:text-white hover:bg-black"
+          >
+            <i class="fa-solid fa-right-from-bracket"></i> Logout
+          </button>
+        </nav>
+      </aside>
+      <div class="flex-1 flex flex-col overflow-hidden">
+        <header
+          class="w-full flex justify-between items-center px-8 py-4 shadow text-white"
+          style="background: linear-gradient(to left, #7dccb5, #53afaa)"
+        >
+          <h1 class="text-xl text-black font-sedan_sc">
+            Unified Assessment Platform
+          </h1>
+          <div class="flex items-center space-x-12 text-2xl">
+            <div class="relative cursor-pointer">
+              <a href="Notifications.html"><i class="fa-regular fa-bell text-black text-2xl"></i></a>
+              <span
+                id="notifyCount"
+                class="absolute -top-1 -right-3 bg-red-600 text-white text-xs w-4 h-4 flex items-center justify-center rounded-full font-bold hidden"
+              >
+              </span>
+            </div>
+            <a href="profile.html"><i class="fa-solid fa-user text-black cursor-pointer"></i></a>
+          </div>
+        </header>
+        <div class="p-12 overflow-y-auto h-full">
+          <h2 class="text-3xl text-[#AC7F5E] mb-10 font-roboto_slab">
+            My Submissions
+          </h2>
+          <div
+            class="bg-white rounded-xl border border-[#AC7F5E] p-8 shadow mb-10"
+          >
+            <table class="w-full text-left">
+              <thead class="text-[#AC7F5E] text-lg font-[Rokkitt]">
+                <tr>
+                  <th class="pb-4">Assessment</th>
+                  <th class="pb-4">Submission Date</th>
+                  <th class="pb-4">Status</th>
+                  <th class="pb-4">Score</th>
+                  <th class="pb-4">Feedback</th>
+                </tr>
+              </thead>
+              <tbody class="text-gray-700">
+                <tr class="border-t border-[#00C3D0] font-roboto_serif">
+                  <td class="py-4">JavaScript</td>
+                  <td>12/08/2025</td>
+                  <td>Evaluated</td>
+                  <td>38/50</td>
+                  <td>Good Job!</td>
+                </tr>
+                <tr class="border-t border-[#00C3D0] font-roboto_serif">
+                  <td class="py-4">React JS</td>
+                  <td>23/08/2025</td>
+                  <td>Evaluated</td>
+                  <td>59/75</td>
+                  <td>Good Job!</td>
+                </tr>
+                <tr class="border-t border-[#00C3D0] font-roboto_serif">
+                  <td class="py-4">Cloud Computing</td>
+                  <td>05/09/2025</td>
+                  <td>Evaluated</td>
+                  <td>43/50</td>
+                  <td>Good Job!</td>
+                </tr>
+                <tr class="border-t border-[#00C3D0] font-roboto_serif">
+                  <td class="py-4">RDBMS</td>
+                  <td>12/09/2025</td>
+                  <td>Pending</td>
+                  <td>---</td>
+                  <td>---</td>
+                </tr>
+                <tr class="border-t border-[#00C3D0] font-roboto_serif">
+                  <td class="py-4">Big Data Analytics</td>
+                  <td>13/09/2025</td>
+                  <td>Evaluated</td>
+                  <td>88/100</td>
+                  <td>Good Job!</td>
+                </tr>
+                <tr class="border-t border-[#00C3D0] font-roboto_serif">
+                  <td class="py-4">Cyber Security</td>
+                  <td>28/09/2025</td>
+                  <td>Pending</td>
+                  <td>---</td>
+                  <td>---</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <h2 class="text-3xl text-[#AC7F5E] mb-10 font-roboto_slab">
+            Active Assessments
+          </h2>
+          <div class="bg-white rounded-xl border border-[#AC7F5E] p-8 shadow">
+            <div
+              class="grid grid-cols-5 text-[#AC7F5E] text-lg mb-4 px-2 font-[Rokkitt] font-bold"
+            >
+              <span>Assessment</span>
+              <span>Instructor</span>
+              <span>Date</span>
+              <span>Total Marks</span>
+              <span>Begin Now</span>
+            </div>
+            <div class="space-y-4">
+              <div
+                class="border border-[#00C3D0] p-4 rounded-lg grid grid-cols-5 items-center font-roboto_serif"
+              >
+                <span>Design Thinking</span>
+                <span>Dr. Ramesh</span>
+                <span>28/10/2025</span>
+                <span>100</span>
+                <button onclick="window.location.href='AssessmentPage.html'"
+                  class="bg-blue-300 px-4 py-1 rounded text-sm flex items-center justify-center w-[130px]"
+                >
+                  Start <i class="fa-solid fa-angle-right ml-2"></i>
+                </button>
+              </div>
+              <div
+                class="border border-[#00C3D0] p-4 rounded-lg grid grid-cols-5 items-center font-roboto_serif"
+              >
+                <span>AIML</span>
+                <span>Prof. Anita</span>
+                <span>12/11/2025</span>
+                <span>150</span>
+                <button onclick="window.location.href='AssessmentPage.html'"
+                  class="bg-blue-300 px-4 py-1 rounded text-sm flex items-center justify-center w-[130px]"
+                >
+                  Start <i class="fa-solid fa-angle-right ml-2"></i>
+                </button>
+              </div>
+              <div
+                class="border border-[#00C3D0] p-4 rounded-lg grid grid-cols-5 items-center font-roboto_serif"
+              >
+                <span>Angular JS</span>
+                <span>Mr. Karthik</span>
+                <span>12/11/2025</span>
+                <span>120</span>
+                <button onclick="window.location.href='AssessmentPage.html'"
+                  class="bg-blue-300 px-4 py-1 rounded text-sm flex items-center justify-center w-[130px]"
+                >
+                  Start <i class="fa-solid fa-angle-right ml-2"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <footer
+          class="w-full py-4 text-center bg-white shadow-inner text-gray-600 text-sm"
+        >
+          © 2025 Unified Assessment Platform. All rights reserved.<br />
+          Test Your Limits, Track Your Growth.
+        </footer>
+      </div>
+    </div>
+
+    <script>
+      const notificationCount = 3;
+      const badge = document.getElementById("notifyCount");
+      if (notificationCount > 0) {
+        badge.innerText = notificationCount;
+        badge.classList.remove("hidden");
+      }
+    </script>
+  </body>
+</html>

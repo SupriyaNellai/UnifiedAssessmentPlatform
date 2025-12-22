@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Notifications</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Roboto+Slab:wght@300;400;500;700&family=Roboto+Serif&family=Sedan+SC&family=Rokkitt:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="overflow-hidden font-roboto">
+    <div class="flex min-h-screen h-screen overflow-hidden">
+      <aside
+        class="w-64 text-white p-6"
+        style="
+          background: radial-gradient(
+            circle,
+            #ade4c0 0%,
+            #7dccb5 50%,
+            #53afaa 100%
+          );
+        "
+      >
+        <nav class="space-y-12 m-4 text-lg">
+          <button onclick="window.location.href='home.html'" class="w-full py-3 rounded flex justify-center items-center gap-3 text-black hover:text-white hover:bg-black font-[roboto_condensed]">
+            <i class="fa-solid fa-house"></i> Home
+          </button>
+
+          <button onclick="window.location.href='AssessmentCatalog.html'" class="w-full py-3 rounded flex justify-center items-center gap-3 text-black hover:text-white hover:bg-black font-[roboto_condensed]">
+            <i class="fa-solid fa-book"></i> Assessments
+          </button>
+
+          <button onclick="window.location.href='MySubmission.html'" class="w-full py-3 rounded flex justify-center items-center gap-3 text-black hover:text-white hover:bg-black font-[roboto_condensed]">
+            <i class="fa-solid fa-file-lines"></i> My Submissions
+          </button>
+
+          <button onclick="window.location.href='AnalyticsPage.html'" class="w-full py-3 rounded flex justify-center items-center gap-3 text-black hover:text-white hover:bg-black font-[roboto_condensed]">
+            <i class="fa-solid fa-chart-line"></i> Analytics
+          </button>
+
+          <button onclick="window.location.href='profile.html'" class="w-full py-3 rounded flex justify-center items-center gap-3 text-black hover:text-white hover:bg-black font-[roboto_condensed]">
+            <i class="fa-solid fa-user"></i> Profile
+          </button>
+
+          <button onclick="window.location.href='../index.html'" class="w-full py-3 rounded flex justify-center items-center gap-3 text-black hover:text-white hover:bg-black font-[roboto_condensed]">
+            <i class="fa-solid fa-right-from-bracket"></i> Logout
+          </button>
+        </nav>
+      </aside>
+
+      <div class="flex-1 flex flex-col overflow-hidden">
+        <header class="w-full flex justify-between items-center px-8 py-4 shadow text-white" style="background: linear-gradient(to left, #7dccb5, #53afaa)">
+          <a href="#" class="text-xl text-black font-sedan_sc">Unified Assessment Platform</a>
+          <div class="flex items-center space-x-12 text-2xl">
+            <a href="#"><i class="fa-regular fa-bell text-black text-2xl"></i></a>
+            <a href="profile.html"><i class="fa-solid fa-user text-black cursor-pointer"></i></a>
+          </div>
+        </header>
+
+        <div class="p-10 overflow-y-auto h-full">
+          <h2 class="text-2xl text-[#AC7F5E] mb-6 font-roboto_slab">Notifications</h2>
+
+          <div class="bg-white border border-[#AC7F5E] p-8 rounded-xl space-y-6 shadow">
+            
+            <div class="border border-[#00C3D0] p-4 rounded-lg flex gap-4 items-start transform transition duration-300 hover:scale-[1.03]">
+              <i class="fa-solid fa-bell text-3xl"></i>
+              <div>
+                <h3 class="font-roboto_slab text-lg font-bold">New Assessment Added</h3>
+                <p class="text-sm text-gray-600">A new Assessment “Web Essential” has been added.</p>
+                <p class="text-xs text-gray-500 mt-1">02 Dec 2025, 10:30 AM</p>
+              </div>
+            </div>
+
+            <div class="border border-[#00C3D0] p-4 rounded-lg flex gap-4 items-start transform transition duration-300 hover:scale-[1.03]">
+              <i class="fa-solid fa-bullhorn text-3xl"></i>
+              <div>
+                <h3 class="font-roboto_slab text-lg font-bold">Result Published</h3>
+                <p class="text-sm text-gray-600">You have scored 47/50 in “full stack” MCQ test.</p>
+                <p class="text-xs text-gray-500 mt-1">29 Nov 2025, 04:15 PM</p>
+              </div>
+            </div>
+
+            <div class="border border-[#00C3D0] p-4 rounded-lg flex gap-4 items-start transform transition duration-300 hover:scale-[1.03]">
+              <i class="fa-solid fa-envelope text-3xl"></i>
+              <div>
+                <h3 class="font-roboto_slab text-lg font-bold">Message from Instructor</h3>
+                <p class="text-sm text-gray-600">Concentrate on getting more score in upcoming tests.</p>
+                <p class="text-xs text-gray-500 mt-1">27 Nov 2025, 08:20 AM</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <footer class="w-full py-4 text-center bg-white shadow-inner text-gray-600 text-sm">
+          © 2025 Unified Assessment Platform. All rights reserved.<br />
+          Test Your Limits, Track Your Growth.
+        </footer>
+      </div>
+    </div>
+
+    <script>
+      const notificationCount = 3;
+      const badge = document.getElementById("notifyCount");
+      if (notificationCount > 0) {
+        badge.innerText = notificationCount;
+        badge.classList.remove("hidden");
+      }
+    </script>
+  </body>
+</html>

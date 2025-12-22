@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit Profile</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Roboto+Slab:wght@300;400;500;700&family=Roboto+Serif&family=Sedan+SC&family=Rokkitt:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="bg-[#00C8B3]/40 font-roboto">
+    <div
+      class="max-w-4xl mx-auto mt-10 mb-10 bg-white p-10 rounded-xl shadow-lg border border-[#AC7F5E]"
+    >
+      <h2 class="text-3xl font-roboto_slab text-[#AC7F5E] mb-6">
+        Edit Profile
+      </h2>
+      <form id="editForm" class="space-y-6">
+        <h3 class="font-roboto_slab text-xl text-[#AC7F5E]">
+          Basic Information
+        </h3>
+        <div class="grid grid-cols-2 gap-4">
+          <div>
+            <label class="font-semibold">Name</label
+            ><input type="text" id="name" class="w-full border p-2 rounded" />
+          </div>
+          <div>
+            <label class="font-semibold">Email</label
+            ><input type="email" id="email" class="w-full border p-2 rounded" />
+          </div>
+          <div>
+            <label class="font-semibold">Gender</label
+            ><input
+              type="text"
+              id="gender"
+              class="w-full border p-2 rounded"
+              placeholder="Male, Female, or Others"
+            />
+          </div>
+          <div>
+            <label class="font-semibold">DOB</label
+            ><input type="date" id="dob" class="w-full border p-2 rounded" />
+          </div>
+          <div>
+            <label class="font-semibold">Contact</label
+            ><input
+              type="text"
+              id="contact"
+              class="w-full border p-2 rounded"
+              maxlength="10"
+            />
+          </div>
+          <div>
+            <label class="font-semibold">Father's Name</label
+            ><input type="text" id="father" class="w-full border p-2 rounded" />
+          </div>
+          <div>
+            <label class="font-semibold">Mother's Name</label
+            ><input type="text" id="mother" class="w-full border p-2 rounded" />
+          </div>
+          <div>
+            <label class="font-semibold">Parent Contact</label
+            ><input
+              type="text"
+              id="parentContact"
+              class="w-full border p-2 rounded"
+              maxlength="10"
+            />
+          </div>
+        </div>
+        <h3 class="font-roboto_slab text-xl text-[#AC7F5E]">
+          Academic Information
+        </h3>
+        <div class="grid grid-cols-2 gap-4">
+          <div>
+            <label class="font-semibold">Institution Name</label
+            ><input type="text" id="inst" class="w-full border p-2 rounded" />
+          </div>
+          <div>
+            <label class="font-semibold">Specification</label
+            ><input type="text" id="spec" class="w-full border p-2 rounded" />
+          </div>
+          <div>
+            <label class="font-semibold">Current Year (Graduation)</label
+            ><input
+              type="text"
+              id="year"
+              class="w-full border p-2 rounded"
+              maxlength="4"
+            />
+          </div>
+          <div>
+            <label class="font-semibold">CGPA upto current Semester</label
+            ><input type="text" id="cgpa" class="w-full border p-2 rounded" />
+          </div>
+          <div>
+            <label class="font-semibold">Previous Degree</label
+            ><input
+              type="text"
+              id="prevDegree"
+              class="w-full border p-2 rounded"
+            />
+          </div>
+          <div>
+            <label class="font-semibold">Previous Institution Name</label
+            ><input
+              type="text"
+              id="prevInst"
+              class="w-full border p-2 rounded"
+            />
+          </div>
+          <div>
+            <label class="font-semibold">Previous CGPA</label
+            ><input
+              type="text"
+              id="prevCgpa"
+              class="w-full border p-2 rounded"
+            />
+          </div>
+        </div>
+        <div
+          class="bg-white border border-[#AC7F5E] shadow-lg p-6 rounded-xl space-y-6"
+        >
+          <h2 class="text-xl font-roboto_slab text-[#AC7F5E]">Achievements</h2>
+          <h3 class="font-roboto_slab text-lg text-[#AC7F5E]">
+            Performance Badges
+          </h3>
+          <div id="badgeBox" class="space-y-3"></div>
+          <button
+            type="button"
+            onclick="addBadge()"
+            class="px-4 py-1 bg-[#53afaa] text-white rounded hover:bg-[#439690] transition"
+          >
+            + Add More Badge
+          </button>
+          <h3 class="font-roboto_slab text-lg text-[#AC7F5E]">
+            Participation Milestones
+          </h3>
+          <div id="milestoneBox" class="space-y-3"></div>
+          <button
+            type="button"
+            onclick="addMilestone()"
+            class="px-4 py-1 bg-[#53afaa] text-white rounded hover:bg-[#439690] transition"
+          >
+            + Add More Milestone
+          </button>
+          <h3 class="font-roboto_slab text-lg text-[#AC7F5E]">
+            Leaderboard Summary
+          </h3>
+          <div class="grid grid-cols-2 gap-4">
+            <div>
+              <label class="font-semibold">Rank</label>
+              <input
+                type="number"
+                id="rank"
+                class="w-full border p-2 rounded"
+              />
+            </div>
+            <div>
+              <label class="font-semibold">Highest Score (%)</label>
+              <input
+                type="number"
+                id="highscore"
+                class="w-full border p-2 rounded"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="flex justify-end gap-4 pt-6">
+          <button
+            type="button"
+            onclick="window.location.href='profile.html'"
+            class="px-6 py-2 bg-gray-300 rounded-lg hover:bg-gray-400 font-semibold transition"
+          >
+            Cancel
+          </button>
+          <button
+            type="submit"
+            class="px-6 py-2 bg-[#50C878] text-white rounded-lg hover:bg-[#3da463] font-semibold transition"
+          >
+            Update
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <script>
+      const defaultProfileData = {
+        name: "Vijay",
+        email: "vijay@gmail.com",
+        gender: "Male",
+        dob: "0000-00-00",
+        contact: "0123456789",
+        father: "Sakthivel",
+        mother: "Arasi",
+        parentContact: "0123456789",
+        inst: "Institute of Technology",
+        spec: "B.E - CSE",
+        year: "2025",
+        cgpa: "8.79",
+        prevDegree: "NIL",
+        prevInst: "NIL",
+        prevCgpa: "NIL",
+        badges: [
+          "Top Scorer 🏆 - Above 90% in assessments.",
+          "Consistent Performer 🎯 - Maintained 75%+ in 5 assessments.",
+          "Fast Finisher ⚡ - Completed assessments faster than average.",
+        ],
+        milestones: [
+          "Active Learner 📘 - Attempted 20+ assessments.",
+          "On-Time Submitter ⏳ - All submissions before deadline.",
+          "Collaborative Learner 👥 - Participated in team assessments.",
+        ],
+        rank: "3",
+        highscore: "98",
+      };
+
+      function setupValidation() {
+        const textOnly = ["name", "father", "mother"];
+        const alphaSpecial = ["inst", "spec", "prevInst", "prevDegree"];
+        const numericOnly = ["contact", "parentContact", "year"];
+
+        textOnly.forEach((id) => {
+          document.getElementById(id).addEventListener("input", function (e) {
+            if (/[^a-zA-Z\s]/.test(this.value)) {
+              this.value = this.value.replace(/[^a-zA-Z\s]/g, "");
+              this.setCustomValidity("Only characters allowed");
+              this.reportValidity();
+            } else {
+              this.setCustomValidity("");
+            }
+          });
+        });
+
+        alphaSpecial.forEach((id) => {
+          document.getElementById(id).addEventListener("input", function (e) {
+            if (/[^a-zA-Z\s.\-]/.test(this.value)) {
+              this.value = this.value.replace(/[^a-zA-Z\s.\-]/g, "");
+              this.setCustomValidity(
+                "Only characters, dots, and hyphens allowed"
+              );
+              this.reportValidity();
+            } else {
+              this.setCustomValidity("");
+            }
+          });
+        });
+
+        numericOnly.forEach((id) => {
+          document.getElementById(id).addEventListener("input", function (e) {
+            if (/\D/.test(this.value)) {
+              this.value = this.value.replace(/\D/g, "");
+              this.setCustomValidity("Only numbers allowed");
+              this.reportValidity();
+            } else {
+              this.setCustomValidity("");
+            }
+          });
+        });
+
+        document.getElementById("cgpa").addEventListener("input", function (e) {
+          if (/[^0-9.]/.test(this.value)) {
+            this.value = this.value.replace(/[^0-9.]/g, "");
+            this.setCustomValidity("Only numbers and decimal point allowed");
+            this.reportValidity();
+          } else {
+            this.setCustomValidity("");
+          }
+        });
+
+        document
+          .getElementById("gender")
+          .addEventListener("input", function (e) {
+            const val = this.value.toLowerCase();
+            const valid = ["male", "female", "others"];
+            const isPossible = valid.some((v) => v.startsWith(val));
+            if (!isPossible && val !== "") {
+              this.value = this.value.slice(0, -1);
+              this.setCustomValidity("Gender must be Male, Female or Others");
+              this.reportValidity();
+            } else {
+              this.setCustomValidity("");
+            }
+          });
+      }
+
+      function addBadge(value = "") {
+        let box = document.getElementById("badgeBox");
+        let div = document.createElement("div");
+        div.className = "flex gap-2 items-center";
+        div.innerHTML = `
+      <input type="text" class="w-full border p-2 rounded badge-input" placeholder="e.g., Top Scorer 🏆 - Above 90% in assessments." value="${value}" />
+      <button type="button" onclick="this.parentElement.remove()" class="px-2 py-1 bg-red-500 text-white rounded text-sm hover:bg-red-700">Delete</button>
+    `;
+        box.appendChild(div);
+      }
+
+      function addMilestone(value = "") {
+        let box = document.getElementById("milestoneBox");
+        let div = document.createElement("div");
+        div.className = "flex gap-2 items-center";
+        div.innerHTML = `
+      <input type="text" class="w-full border p-2 rounded milestone-input" placeholder="e.g., Active Learner 📘 - Attempted 20+ assessments." value="${value}" />
+      <button type="button" onclick="this.parentElement.remove()" class="px-2 py-1 bg-red-500 text-white rounded text-sm hover:bg-red-700">Delete</button>
+    `;
+        box.appendChild(div);
+      }
+
+      const storedDataString = localStorage.getItem("profileData");
+      const data = storedDataString
+        ? JSON.parse(storedDataString)
+        : defaultProfileData;
+
+      document.getElementById("name").value = data.name || "";
+      document.getElementById("email").value = data.email || "";
+      document.getElementById("gender").value = data.gender || "";
+      document.getElementById("dob").value = data.dob || "";
+      document.getElementById("contact").value = data.contact || "";
+      document.getElementById("father").value = data.father || "";
+      document.getElementById("mother").value = data.mother || "";
+      document.getElementById("parentContact").value = data.parentContact || "";
+      document.getElementById("inst").value = data.inst || "";
+      document.getElementById("spec").value = data.spec || "";
+      document.getElementById("year").value = data.year || "";
+      document.getElementById("cgpa").value = data.cgpa || "";
+      document.getElementById("prevDegree").value = data.prevDegree || "";
+      document.getElementById("prevInst").value = data.prevInst || "";
+      document.getElementById("prevCgpa").value = data.prevCgpa || "";
+
+      if (data.badges && data.badges.length > 0) {
+        data.badges.forEach((b) => addBadge(b));
+      } else {
+        addBadge();
+      }
+      if (data.milestones && data.milestones.length > 0) {
+        data.milestones.forEach((m) => addMilestone(m));
+      } else {
+        addMilestone();
+      }
+
+      document.getElementById("rank").value = data.rank || "";
+      document.getElementById("highscore").value = data.highscore || "";
+
+      setupValidation();
+
+      document
+        .getElementById("editForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+
+          const contact = document.getElementById("contact").value;
+          const pContact = document.getElementById("parentContact").value;
+          const year = document.getElementById("year").value;
+          const gender = document.getElementById("gender").value.toLowerCase();
+
+          if (contact.length !== 10 || pContact.length !== 10) {
+            alert("Contact numbers must be exactly 10 digits");
+            return;
+          }
+
+          if (year.length !== 4) {
+            alert("Year must be in YYYY format");
+            return;
+          }
+
+          if (!["male", "female", "others"].includes(gender)) {
+            alert("Please enter a valid gender: Male, Female, or Others");
+            return;
+          }
+
+          const updatedData = {
+            name: document.getElementById("name").value.trim(),
+            email: document.getElementById("email").value.trim(),
+            gender: document.getElementById("gender").value.trim(),
+            dob: document.getElementById("dob").value.trim(),
+            contact: contact.trim(),
+            father: document.getElementById("father").value.trim(),
+            mother: document.getElementById("mother").value.trim(),
+            parentContact: pContact.trim(),
+            inst: document.getElementById("inst").value.trim(),
+            spec: document.getElementById("spec").value.trim(),
+            year: year.trim(),
+            cgpa: document.getElementById("cgpa").value.trim(),
+            prevDegree:
+              document.getElementById("prevDegree").value.trim() || "NIL",
+            prevInst: document.getElementById("prevInst").value.trim() || "NIL",
+            prevCgpa: document.getElementById("prevCgpa").value.trim() || "NIL",
+            badges: [...document.getElementsByClassName("badge-input")]
+              .map((i) => i.value.trim())
+              .filter((v) => v !== ""),
+            milestones: [...document.getElementsByClassName("milestone-input")]
+              .map((i) => i.value.trim())
+              .filter((v) => v !== ""),
+            rank: document.getElementById("rank").value.trim(),
+            highscore: document.getElementById("highscore").value.trim(),
+          };
+          localStorage.setItem("profileData", JSON.stringify(updatedData));
+          alert("Profile updated successfully!");
+          window.location.href = "Profile.html";
+        });
+    </script>
+  </body>
+</html>

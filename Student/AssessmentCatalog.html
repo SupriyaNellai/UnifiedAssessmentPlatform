@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Assessment Catalog</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Roboto+Slab:wght@300;400;500;700&family=Roboto+Serif&family=Sedan+SC&family=Rokkitt:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="overflow-hidden font-roboto">
+    <div class="flex min-h-screen h-screen overflow-hidden">
+      <aside
+        class="w-64 text-white p-6"
+        style="
+          background: radial-gradient(
+            circle,
+            #ade4c0 0%,
+            #7dccb5 50%,
+            #53afaa 100%
+          );
+        "
+      >
+        <nav class="space-y-12 m-4 text-lg">
+          <button
+            onclick="window.location.href='home.html'"
+            class="w-full py-3 rounded flex justify-center items-center gap-3 text-black hover:text-white hover:bg-black font-[roboto_condensed]"
+          >
+            <i class="fa-solid fa-house"></i> Home
+          </button>
+          <button
+            onclick="location.reload()"
+            class="w-full py-3 rounded flex justify-center items-center gap-3 text-black hover:text-white hover:bg-black font-[roboto_condensed] bg-black/20"
+          >
+            <i class="fa-solid fa-book"></i> Assessments
+          </button>
+          <button
+            onclick="window.location.href='MySubmission.html'"
+            class="w-full py-3 rounded flex justify-center items-center gap-3 text-black hover:text-white hover:bg-black font-[roboto_condensed]"
+          >
+            <i class="fa-solid fa-file-lines"></i> My Submissions
+          </button>
+          <button
+            onclick="window.location.href='AnalyticsPage.html'"
+            class="w-full py-3 rounded flex justify-center items-center gap-3 text-black hover:text-white hover:bg-black font-[roboto_condensed]"
+          >
+            <i class="fa-solid fa-chart-line"></i>
+            Analytics
+          </button>
+          <button
+            onclick="window.location.href='profile.html'"
+            class="w-full py-3 rounded flex justify-center items-center gap-3 text-black hover:text-white hover:bg-black font-[roboto_condensed]"
+          >
+            <i class="fa-solid fa-user"></i> Profile
+          </button>
+          <button
+            onclick="window.location.href='../index.html'"
+            class="w-full py-3 rounded flex justify-center items-center gap-3 text-black hover:text-white hover:bg-black font-[roboto_condensed]"
+          >
+            <i class="fa-solid fa-right-from-bracket"></i> Logout
+          </button>
+        </nav>
+      </aside>
+      <div class="flex-1 flex flex-col overflow-hidden">
+        <header
+          class="w-full flex justify-between items-center px-8 py-4 shadow text-white"
+          style="background: linear-gradient(to left, #7dccb5, #53afaa)"
+        >
+          <a href="#" class="text-xl text-black font-sedan_sc">
+            Unified Assessment Platform
+          </a>
+          <div class="flex items-center space-x-12 text-2xl">
+            <div class="relative cursor-pointer">
+              <a href="Notifications.html"
+                ><i class="fa-regular fa-bell text-black text-2xl"></i
+              ></a>
+              <span
+                id="notifyCount"
+                class="absolute -top-1 -right-3 bg-red-600 text-white text-xs w-4 h-4 flex items-center justify-center rounded-full font-bold hidden"
+              >
+              </span>
+            </div>
+            <a href="profile.html"
+              ><i class="fa-solid fa-user text-black cursor-pointer"></i
+            ></a>
+          </div>
+        </header>
+        <div class="p-10 overflow-y-auto h-full space-y-10">
+          <h2 class="text-3xl text-[#AC7F5E] font-roboto_slab">
+            Assessment Catalog
+          </h2>
+          <div class="relative w-full max-w-sm">
+            <input
+              id="searchInput"
+              type="text"
+              placeholder="Search Assessments ..."
+              class="w-full py-2 pl-10 pr-4 text-gray-700 bg-white border border-[#00C3D0] rounded-lg shadow-sm focus:outline-none focus:border-[#00C8B3] focus:ring-1 focus:ring-[#00C8B3] font-roboto text-sm transition duration-150 ease-in-out"
+            />
+            <i
+              class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"
+            ></i>
+          </div>
+          <div
+            class="bg-white border border-[#AC7F5E] shadow-lg p-6 rounded-xl"
+          >
+            <h3 class="text-xl font-[Rokkitt] mb-4 font-bold">Filter by</h3>
+            <div class="grid grid-cols-4 gap-4">
+              <select
+                class="border border-[#00C3D0] cursor-pointer w-full rounded p-2 mb-1 bg-white text-gray-700 font-roboto_serif hover:scale-[1.03] transition"
+              >
+                <option disabled selected>Subject</option>
+                <option>JavaScript</option>
+                <option>ReactJS</option>
+                <option>MongoDB</option>
+              </select>
+              <select
+                class="border border-[#00C3D0] cursor-pointer w-full rounded p-2 mb-1 bg-white text-gray-700 font-roboto_serif hover:scale-[1.03]"
+              >
+                <option disabled selected>Instructor</option>
+                <option>Pradeep</option>
+                <option>Seetha</option>
+                <option>Nandhini</option>
+                <option>Murali</option>
+              </select>
+              <input
+                type="date"
+                class="border border-[#00C3D0] cursor-pointer rounded px-2 bg-white text-gray-700 font-roboto_serif hover:scale-[1.03]"
+              />
+              <select
+                class="border border-[#00C3D0] cursor-pointer w-full rounded p-2 mb-1 bg-white text-gray-700 font-roboto_serif hover:scale-[1.03]"
+              >
+                <option disabled selected>Type</option>
+                <option>MCQ</option>
+                <option>Short Answer</option>
+                <option>Long Answer</option>
+              </select>
+            </div>
+            <div id="assessmentList" class="grid grid-cols-3 gap-6 mt-8">
+              <div
+                class="assessment-card border border-[#00C3D0] rounded-xl p-4 transform transition duration-300 hover:scale-105 font-[roboto_condensed]"
+                data-subject="javascript"
+                data-instructor="pradeep"
+                data-type="mcq"
+                data-date="2025-12-20"
+              >
+                <p>
+                  <strong class="font-roboto_serif">Sub Name:</strong>
+                  JavaScript
+                </p>
+                <p>
+                  <strong class="font-roboto_serif">Instructor:</strong> Pradeep
+                </p>
+                <p>
+                  <strong class="font-roboto_serif">Deadline:</strong> 14 Dec
+                  2025
+                </p>
+                <p><strong class="font-roboto_serif">Type:</strong> MCQ</p>
+                <button
+                  onclick="window.location.href='AssessmentPage.html'"
+                  class="mt-4 px-4 py-2 bg-blue-300 w-[120px] px-3 py-1 rounded flex justify-between items-center transform transition duration-300 hover:scale-105"
+                >
+                  Start <i class="fa-solid fa-angle-right"></i>
+                </button>
+              </div>
+              <div
+                class="assessment-card border border-[#00C3D0] rounded-xl p-4 transform transition duration-300 hover:scale-105 font-[roboto_condensed]"
+                data-subject="rdbms"
+                data-instructor="seetha"
+                data-type="short answer"
+                data-date="2025-11-15"
+              >
+                <p>
+                  <strong class="font-roboto_serif">Sub Name:</strong> RDBMS
+                </p>
+                <p>
+                  <strong class="font-roboto_serif">Instructor:</strong> Seetha
+                </p>
+                <p>
+                  <strong class="font-roboto_serif">Deadline:</strong> 25 Dec
+                  2025
+                </p>
+                <p>
+                  <strong class="font-roboto_serif">Type:</strong> Short Answer
+                </p>
+                <button
+                  onclick="window.location.href='AssessmentPage.html'"
+                  class="mt-4 px-4 py-2 bg-blue-300 w-[120px] px-3 py-1 rounded flex justify-between items-center transform transition duration-300 hover:scale-105"
+                >
+                  Start <i class="fa-solid fa-angle-right"></i>
+                </button>
+              </div>
+              <div
+                class="assessment-card border border-[#00C3D0] rounded-xl p-4 transform transition duration-300 hover:scale-105 font-[roboto_condensed]"
+                data-subject="reactjs"
+                data-instructor="nandhini"
+                data-type="long answer"
+                data-date="2025-10-10"
+              >
+                <p>
+                  <strong class="font-roboto_serif">Sub Name:</strong> ReactJS
+                </p>
+                <p>
+                  <strong class="font-roboto_serif">Instructor:</strong>
+                  Nandhini
+                </p>
+                <p>
+                  <strong class="font-roboto_serif">Deadline:</strong> 29 Oct
+                  2025
+                </p>
+                <p>
+                  <strong class="font-roboto_serif">Type:</strong> Long Answer
+                </p>
+                <button
+                  class="mt-4 px-4 py-2 bg-red-300 w-[120px] px-3 py-1 rounded flex justify-between items-center transform transition duration-300 hover:scale-105"
+                >
+                  Expired <i class="fa-solid fa-angle-right"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="p-10 overflow-y-auto h-full">
+            <h2 class="text-3xl text-[#AC7F5E] font-roboto_slab mb-4">
+              Assessment Interface
+            </h2>
+            <div class="text-right mb-4 text-lg font-semibold text-[#AC7F5E]">
+              Time Left: <span id="timer">03:00</span>
+            </div>
+            <div id="questionArea"></div>
+          </div>
+        </div>
+        <footer
+          class="w-full py-4 text-center bg-white shadow-inner text-gray-600 text-sm"
+        >
+          © 2025 Unified Assessment Platform. All rights reserved.<br />
+          Test Your Limits, Track Your Growth.
+        </footer>
+      </div>
+    </div>
+
+    <script>
+      const notifyCountValue = 3;
+      const notifyBadge = document.getElementById("notifyCount");
+      if (notifyCountValue > 0 && notifyBadge) {
+        notifyBadge.innerText = notifyCountValue;
+        notifyBadge.classList.remove("hidden");
+      }
+
+      const searchInputEl = document.getElementById("searchInput");
+      const assessmentCards = document.querySelectorAll(".assessment-card");
+
+      const filterState = { subject: "", instructor: "", date: "", type: "" };
+
+      function applyFilters() {
+        const sv = filterState.subject.toLowerCase();
+        const iv = filterState.instructor.toLowerCase();
+        const tv = filterState.type.toLowerCase();
+        const dv = filterState.date;
+        const searchVal = searchInputEl
+          ? searchInputEl.value.toLowerCase().trim()
+          : "";
+
+        assessmentCards.forEach((card) => {
+          const cs = (card.dataset.subject || "").toLowerCase();
+          const ci = (card.dataset.instructor || "").toLowerCase();
+          const ct = (card.dataset.type || "").toLowerCase();
+          const cd = card.dataset.date || "";
+
+          const visible =
+            (!sv || cs === sv) &&
+            (!iv || ci === iv) &&
+            (!tv || ct === tv) &&
+            (!dv || cd === dv) &&
+            (!searchVal ||
+              cs.includes(searchVal) ||
+              ci.includes(searchVal) ||
+              ct.includes(searchVal));
+
+          card.style.display = visible ? "block" : "none";
+        });
+      }
+
+      if (searchInputEl) searchInputEl.addEventListener("input", applyFilters);
+
+      const gridSelectEls = document.querySelectorAll(".grid select");
+      const gridDateEl = document.querySelector(".grid input[type='date']");
+
+      gridSelectEls.forEach((select) => {
+        select.addEventListener("change", (e) => {
+          const label = e.target.options[0]?.text;
+          const val = e.target.value || "";
+          if (label === "Subject") filterState.subject = val;
+          if (label === "Instructor") filterState.instructor = val;
+          if (label === "Type") filterState.type = val;
+          applyFilters();
+        });
+      });
+
+      if (gridDateEl) {
+        gridDateEl.addEventListener("change", (e) => {
+          filterState.date = e.target.value || "";
+          applyFilters();
+        });
+      }
+
+      let currentQuestion = 1;
+      const totalQuestions = 5;
+      let remainingSeconds = 180;
+
+      const answerStore = {
+        mcq: Array(totalQuestions).fill(null),
+        short: Array(3).fill(""),
+        long: Array(3).fill(""),
+      };
+
+      const mcqData = [
+        {
+          q: "Which of the following is strict equality in JavaScript?",
+          options: ["==", "===", "=", "!=="],
+        },
+        {
+          q: "Which method removes last element of array?",
+          options: ["shift()", "pop()", "slice()", "map()"],
+        },
+        {
+          q: "Which tag displays scalar measurement?",
+          options: ["<meter>", "<progress>", "<scale>", "<measure>"],
+        },
+        {
+          q: "Which CSS property controls line spacing?",
+          options: [
+            "letter-spacing",
+            "line-height",
+            "word-spacing",
+            "text-indent",
+          ],
+        },
+        {
+          q: "Which SQL command removes a table permanently?",
+          options: [
+            "DELETE TABLE",
+            "DROP TABLE",
+            "REMOVE TABLE",
+            "CLEAR TABLE",
+          ],
+        },
+      ];
+
+      const shortQ = [
+        "What are props in React?",
+        "What is closure in JavaScript?",
+        "Define REST API.",
+      ];
+      const longQ = [
+        "Explain ACID properties.",
+        "Explain SDLC.",
+        "Explain how internet works.",
+      ];
+
+      let shortPtr = 0;
+      let longPtr = 0;
+
+      function startTimer() {
+        const timerEl = document.getElementById("timer");
+        const interval = setInterval(() => {
+          const m = Math.floor(remainingSeconds / 60);
+          const s = remainingSeconds % 60;
+          if (timerEl)
+            timerEl.innerText = `${String(m).padStart(2, "0")}:${String(
+              s
+            ).padStart(2, "0")}`;
+          remainingSeconds--;
+          if (remainingSeconds < 0) {
+            clearInterval(interval);
+            submitAssessment();
+          }
+        }, 1000);
+      }
+
+      function submitAssessment() {
+        alert("Assessment submitted successfully");
+        location.reload();
+      }
+
+      function renderAssessment() {
+        const q = mcqData[currentQuestion - 1];
+        document.getElementById("questionArea").innerHTML = `
+  <div class="grid grid-cols-3 gap-6">
+
+    <div class="bg-white p-6 rounded-xl border shadow">
+      <h3 class="text-xl mb-4">MCQ</h3>
+      <div class="flex gap-2 mb-4">
+        ${[1, 2, 3, 4, 5]
+          .map(
+            (n) =>
+              `<span onclick="jumpTo(${n})" class="px-3 py-1 border rounded cursor-pointer ${
+                n === currentQuestion ? "bg-[#A6F3A6]" : "bg-white"
+              }">${n}</span>`
+          )
+          .join("")}
+      </div>
+      <p>${currentQuestion}. ${q.q}</p>
+      <div class="mt-4 space-y-2">
+        ${q.options
+          .map(
+            (o) =>
+              `<label><input type="radio" name="mcqOpt" value="${o}" ${
+                answerStore.mcq[currentQuestion - 1] === o ? "checked" : ""
+              }> ${o}</label><br>`
+          )
+          .join("")}
+      </div>
+      <div class="flex justify-between mt-4">
+        <button onclick="prevMCQ()" class="px-4 py-2 bg-yellow-200 rounded">Previous</button>
+        ${
+          currentQuestion < 5
+            ? `<button onclick="nextMCQ()" class="px-4 py-2 bg-green-200 rounded">Save & Next</button>`
+            : ""
+        }
+      </div>
+      ${
+        currentQuestion === 5
+          ? `<button onclick="submitAssessment()" class="w-full mt-4 bg-blue-300 py-2 rounded">Submit</button>`
+          : ""
+      }
+    </div>
+
+    <div class="bg-white p-6 rounded-xl border shadow">
+      <h3 class="text-xl mb-4">Short Answer</h3>
+      <p>${shortPtr + 1}. ${shortQ[shortPtr]}</p>
+      <textarea id="shortTA" class="border w-full p-2 mt-2 rounded">${
+        answerStore.short[shortPtr]
+      }</textarea>
+      <div class="flex justify-between mt-4">
+        <button onclick="prevShortQ()" class="px-4 py-1 bg-yellow-200 rounded">Previous</button>
+        <button onclick="nextShortQ()" class="px-4 py-1 bg-green-200 rounded">Save & Next</button>
+      </div>
+    </div>
+
+    <div class="bg-white p-6 rounded-xl border shadow">
+      <h3 class="text-xl mb-4">Long Answer</h3>
+      <p>${longPtr + 1}. ${longQ[longPtr]}</p>
+      <textarea id="longTA" class="border w-full p-2 mt-2 rounded" rows="6">${
+        answerStore.long[longPtr]
+      }</textarea>
+      <div class="flex justify-between mt-4">
+        <button onclick="prevLongQ()" class="px-4 py-1 bg-yellow-200 rounded">Previous</button>
+        <button onclick="nextLongQ()" class="px-4 py-1 bg-green-200 rounded">Save & Next</button>
+      </div>
+    </div>
+
+  </div>`;
+        document
+          .querySelectorAll("input[name='mcqOpt']")
+          .forEach(
+            (r) =>
+              (r.onchange = () =>
+                (answerStore.mcq[currentQuestion - 1] = r.value))
+          );
+      }
+
+      function jumpTo(n) {
+        currentQuestion = n;
+        renderAssessment();
+      }
+      function nextMCQ() {
+        if (currentQuestion < 5) currentQuestion++;
+        renderAssessment();
+      }
+      function prevMCQ() {
+        if (currentQuestion > 1) currentQuestion--;
+        renderAssessment();
+      }
+      function nextShortQ() {
+        answerStore.short[shortPtr] = shortTA.value;
+        if (shortPtr < 2) shortPtr++;
+        renderAssessment();
+      }
+      function prevShortQ() {
+        answerStore.short[shortPtr] = shortTA.value;
+        if (shortPtr > 0) shortPtr--;
+        renderAssessment();
+      }
+      function nextLongQ() {
+        answerStore.long[longPtr] = longTA.value;
+        if (longPtr < 2) longPtr++;
+        renderAssessment();
+      }
+      function prevLongQ() {
+        answerStore.long[longPtr] = longTA.value;
+        if (longPtr > 0) longPtr--;
+        renderAssessment();
+      }
+
+      renderAssessment();
+      startTimer();
+    </script>
+  </body>
+</html>

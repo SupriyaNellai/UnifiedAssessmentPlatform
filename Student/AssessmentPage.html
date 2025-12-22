@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Assessment Page</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Roboto+Slab:wght@300;400;500;700&family=Roboto+Serif&family=Sedan+SC&family=Rokkitt:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css" />
+
+    <style>
+      .question-box {
+        border: 1px solid #ac7f5e;
+      }
+      .q-numbers span {
+        transition: 0.2s;
+      }
+      .q-numbers span:hover {
+        background: #e8fff1;
+      }
+    </style>
+  </head>
+
+  <body class="overflow-hidden font-roboto">
+    <div class="flex min-h-screen h-screen overflow-hidden">
+      <aside
+        class="w-64 text-white p-6"
+        style="
+          background: radial-gradient(
+            circle,
+            #ade4c0 0%,
+            #7dccb5 50%,
+            #53afaa 100%
+          );
+        "
+      >
+        <nav class="space-y-12 m-4 text-lg">
+          <button
+            onclick="window.location.href='home.html'"
+            class="w-full py-3 rounded flex justify-center items-center gap-3 text-black hover:text-white hover:bg-black font-[roboto_condensed]"
+          >
+            <i class="fa-solid fa-house"></i> Home
+          </button>
+          <button
+            onclick="window.location.href='AssessmentCatalog.html'"
+            class="w-full py-3 rounded flex justify-center items-center gap-3 text-black hover:text-white hover:bg-black bg-black/20 font-[roboto_condensed]"
+          >
+            <i class="fa-solid fa-book"></i> Assessments
+          </button>
+          <button
+            onclick="window.location.href='MySubmission.html'"
+            class="w-full py-3 rounded flex justify-center items-center gap-3 text-black hover:text-white hover:bg-black font-[roboto_condensed]"
+          >
+            <i class="fa-solid fa-file-lines"></i> My Submissions
+          </button>
+          <button
+            onclick="window.location.href='AnalyticsPage.html'"
+            class="w-full py-3 rounded flex justify-center items-center gap-3 text-black hover:text-white hover:bg-black font-[roboto_condensed]"
+          >
+            <i class="fa-solid fa-chart-line"></i>
+            Analytics
+          </button>
+          <button onclick="window.location.href='profile.html'"
+            class="w-full py-3 rounded flex justify-center items-center gap-3 text-black hover:text-white hover:bg-black font-[roboto_condensed]"
+          >
+            <i class="fa-solid fa-user"></i> Profile
+          </button>
+          <button onclick="window.location.href='../index.html'"
+            class="w-full py-3 rounded flex justify-center items-center gap-3 text-black hover:text-white hover:bg-black font-[roboto_condensed]"
+          >
+            <i class="fa-solid fa-right-from-bracket"></i> Logout
+          </button>
+        </nav>
+      </aside>
+
+      <div class="flex-1 flex flex-col overflow-hidden">
+        <header
+          class="w-full flex justify-between items-center px-8 py-4 shadow text-white"
+          style="background: linear-gradient(to left, #7dccb5, #53afaa)"
+        >
+          <a href="#" class="text-xl text-black font-sedan_sc">
+            Unified Assessment Platform
+          </a>
+          <div class="flex items-center space-x-12 text-2xl">
+            <div class="relative cursor-pointer">
+              <a href="Notifications.html"><i class="fa-regular fa-bell text-black text-2xl"></i></a>
+              <span
+                id="notifyCount"
+                class="absolute -top-1 -right-3 bg-red-600 text-white text-xs w-4 h-4 flex items-center justify-center rounded-full font-bold hidden"
+              >
+              </span>
+            </div>
+            <a href="profile.html"><i class="fa-solid fa-user text-black cursor-pointer"></i></a>
+          </div>
+        </header>
+        <div class="p-10 overflow-y-auto h-full">
+          <h2 class="text-3xl text-[#AC7F5E] font-roboto_slab mb-8">
+            Assessment Interface
+          </h2>
+          <div class="text-right mb-4 text-lg font-semibold text-[#AC7F5E]">
+            Time Left: <span id="timer">03:00</span>
+          </div>
+          <div id="questionArea"></div>
+        </div>
+        <footer
+          class="w-full py-4 text-center bg-white shadow-inner text-gray-600 text-sm"
+        >
+          © 2025 Unified Assessment Platform. All rights reserved.<br />
+          Test Your Limits, Track Your Growth.
+        </footer>
+      </div>
+    </div>
+    <script>
+      let current = 1;
+      const total = 5;
+      let timerSeconds = 180;
+      const answers = {
+        mcq: Array(total).fill(null),
+        short: [],
+        long: [],
+      };
+      const mcqList = [
+        {
+          q: "Which of the following is strict equality in JavaScript?",
+          options: ["==", "===", "=", "!=="],
+        },
+        {
+          q: "Which method removes last element of array?",
+          options: ["shift()", "pop()", "remove()", "slice()"],
+        },
+        {
+          q: "Which tag displays a scalar measurement?",
+          options: ["<meter>", "<progress>", "<scale>", "<measure>"],
+        },
+        {
+          q: "Which CSS property controls line spacing?",
+          options: [
+            "letter-spacing",
+            "line-height",
+            "word-spacing",
+            "text-indent",
+          ],
+        },
+        {
+          q: "Which SQL command removes a table permanently?",
+          options: [
+            "DELETE TABLE",
+            "DROP TABLE",
+            "REMOVE TABLE",
+            "CLEAR TABLE",
+          ],
+        },
+      ];
+      const shortList = [
+        "What are props in React?",
+        "What is a closure in JavaScript?",
+        "Define REST API.",
+      ];
+      let shortIndex = 0;
+      answers.short = Array(shortList.length).fill("");
+      const longList = [
+        "Explain ACID properties in DBMS.",
+        "Describe the Software Development Life Cycle (SDLC).",
+        "Explain how the internet works.",
+      ];
+      let longIndex = 0;
+      answers.long = Array(longList.length).fill("");
+      function startTimer() {
+        const t = document.getElementById("timer");
+        const interval = setInterval(() => {
+          let m = Math.floor(timerSeconds / 60);
+          let s = timerSeconds % 60;
+          t.innerText = `${String(m).padStart(2, "0")}:${String(s).padStart(
+            2,
+            "0"
+          )}`;
+          timerSeconds--;
+          if (timerSeconds < 0) {
+            clearInterval(interval);
+            alert("Time is up! Auto submitting.");
+            handleSubmit();
+          }
+        }, 1000);
+      }
+      function handleSubmit() {
+        alert("Assessment submitted successfully!");
+        window.location.href = "AssessmentCatalog.html";
+      }
+      function loadQuestion() {
+        const container = document.getElementById("questionArea");
+        let mcq = mcqList[current - 1];
+        let content = `
+      <div class="grid grid-cols-3 gap-6">
+        <div class="bg-white p-6 rounded-xl border border-[#AC7F5E] shadow-lg">
+          <h3 class="text-xl font-[Rokkitt] mb-4">MCQ</h3>
+          <div class="flex gap-2 q-numbers mb-4">
+            ${[1, 2, 3, 4, 5]
+              .map(
+                (n) =>
+                  `<span class="px-3 py-1 border rounded cursor-pointer ${
+                    n === current ? "bg-[#A6F3A6]" : "bg-white"
+                  }">${n}</span>`
+              )
+              .join("")}
+          </div>
+          <p>${current}. ${mcq.q}</p>
+          <div class="space-y-2 mt-4">
+            ${mcq.options
+              .map(
+                (opt) => `
+                <label>
+                  <input type="radio" name="mcq" value="${opt}" ${
+                  answers.mcq[current - 1] === opt ? "checked" : ""
+                }/> ${opt}
+                </label><br />`
+              )
+              .join("")}
+          </div>
+          <div class="flex justify-between mt-6">
+            <button onclick="prevQ()" class="px-4 py-2 bg-yellow-200 border border-[#AC7F5E] rounded transform transition duration-300 hover:scale-105 hover:border-black"><i class="mr-4 fa-solid fa-angle-left"></i>Previous</button>
+            <button onclick="nextQ()" class="px-4 py-2 bg-green-200 border border-[#AC7F5E] rounded transform transition duration-300 hover:scale-105 hover:border-black">Save & Next<i class="mx-4 fa-solid fa-angle-right"></i></button>
+          </div>
+          ${
+            current === 5
+              ? `<button onclick="handleSubmit()" class="w-full mt-4 bg-blue-300 px-4 py-2 rounded transform transition duration-300 hover:scale-105 hover:border-black">Submit</button>`
+              : ""
+          }
+        </div>
+        <div class="bg-white p-6 rounded-xl border border-[#AC7F5E] shadow-lg">
+          <h3 class="text-xl font-[Rokkitt] mb-4">Short Answer</h3>
+          <p>${shortIndex + 1}. ${shortList[shortIndex]}</p>
+          <textarea id="shortTA" class="border w-full p-2 rounded mt-2" rows="4"
+            placeholder="Give Answer in Short...">${
+              answers.short[shortIndex]
+            }</textarea>
+          <div class="flex justify-between mt-4">
+            <button onclick="prevShort()" class="px-4 py-1 bg-yellow-200 border rounded border border-[#AC7F5E] rounded transform transition duration-300 hover:scale-105 hover:border-black"><i class="mr-4 fa-solid fa-angle-left"></i>Previous</button>
+            <button onclick="nextShort()" class="px-4 py-1 bg-green-200 border rounded border border-[#AC7F5E] rounded transform transition duration-300 hover:scale-105 hover:border-black">Save & Next<i class="mx-4 fa-solid fa-angle-right"></i></button>
+          </div>
+          <button onclick="handleSubmit()" 
+            class="w-full mt-4 bg-blue-300 px-4 py-2 rounded transform transition duration-300 hover:scale-105 hover:border-black">Submit</button>
+        </div>
+        <div class="bg-white p-6 rounded-xl border border-[#AC7F5E] shadow-lg">
+          <h3 class="text-xl font-[Rokkitt] mb-4">Long Answer</h3>
+          <p>${longIndex + 1}. ${longList[longIndex]}</p>
+          <textarea id="longTA" class="border w-full p-2 rounded mt-2" rows="6" placeholder="Give Answer in Long..."
+          >${answers.long[longIndex]}</textarea>
+          <div class="flex justify-between mt-4">
+            <button onclick="prevLong()" class="px-4 py-1 bg-yellow-200 border rounded border border-[#AC7F5E] rounded transform transition duration-300 hover:scale-105 hover:border-black"><i class="mr-4 fa-solid fa-angle-left"></i>Previous</button>
+            <button onclick="nextLong()" class="px-4 py-1 bg-green-200 border rounded border border-[#AC7F5E] rounded transform transition duration-300 hover:scale-105 hover:border-black">Save & Next<i class="mx-4 fa-solid fa-angle-right"></i></button>
+          </div>
+          <button onclick="handleSubmit()" 
+            class="w-full mt-4 bg-blue-300 px-4 py-2 rounded transform transition duration-300 hover:scale-105 hover:border-black">Submit</button>
+        </div>
+      </div>
+    `;
+        container.innerHTML = content;
+        document.querySelectorAll("input[name='mcq']").forEach((radio) => {
+          radio.addEventListener("change", () => {
+            answers.mcq[current - 1] = radio.value;
+          });
+        });
+        document.querySelectorAll(".q-numbers span").forEach((el, index) => {
+          el.addEventListener("click", () => {
+            current = index + 1;
+            loadQuestion();
+          });
+        });
+      }
+      function nextQ() {
+        if (current < total) current++;
+        loadQuestion();
+      }
+      function prevQ() {
+        if (current > 1) current--;
+        loadQuestion();
+      }
+      function saveShort() {
+        answers.short[shortIndex] = document.getElementById("shortTA").value;
+      }
+      function nextShort() {
+        saveShort();
+        if (shortIndex < shortList.length - 1) shortIndex++;
+        loadQuestion();
+      }
+      function prevShort() {
+        saveShort();
+        if (shortIndex > 0) shortIndex--;
+        loadQuestion();
+      }
+      function saveLong() {
+        answers.long[longIndex] = document.getElementById("longTA").value;
+      }
+      function nextLong() {
+        saveLong();
+        if (longIndex < longList.length - 1) longIndex++;
+        loadQuestion();
+      }
+      function prevLong() {
+        saveLong();
+        if (longIndex > 0) longIndex--;
+        loadQuestion();
+      }
+      loadQuestion();
+      startTimer();
+
+      const notificationCount = 3;
+      const badge = document.getElementById("notifyCount");
+      if (notificationCount > 0) {
+        badge.innerText = notificationCount;
+        badge.classList.remove("hidden");
+      }
+    </script>
+  </body>
+</html>
