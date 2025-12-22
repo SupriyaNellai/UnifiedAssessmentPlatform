@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Features | Unified Assessment Platform</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Roboto+Slab:wght@300;400;500;700&family=Roboto+Serif&family=Sedan+SC&family=Rokkitt:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header
+      class="w-full bg-[#F2FF64]/75 flex justify-between items-center px-12 py-2 shadow relative"
+    >
+      <a href="index.html"
+        ><div class="text-xl font-['Sedan_SC']">
+          <i class="fa-solid fa-graduation-cap px-3"></i>Unified Assessment
+          Platform
+        </div></a
+      >
+      <div class="hidden md:block">
+        <nav class="flex items-center gap-6">
+          <button
+            onclick="window.location.href='About.html'"
+            class="cursor-pointer px-4 py-2 font-roboto"
+          >
+            About
+          </button>
+          <button
+            onclick="window.location.href='Feature.html'"
+            class="cursor-pointer px-4 py-2 font-roboto"
+          >
+            Feature
+          </button>
+          <button class="cursor-pointer px-4 py-2 font-roboto">
+            <a href="Contact.html">Contact</a>
+          </button>
+          <button
+            id="open-login"
+            class="cursor-pointer px-4 py-2 hover:bg-[#00C8B3]/60 text-black rounded font-roboto"
+          >
+            Login
+          </button>
+          <button
+            id="open-signup"
+            class="cursor-pointer px-4 py-2 bg-[#00C8B3]/60 text-black rounded font-roboto"
+          >
+            Sign Up
+          </button>
+        </nav>
+      </div>
+      <button id="menu-btn" class="ml-10 md:hidden text-2xl">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </header>
+    <div
+      id="mobile-menu"
+      class="mobile-nav hidden shadow-lg p-4 bg-[#f5ff8a] absolute"
+    >
+      <button class="w-full text-left px-4 py-2 font-roboto mb-2">
+        <a href="About.html">About</a>
+      </button>
+      <button class="w-full text-left px-4 py-2 font-roboto mb-2">
+        <a href="Feature.html">Feature</a>
+      </button>
+      <button class="w-full text-left px-4 py-2 font-roboto mb-2">
+        <a href="Contact.html">Contact</a>
+      </button>
+      <button
+        id="open-login-mobile"
+        class="w-full text-left px-4 py-2 hover:bg-[#00C8B3]/60 text-black rounded font-roboto mb-2"
+      >
+        Login
+      </button>
+      <button
+        id="open-signup"
+        class="w-full text-left px-4 py-2 bg-[#00C8B3]/60 text-black rounded font-roboto mb-2"
+      >
+        Sign Up
+      </button>
+    </div>
+    <div
+      id="signup-popup"
+      class="hidden bg-[#E4FFFC]/80 fixed inset-0 flex justify-center items-center z-50"
+    ></div>
+    <div
+      id="login-popup"
+      class="hidden bg-[#E4FFFC]/80 fixed inset-0 flex justify-center items-center z-50"
+    ></div>
+    <div
+      id="forgot-popup"
+      class="hidden bg-[#E4FFFC]/80 fixed inset-0 flex justify-center items-center z-50"
+    ></div>
+    <section class="p-10 mx-4 md:mx-10 lg:mx-20 my-10">
+      <h1
+        class="text-4xl font-bold mb-4 text-[#AC7F5E] font-['Roboto_Slab'] text-center"
+      >
+        Powerful Features for Every Role
+      </h1>
+      <h3 class="text-xl font-['Roboto_Serif'] mt-5 text-center mb-16">
+        Designed to empower students, instructors, and administrators alike.
+      </h3>
+      <div
+        class="flex flex-col md:flex-row justify-between items-center py-10 border-b border-gray-200"
+      >
+        <div class="w-full md:w-1/2">
+          <h2
+            class="text-3xl font-bold mb-5 text-[#AC7F5E] font-['Roboto_Slab']"
+          >
+            Multi-Modal Assessment Builder
+          </h2>
+          <h3 class="text-xl font-['Roboto_Serif'] mt-5 text-justify">
+            Create quizzes, timed tests, coding challenges, and practical
+            upload-based exams from a single, intuitive interface. Supports
+            multiple question types, rich media, and detailed rubrics.
+          </h3>
+        </div>
+        <div class="mt-8 md:mt-0 md:ml-10 lg:ml-20 w-full md:w-1/2">
+          <img
+            src="https://vervoe.com/wp-content/uploads/2025/02/Group-792463393-3.png"
+            alt=""
+          />
+        </div>
+      </div>
+      <hr class="my-10 border-t border-[#00C8B3]/20" />
+      <div
+        class="flex flex-col md:flex-row-reverse justify-between items-center py-10 border-b border-gray-200"
+      >
+        <div class="w-full md:w-1/2">
+          <h2
+            class="text-3xl font-bold mb-5 text-[#AC7F5E] font-['Roboto_Slab']"
+          >
+            Smart Evaluation & Grading Tools
+          </h2>
+          <h3 class="text-xl font-['Roboto_Serif'] mt-5 text-justify">
+            Benefit from instant, automated grading for objective and coding
+            questions. For subjective tasks, our dedicated manual grading
+            dashboard streamlines the process with inline annotation and partial
+            credit support.
+          </h3>
+        </div>
+        <div class="mt-8 md:mt-0 md:mr-10 lg:mr-20 w-full md:w-1/2">
+          <img
+            src="https://static.vecteezy.com/system/resources/thumbnails/017/745/732/small/hands-holding-clipboard-with-checklist-with-green-check-mark-and-pencil-human-filling-control-list-on-notepad-concept-of-survey-free-png.png"
+            alt=""
+          />
+        </div>
+      </div>
+      <hr class="my-10 border-t border-[#00C8B3]/20" />
+      <div class="flex flex-col md:flex-row justify-between items-center py-10">
+        <div class="w-full md:w-1/2">
+          <h2
+            class="text-3xl font-bold mb-5 text-[#AC7F5E] font-['Roboto_Slab']"
+          >
+            Insightful Performance Analytics
+          </h2>
+          <h3 class="text-xl font-['Roboto_Serif'] mt-5 text-justify">
+            Gain deep insights into student and class performance with visual
+            reports and drill-down analytics. Track learning outcomes, identify
+            knowledge gaps, and measure progress over time to inform
+            instruction.
+          </h3>
+        </div>
+        <div class="mt-8 md:mt-0 md:ml-10 lg:ml-20 w-full md:w-1/2">
+          <img
+            src="https://www.creenosolutions.com/img/service/da2banner.png"
+            alt=""
+          />
+        </div>
+      </div>
+    </section>
+    <section
+      class="flex justify-center items-center bg-[#00C8B3]/5 h-max py-10"
+    >
+      <div class="flex flex-col items-center p-8">
+        <h2
+          class="text-2xl font-bold mb-6 text-[#AC7F5E] font-['Roboto_Slab'] text-center"
+        >
+          Ready to Streamline Your Assessments?
+        </h2>
+        <div class="flex items-center gap-7 my-5">
+           <button
+            id="get-started-btn"
+            class="font-roboto text-lg cursor-pointer w-40 px-6 py-3 bg-[#00C8B3]/60 text-black rounded-lg hover:shadow transform transition duration-300 hover:scale-105"
+          >
+            Get Started
+          </button>
+          <button
+            id="hero-login-btn"
+            class="font-roboto text-lg cursor-pointer w-40 px-6 py-3 bg-[#F2FF64]/75 text-black rounded-lg hover:shadow transform transition duration-300 hover:scale-105"
+          >
+            Login
+          </button>
+        </div>
+      </div>
+    </section>
+    <footer class="bg-[#00C8B3]/5 h-max p-10 border-t border-[#AC7F5E]">
+      <a
+        href="index.html"
+        class="text-xl m-4 px-8 py-3 font-['Sedan_SC'] hover:bg-black hover:text-white hover rounded"
+        ><i class="fa-solid fa-graduation-cap px-3"></i>Unified Assessment
+        Platform</a
+      >
+      <h3 class="font-['Roboto_Slab'] text-center text-sm font-light m-4">
+        Enables seamless exams, evaluations, and progress tracking for students
+        and instructors.
+      </h3>
+      <div class="grid grid-cols-5 grid-rows-3 gap-x-10 gap-y-4 m-10">
+        <h4 class="font-['Roboto_Slab'] font-bold text-[#AC7F5E]">Platform</h4>
+        <h4 class="font-['Roboto_Slab'] font-bold text-[#AC7F5E]">Solutions</h4>
+        <h4 class="font-['Roboto_Slab'] font-bold text-[#AC7F5E]">Resources</h4>
+        <h4 class="font-['Roboto_Slab'] font-bold text-[#AC7F5E]">Company</h4>
+        <h4 class="font-['Roboto_Slab'] font-bold text-[#AC7F5E]">Contact</h4>
+        <button class="text-left hover:text-[#008A99]">Features</button>
+        <button class="text-left hover:text-[#008A99]">Use Cases</button>
+        <button class="text-left hover:text-[#008A99]">Help Center</button>
+        <button class="text-left hover:text-[#008A99]">About Us</button>
+        <button class="text-left hover:text-[#008A99]">Contact Support</button>
+        <button class="text-left hover:text-[#008A99]">Pricing</button>
+        <button class="text-left hover:text-[#008A99]">Industries</button>
+        <button class="text-left hover:text-[#008A99]">Blog</button>
+        <button class="text-left hover:text-[#008A99]">Careers</button>
+        <button class="text-left hover:text-[#008A99]">Email Us</button>
+      </div>
+      <div
+        class="flex flex-col md:flex-row justify-between items-center border-t border-[#AC7F5E] p-6"
+      >
+        <p>© 2025 Unified Assessment Platform. All rights reserved.</p>
+        <div class="flex gap-4 text-xl">
+          <img
+            src="https://img.icons8.com/?size=100&id=118497&format=png&color=000000"
+            class="w-6 h-6 cursor-pointer"
+          />
+          <img
+            src="https://img.icons8.com/?size=100&id=BrU2BBoRXiWq&format=png&color=000000"
+            class="w-6 h-6 cursor-pointer"
+          />
+          <img
+            src="https://img.icons8.com/?size=100&id=13930&format=png&color=000000"
+            class="w-6 h-6 cursor-pointer"
+          />
+          <img
+            src="https://img.icons8.com/?size=100&id=jlpBF1fJe9fs&format=png&color=000000"
+            class="w-6 h-6 cursor-pointer"
+          />
+          <img
+            src="https://img.icons8.com/?size=100&id=37326&format=png&color=FA5252"
+            class="w-6 h-6 cursor-pointer"
+          />
+        </div>
+
+        <div class="flex gap-6 mt-4 md:mt-0">
+          <button class="cursor-pointer hover:text-[#008A99]">
+            Uptime Monitor
+          </button>
+          <button class="cursor-pointer hover:text-[#008A99]">Security</button>
+          <button class="cursor-pointer hover:text-[#008A99]">Privacy</button>
+          <button class="cursor-pointer hover:text-[#008A99]">Cookies</button>
+        </div>
+      </div>
+    </footer>
+
+    <script src="home.js"></script>
+  </body>
+</html>

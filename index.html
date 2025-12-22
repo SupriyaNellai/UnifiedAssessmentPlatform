@@ -1,0 +1,1402 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Unified Assessment Platform</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Roboto+Slab:wght@300;400;500;700&family=Roboto+Serif&family=Sedan+SC&family=Rokkitt:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      .mobile-nav {
+        top: 60px;
+        right: 10px;
+        width: 200px;
+        z-index: 100;
+      }
+    </style>
+  </head>
+  <body>
+    <header
+      class="w-full bg-[#F2FF64]/75 flex justify-between items-center px-12 py-2 shadow relative"
+    >
+      <a href="#"
+        ><div class="text-xl font-['Sedan_SC']">
+          <i class="fa-solid fa-graduation-cap px-3"></i>Unified Assessment
+          Platform
+        </div></a
+      >
+      <div class="hidden md:block">
+        <nav class="flex items-center gap-6">
+          <button class="cursor-pointer px-4 py-2 font-roboto">
+            <a href="About.html">About</a>
+          </button>
+          <button class="cursor-pointer px-4 py-2 font-roboto">
+            <a href="Feature.html">Feature</a>
+          </button>
+          <button class="cursor-pointer px-4 py-2 font-roboto">
+            <a href="Contact.html">Contact</a>
+          </button>
+          <button
+            id="open-login"
+            class="cursor-pointer px-4 py-2 hover:bg-[#00C8B3]/60 text-black rounded font-roboto"
+          >
+            Login
+          </button>
+          <button
+            id="open-signup"
+            class="cursor-pointer px-4 py-2 bg-[#00C8B3]/60 text-black rounded font-roboto"
+          >
+            Sign Up
+          </button>
+        </nav>
+      </div>
+      <button id="menu-btn" class="ml-10 md:hidden text-2xl">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </header>
+
+    <div
+      id="mobile-menu"
+      class="mobile-nav hidden shadow-lg p-4 bg-[#f5ff8a] absolute"
+    >
+      <button class="w-full text-left px-4 py-2 font-roboto mb-2">
+        <a href="About.html">About</a>
+      </button>
+      <button class="w-full text-left px-4 py-2 font-roboto mb-2">
+        <a href="Feature.html">Feature</a>
+      </button>
+      <button class="w-full text-left px-4 py-2 font-roboto mb-2">
+        <a href="Contact.html">Contact</a>
+      </button>
+      <button
+        id="open-login-mobile"
+        class="w-full text-left px-4 py-2 hover:bg-[#00C8B3]/60 text-black rounded font-roboto mb-2"
+      >
+        Login
+      </button>
+      <button
+        id="open-signup-mobile"
+        class="w-full text-left px-4 py-2 bg-[#00C8B3]/60 text-black rounded font-roboto mb-2"
+      >
+        Sign Up
+      </button>
+    </div>
+
+    <div
+      id="signup-popup"
+      class="hidden bg-[#E4FFFC]/80 fixed inset-0 flex justify-center items-center z-50"
+    >
+      <div
+        class="bg-white p-9 sm:p-9 rounded-3xl w-full max-w-md shadow-lg relative"
+      >
+        <button
+          id="close-signup"
+          class="cursor-pointer absolute right-3 top-3 text-3xl"
+        >
+          <i class="fa-regular fa-circle-xmark"></i>
+        </button>
+
+        <h1
+          class="font-roboto_slab font-bold text-center text-lg sm:text-xl mb-2"
+        >
+          Sign Up
+        </h1>
+        <h3
+          class="font-roboto_slab font-light text-center text-sm sm:text-base mb-5"
+        >
+          Create your account
+        </h3>
+        <div class="relative mb-1">
+          <i
+            class="fa-solid fa-user absolute left-3 top-1/2 -translate-y-1/2 text-gray-500"
+          ></i>
+          <input
+            id="name"
+            type="text"
+            placeholder="Name"
+            class="w-full p-3 pl-10 border border-[#00C3D0] rounded"
+          />
+        </div>
+        <p id="name-error" class="text-red-500 text-sm mb-3 hidden"></p>
+        <div class="relative mb-1">
+          <i
+            class="fa-solid fa-envelope absolute left-3 top-1/2 -translate-y-1/2 text-gray-500"
+          ></i>
+          <input
+            id="email"
+            type="email"
+            placeholder="Email"
+            class="w-full p-3 pl-10 border border-[#00C3D0] rounded"
+          />
+        </div>
+        <p id="email-error" class="text-red-500 text-sm mb-3 hidden"></p>
+        <div class="relative mb-1">
+          <i
+            class="fa-solid fa-lock absolute left-3 top-1/2 -translate-y-1/2 text-gray-500"
+          ></i>
+          <input
+            id="password"
+            type="password"
+            placeholder="Password"
+            class="w-full p-3 pl-10 border border-[#00C3D0] rounded"
+          />
+        </div>
+        <p id="password-error" class="text-red-500 text-sm mb-3 hidden"></p>
+        <div class="relative mb-1">
+          <i
+            class="fa-solid fa-lock absolute left-3 top-1/2 -translate-y-1/2 text-gray-500"
+          ></i>
+          <input
+            id="confirm-password"
+            type="password"
+            placeholder="Confirm Password"
+            class="w-full p-3 pl-10 border border-[#00C3D0] rounded"
+          />
+        </div>
+        <p id="confirm-error" class="text-red-500 text-sm mb-3 hidden"></p>
+        <select
+          id="role"
+          class="border border-[#00C3D0] w-full rounded p-3 mb-1"
+        >
+          <option value="" disabled selected>Role</option>
+          <option value="Student">Student</option>
+          <option value="Instructor">Instructor</option>
+          <option value="Admin">Admin</option>
+        </select>
+        <p id="role-error" class="text-red-500 text-sm mb-3 hidden"></p>
+        <input
+          id="inst-code"
+          type="text"
+          placeholder="Institution Code"
+          class="w-full p-3 border border-[#00C3D0] rounded mb-1"
+        />
+        <p id="inst-error" class="text-red-500 text-sm mb-3 hidden"></p>
+
+        <button
+          id="signup-btn"
+          class="w-full p-3 cursor-pointer text-center border border-black bg-[#00C3D0] text-white rounded mb-2 transform transition-all duration-400 hover:scale-95"
+        >
+          Sign Up
+        </button>
+
+        <p class="font-roboto_slab font-light text-center mb-5">
+          or sign up with
+        </p>
+
+        <button
+          class="w-full p-3 cursor-pointer border border-black rounded mb-3 flex items-center justify-center gap-3 transform transition-all duration-400 hover:scale-95"
+        >
+          <img
+            src="https://img.icons8.com/?size=100&id=17949&format=png&color=000000"
+            alt="Google"
+            class="w-5 h-5"
+          />
+          <span>Sign Up with Google</span>
+        </button>
+
+        <div class="flex gap-2 justify-center">
+          <p class="font-roboto_slab font-light">have an account ?</p>
+          <button
+            id="open-login-from-signup"
+            class="cursor-pointer text-blue-500 hover:text-[#00C3D0]"
+          >
+            Login
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div
+      id="login-popup"
+      class="hidden bg-[#E4FFFC]/80 fixed inset-0 flex justify-center items-center z-50"
+    >
+      <div
+        class="bg-white p-9 sm:p-9 rounded-4xl w-full max-w-md shadow-lg relative"
+      >
+        <button id="close-login">
+          <i
+            class="fa-regular fa-circle-xmark cursor-pointer absolute right-3 text-3xl"
+          ></i>
+        </button>
+
+        <h1
+          class="font-roboto_slab font-bold text-left text-lg sm:text-xl mb-2"
+        >
+          Login
+        </h1>
+        <h3
+          class="font-roboto_slab font-light text-left text-sm sm:text-base mb-5"
+        >
+          Welcome back! Please login to your account.
+        </h3>
+
+        <div class="relative mb-1">
+          <i
+            class="fa-solid fa-envelope absolute left-3 top-1/2 -translate-y-1/2 text-gray-500"
+          ></i>
+          <input
+            id="login-email"
+            type="email"
+            placeholder="Email"
+            class="w-full p-3 pl-10 border border-[#00C3D0] rounded"
+          />
+        </div>
+        <p id="login-email-error" class="text-red-500 text-sm mb-3 hidden"></p>
+
+        <div class="relative mb-1">
+          <i
+            class="fa-solid fa-lock absolute left-3 top-1/2 -translate-y-1/2 text-gray-500"
+          ></i>
+          <input
+            id="login-password"
+            type="password"
+            placeholder="Password"
+            class="w-full p-3 pl-10 border border-[#00C3D0] rounded"
+          />
+        </div>
+        <p
+          id="login-password-error"
+          class="text-red-500 text-sm mb-3 hidden"
+        ></p>
+
+        <button
+          id="open-forgot"
+          class="cursor-pointer text-blue-500 hover:text-[#00C3D0] mb-4"
+        >
+          Forgot Password ?
+        </button>
+
+        <button
+          id="login-submit"
+          class="w-full p-3 cursor-pointer text-center border border-black bg-[#00C3D0] text-white rounded mb-4 transform transition-all duration-400 hover:scale-95"
+        >
+          Login
+        </button>
+
+        <div class="flex gap-2 justify-center">
+          <p class="font-roboto_slab font-light">Don't have an account ?</p>
+          <button
+            id="open-signup-from-login"
+            class="cursor-pointer text-blue-500 hover:text-[#00C3D0]"
+          >
+            Sign Up
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div
+      id="forgot-popup"
+      class="hidden bg-[#E4FFFC]/80 fixed inset-0 flex justify-center items-center z-50"
+    >
+      <div
+        class="bg-white p-9 sm:p-9 rounded-4xl w-full max-w-md shadow-lg relative"
+      >
+        <button id="close-forgot">
+          <i
+            class="fa-regular fa-circle-xmark cursor-pointer absolute right-3 text-3xl"
+          ></i>
+        </button>
+        <h1
+          class="font-roboto_slab font-bold text-left text-lg sm:text-xl mb-2"
+        >
+          Forgot Password ?
+        </h1>
+        <h3
+          class="font-roboto_slab font-light text-left text-sm sm:text-base mb-5"
+        >
+          Enter your registered email to receive a verification code.
+        </h3>
+        <div class="relative mb-1">
+          <i
+            class="fa-solid fa-envelope absolute left-3 top-1/2 -translate-y-1/2 text-gray-500"
+          ></i>
+          <input
+            id="forgot-email"
+            type="email"
+            placeholder="Email"
+            class="w-full p-3 pl-10 border border-[#00C3D0] rounded"
+          />
+        </div>
+        <p id="forgot-email-error" class="text-red-500 text-sm mb-3 hidden"></p>
+        <button
+          class="w-full p-3 cursor-pointer text-center border border-black bg-[#00C3D0] text-white rounded mb-4 transform transition-all duration-400 hover:scale-95"
+        >
+          Send Verification Code
+        </button>
+        <h3 class="font-roboto_slab font-light text-center text-xs mb-5">
+          Verification code sent to your email
+        </h3>
+        <div class="grid grid-cols-6 gap-2 sm:flex sm:justify-between mb-4">
+          <input
+            maxlength="1"
+            class="w-10 h-10 border-2 border-black rounded-md text-center text-lg outline-none"
+          />
+          <input
+            maxlength="1"
+            class="w-10 h-10 border-2 border-black rounded-md text-center text-lg outline-none"
+          />
+          <input
+            maxlength="1"
+            class="w-10 h-10 border-2 border-black rounded-md text-center text-lg outline-none"
+          />
+          <input
+            maxlength="1"
+            class="w-10 h-10 border-2 border-black rounded-md text-center text-lg outline-none"
+          />
+          <input
+            maxlength="1"
+            class="w-10 h-10 border-2 border-black rounded-md text-center text-lg outline-none"
+          />
+          <input
+            maxlength="1"
+            class="w-10 h-10 border-2 border-black rounded-md text-center text-lg outline-none"
+          />
+        </div>
+        <button
+          class="w-full p-3 cursor-pointer text-center border border-black bg-[#00C3D0] text-white rounded mb-4 transform transition-all duration-400 hover:scale-95"
+        >
+          Verify Code
+        </button>
+        <h3 class="font-roboto_slab font-light text-left text-xs mb-4">
+          Resend in 30s
+        </h3>
+        <div class="relative mb-1">
+          <i
+            class="fa-solid fa-lock absolute left-3 top-1/2 -translate-y-1/2 text-gray-500"
+          ></i>
+          <input
+            id="new-password"
+            type="password"
+            placeholder="New Password"
+            class="w-full p-3 pl-10 border border-[#00C3D0] rounded"
+          />
+        </div>
+        <p id="newpass-error" class="text-red-500 text-sm mb-3 hidden"></p>
+        <div class="relative mb-1">
+          <i
+            class="fa-solid fa-lock absolute left-3 top-1/2 -translate-y-1/2 text-gray-500"
+          ></i>
+          <input
+            id="confirm-new-password"
+            type="password"
+            placeholder="Confirm Password"
+            class="w-full p-3 pl-10 border border-[#00C3D0] rounded"
+          />
+        </div>
+        <p id="confirmnew-error" class="text-red-500 text-sm mb-3 hidden"></p>
+        <button
+          class="w-full p-3 cursor-pointer text-center border border-black bg-[#00C3D0] text-white rounded mb-4 transform transition-all duration-400 hover:scale-95"
+        >
+          Reset Password
+        </button>
+        <button
+          id="back-to-login"
+          class="w-full sm:w-32 p-2 block mx-auto cursor-pointer border border-black bg-[#F3FC95]/63 rounded mb-4 transform transition-all duration-400 hover:scale-95"
+        >
+          Back to Login
+        </button>
+      </div>
+    </div>
+
+    <section
+      class="flex flex-col md:flex-row justify-between items-center px-10 py-10 mx-4 md:mx-10 lg:mx-20 my-10"
+    >
+      <div class="w-full">
+        <h1 class="text-4xl font-bold mb-4 text-[#AC7F5E] font-['Roboto_Slab']">
+          Assess, Learn, Grow
+        </h1>
+        <h3 class="text-2xl font-['Roboto_Serif'] mt-5">
+          A United Platform for Students, Instructors, Institutions
+        </h3>
+        <div class="flex items-center gap-7 my-5">
+          <button
+            id="get-started-btn"
+            class="font-roboto text-lg cursor-pointer w-40 px-6 py-3 bg-[#00C8B3]/60 text-black rounded-lg hover:shadow transform transition duration-300 hover:scale-105"
+          >
+            Get Started
+          </button>
+          <button
+            id="hero-login-btn"
+            class="font-roboto text-lg cursor-pointer w-40 px-6 py-3 bg-[#F2FF64]/75 text-black rounded-lg hover:shadow transform transition duration-300 hover:scale-105"
+          >
+            Login
+          </button>
+        </div>
+      </div>
+      <div class="ml-0 md:ml-10 lg:ml-20">
+        <img src="onlinetest.jpg" alt="" />
+      </div>
+    </section>
+
+    <section class="flex justify-center items-center bg-[#00C8B3]/5 h-max">
+      <div class="flex flex-col md:flex-row items-center gap-[170px] p-8">
+        <div class="w-100 justify-items-center">
+          <img src="student.png" class="w-[250px]" alt="student" />
+          <h3 class="font-roboto font-semibold text-base w-60 text-center">
+            Take more Tests, and Track Progress
+          </h3>
+        </div>
+        <div class="w-100 justify-items-center">
+          <img src="instructor.png" class="w-[220px]" alt="student" />
+          <h3 class="font-roboto font-semibold text-base w-60 text-center mt-8">
+            Create Smarter, Evaluate Faster, Teach Better
+          </h3>
+        </div>
+        <div class="w-100 justify-items-center">
+          <img src="admin.png" class="w-[195px]" alt="student" />
+          <h3 class="font-roboto font-semibold text-base w-60 text-center">
+            Lead Securely, Monitor Efficiently, Empower Success
+          </h3>
+        </div>
+      </div>
+    </section>
+
+    <section class="flex flex-col md:flex-row justify-between items-center px-10 py-10 mx-4 md:mx-10 lg:mx-20 my-10">
+      <div>
+        <img src="evaluatingimage.png" class="max-w-full h-auto" alt="">
+      </div>
+      <div class="ml-0 md:ml-10 lg:ml-20 w-xl">
+        <h1 class="text-4xl font-bold mb-5 text-[#AC7F5E] font-['Roboto_Slab']">
+          Combine practical and theoritical assessments
+        </h1>
+        <h3 class="text-2xl font-['Roboto_Serif'] mt-5 text-justify">
+          Our platform lets you easily conduct theoretical exams, coding tasks,
+          and practical evaluations in one interface. It offers flexible
+          evaluation options and can be customized to fit diverse institutional
+          needs, making the entire assessment process seamless and efficient.
+        </h3>
+      </div>
+    </section>
+
+    <section class="flex flex-col md:flex-row justify-between items-center px-10 py-10 mx-4 md:mx-10 lg:mx-20 my-10">
+      <div class="w-full">
+        <h1 class="text-4xl font-bold mb-5 text-[#AC7F5E] font-['Roboto_Slab']">
+          Streamline your processes
+        </h1>
+        <h3 class="text-2xl font-['Roboto_Serif'] mt-5 text-justify">
+          Our platform simplifies exam creation, management, and evaluation with
+          transparency for students, instructors, and admins. It securely
+          organizes results and enables smooth coordination across departments.
+        </h3>
+      </div>
+      <div class="ml-0 md:ml-10 lg:ml-20 w-4xl">
+        <img src="correctionimage.png" class="max-w-full h-auto" alt="">
+      </div>
+    </section>
+
+    <section class="px-10 py-4 mx-4 md:mx-10 lg:mx-20">
+      <h2
+        class="text-4xl font-bold text-[#AC7F5E] font-['Roboto_Slab'] text-center mb-12"
+      >
+        Platform Features
+      </h2>
+      <div class="grid md:grid-cols-3 gap-10">
+        <div
+          class="group p-6 bg-white border border-[#00C3D0] hover:border-black rounded-xl shadow transition-all duration-300 hover:shadow-2xl hover:border-[#008A99] hover:bg-[#00C8B3]/20"
+        >
+          <i
+            class="fa-solid fa-sheet-plastic text-4xl text-[#00C3D0] mb-4 transition-all duration-300 group-hover:text-black group-hover:rotate-12"
+          ></i>
+          <h3
+            class="text-xl font-semibold mb-2 transition-all duration-300 group-hover:text-black"
+          >
+            Create Assessments
+          </h3>
+          <p
+            class="text-gray-700 transition-all duration-300 group-hover:block"
+          >
+            Build quizzes, coding tasks, and practical exams instantly.
+          </p>
+        </div>
+        <div
+          class="group p-6 bg-white border border-[#00C3D0] rounded-xl shadow transition-all duration-300 hover:shadow-2xl hover:border-[#008A99] hover:bg-[#F2FF64]/15"
+        >
+          <i
+            class="fa-solid fa-pen-to-square text-4xl text-[#00C3D0] mb-4 transition-all duration-300 group-hover:text-[#008A99] group-hover:rotate-12"
+          ></i>
+          <h3
+            class="text-xl font-semibold mb-2 transition-all duration-300 group-hover:text-[#008A99]"
+          >
+            Evaluate Submissions
+          </h3>
+          <p
+            class="text-gray-700 transition-all duration-300 group-hover:text-[#005B63]"
+          >
+            Auto–evaluate or manually grade with full transparency.
+          </p>
+        </div>
+        <div
+          class="group p-6 bg-white border border-[#00C3D0] hover:border-black rounded-xl shadow transition-all duration-300 hover:shadow-2xl hover:border-[#008A99] hover:bg-[#00C8B3]/20"
+        >
+          <i
+            class="fa-solid fa-sheet-plastic text-4xl text-[#00C3D0] mb-4 transition-all duration-300 group-hover:text-black group-hover:rotate-12"
+          ></i>
+          <h3
+            class="text-xl font-semibold mb-2 transition-all duration-300 group-hover:text-black"
+          >
+            Track Progress
+          </h3>
+          <p
+            class="text-gray-700 transition-all duration-300 group-hover:block"
+          >
+            Monitor student improvement through analytics.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="px-10 py-16 my-5 mx-4 md:mx-10 lg:mx-20">
+      <h2
+        class="text-4xl font-bold text-[#AC7F5E] font-['Roboto_Slab'] text-center mb-12"
+      >
+        Why Choose Us?
+      </h2>
+      <div class="grid md:grid-cols-3 gap-10">
+        <div
+          class="group p-6 bg-white border border-[#00C3D0] rounded-xl shadow transition-all duration-300 hover:shadow-2xl hover:border-[#008A99] hover:bg-[#F2FF64]/15"
+        >
+          <i
+            class="fa-solid fa-shield-halved text-4xl text-[#00C3D0] mb-4 transition-all duration-300 group-hover:text-[#008A99] group-hover:rotate-12"
+          ></i>
+          <h3
+            class="text-xl font-semibold mb-2 transition-all duration-300 group-hover:text-[#008A99]"
+          >
+            Secure Platform
+          </h3>
+          <p
+            class="text-gray-700 transition-all duration-300 group-hover:text-[#005B63]"
+          >
+            All assessments and data are protected with strong security.
+          </p>
+        </div>
+        <div
+          class="group p-6 bg-white border border-[#00C3D0] hover:border-black rounded-xl shadow transition-all duration-300 hover:shadow-2xl hover:border-[#008A99] hover:bg-[#00C8B3]/20"
+        >
+          <i
+            class="fa-solid fa-clock text-4xl text-[#00C3D0] mb-4 transition-all duration-300 group-hover:text-black group-hover:rotate-12"
+          ></i>
+          <h3
+            class="text-xl font-semibold mb-2 transition-all duration-300 group-hover:text-black"
+          >
+            Save Time
+          </h3>
+          <p
+            class="text-gray-700 transition-all duration-300 group-hover:text-[#005B63]"
+          >
+            Reduce manual work with automation and smart workflows.
+          </p>
+        </div>
+        <div
+          class="group p-6 bg-white border border-[#00C3D0] rounded-xl shadow transition-all duration-300 hover:shadow-2xl hover:border-[#008A99] hover:bg-[#F2FF64]/15"
+        >
+          <i
+            class="fa-solid fa-people-group text-4xl text-[#00C3D0] mb-4 transition-all duration-300 group-hover:text-[#008A99] group-hover:rotate-12"
+          ></i>
+          <h3
+            class="text-xl font-semibold mb-2 transition-all duration-300 group-hover:text-[#008A99]"
+          >
+            For Everyone
+          </h3>
+          <p
+            class="text-gray-700 transition-all duration-300 group-hover:text-[#005B63]"
+          >
+            Built for students, instructors, and institutions alike.
+          </p>
+        </div>
+      </div>
+    </section>
+    <section
+      class="flex flex-col lg:flex-row justify-between items-center px-6 md:px-20 py-12 gap-10"
+    >
+      <div class="w-full lg:w-1/2 space-y-6">
+        <div
+          class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center max-w-7xl mx-auto px-4 py-12"
+        >
+          <div class="space-y-6">
+            <div
+              class="inline-block px-4 py-1 bg-[#00C8B3]/10 text-[#008A99] rounded-full text-sm font-bold uppercase tracking-wider"
+            >
+              Next-Gen Learning
+            </div>
+
+            <h1
+              class="text-5xl md:text-6xl font-bold text-[#AC7F5E] font-['Roboto_Slab'] leading-tight"
+            >
+              Elevating the
+              <span class="text-[#00C3D0]">Digital Classroom</span>
+            </h1>
+
+            <p
+              class="text-xl md:text-2xl font-['Roboto_Serif'] text-gray-600 leading-relaxed"
+            >
+              A comprehensive suite of tools designed to streamline academic
+              workflows, foster collaboration, and provide actionable insights
+              for students and educators alike.
+            </p>
+
+            <div class="flex items-center gap-4 text-[#008A99] font-bold">
+              <i class="fa-solid fa-circle-check"></i>
+              <span>Real-time Analytics</span>
+              <span class="text-gray-300">|</span>
+              <i class="fa-solid fa-circle-check"></i>
+              <span>Seamless Integration</span>
+            </div>
+          </div>
+
+          <div class="relative">
+            <div
+              class="absolute -top-10 -left-10 w-64 h-64 bg-[#00C3D0]/10 rounded-full blur-3xl"
+            ></div>
+
+            <div
+              class="relative rounded-3xl overflow-hidden shadow-2xl border-8 border-white"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=800"
+                alt="Students collaborating"
+                class="w-full h-auto object-cover transform hover:scale-105 transition duration-700"
+              />
+            </div>
+
+            <div
+              class="absolute -bottom-6 -right-6 bg-white p-4 rounded-2xl shadow-xl flex items-center gap-3 border border-gray-100"
+            >
+              <div
+                class="w-12 h-12 bg-[#F2FF64] rounded-xl flex items-center justify-center text-2xl"
+              >
+                🚀
+              </div>
+              <div>
+                <p
+                  class="text-xs text-gray-500 font-bold uppercase tracking-tighter"
+                >
+                  Trusted By
+                </p>
+                <p class="font-bold text-gray-800">500+ Institutions</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="flex items-center gap-4 text-sm text-gray-500 pt-4">
+          <div class="flex -space-x-2">
+            <img
+              class="w-8 h-8 rounded-full border-2 border-white bg-gray-200"
+              src="https://i.pravatar.cc/100?u=1"
+              alt="user"
+            />
+            <img
+              class="w-8 h-8 rounded-full border-2 border-white bg-gray-200"
+              src="https://i.pravatar.cc/100?u=2"
+              alt="user"
+            />
+            <img
+              class="w-8 h-8 rounded-full border-2 border-white bg-gray-200"
+              src="https://i.pravatar.cc/100?u=3"
+              alt="user"
+            />
+          </div>
+          <p>Join 10,000+ users worldwide</p>
+        </div>
+      </div>
+      <div class="w-full lg:w-1/2 relative">
+        <div
+          class="absolute -top-10 -left-10 w-32 h-32 bg-[#F2FF64]/30 rounded-full blur-3xl"
+        ></div>
+        <div
+          class="absolute -bottom-10 -right-10 w-40 h-40 bg-[#00C8B3]/20 rounded-full blur-3xl"
+        ></div>
+        <img
+          src="https://img.freepik.com/free-photo/learning-education-ideas-insight-intelligence-study-concept_53876-120116.jpg?semt=ais_hybrid&w=740&q=80"
+          class="w-full h-auto rounded-3xl shadow-2xl relative z-10"
+          alt="Hero Illustration"
+        />
+      </div>
+    </section>
+
+    <section class="stats-bg py-16 px-6 md:px-20">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+        <div class="space-y-2">
+          <h2 class="text-4xl font-bold text-[#AC7F5E]">500+</h2>
+          <p class="text-gray-600 font-medium">Institutions</p>
+        </div>
+        <div class="space-y-2">
+          <h2 class="text-4xl font-bold text-[#008A99]">1M+</h2>
+          <p class="text-gray-600 font-medium">Tests Taken</p>
+        </div>
+        <div class="space-y-2">
+          <h2 class="text-4xl font-bold text-[#AC7F5E]">99.9%</h2>
+          <p class="text-gray-600 font-medium">Uptime</p>
+        </div>
+        <div class="space-y-2">
+          <h2 class="text-4xl font-bold text-[#008A99]">24/7</h2>
+          <p class="text-gray-600 font-medium">Global Support</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-20 px-6 md:px-20 bg-gray-50/50">
+      <div class="flex flex-col md:flex-row items-stretch gap-8">
+        <div
+          class="flex-1 bg-white p-8 rounded-3xl shadow-sm border border-gray-100 flex flex-col items-center text-center group hover:shadow-xl transition duration-500"
+        >
+          <div
+            class="w-20 h-20 bg-blue-50 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition"
+          >
+            <i class="fa-solid fa-user-graduate text-3xl text-blue-500"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-4">For Students</h3>
+          <p class="text-gray-500 mb-6">
+            Access personalized dashboards, track detailed performance
+            analytics, and take exams securely from anywhere.
+          </p>
+          <ul class="text-left space-y-3 mb-8 w-full">
+            <li class="flex items-center gap-2 text-sm text-gray-600">
+              <i class="fa-solid fa-check text-[#00C3D0]"></i> Instant Result
+              Analysis
+            </li>
+            <li class="flex items-center gap-2 text-sm text-gray-600">
+              <i class="fa-solid fa-check text-[#00C3D0]"></i> Practice Mode
+              available
+            </li>
+          </ul>
+          <button class="mt-auto text-[#008A99] font-bold hover:underline">
+            Learn More <i class="fa-solid fa-arrow-right ml-1"></i>
+          </button>
+        </div>
+        <div
+          class="flex-1 bg-white p-8 rounded-3xl shadow-sm border border-gray-100 flex flex-col items-center text-center group hover:shadow-xl transition duration-500 border-t-4 border-t-[#00C3D0]"
+        >
+          <div
+            class="w-20 h-20 bg-teal-50 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition"
+          >
+            <i class="fa-solid fa-chalkboard-user text-3xl text-teal-500"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-4">For Instructors</h3>
+          <p class="text-gray-500 mb-6">
+            Create dynamic assessments with AI assistance, auto-grade objective
+            questions, and manage classes efficiently.
+          </p>
+          <ul class="text-left space-y-3 mb-8 w-full">
+            <li class="flex items-center gap-2 text-sm text-gray-600">
+              <i class="fa-solid fa-check text-[#00C3D0]"></i> Anti-Cheat
+              Proctoring
+            </li>
+            <li class="flex items-center gap-2 text-sm text-gray-600">
+              <i class="fa-solid fa-check text-[#00C3D0]"></i> Question Bank
+              Management
+            </li>
+          </ul>
+          <button class="mt-auto text-[#008A99] font-bold hover:underline">
+            Learn More <i class="fa-solid fa-arrow-right ml-1"></i>
+          </button>
+        </div>
+        <div
+          class="flex-1 bg-white p-8 rounded-3xl shadow-sm border border-gray-100 flex flex-col items-center text-center group hover:shadow-xl transition duration-500"
+        >
+          <div
+            class="w-20 h-20 bg-amber-50 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition"
+          >
+            <i class="fa-solid fa-building-shield text-3xl text-amber-500"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-4">For Institutions</h3>
+          <p class="text-gray-500 mb-6">
+            Scale across departments, ensure data privacy compliance, and
+            generate high-level institutional reports.
+          </p>
+          <ul class="text-left space-y-3 mb-8 w-full">
+            <li class="flex items-center gap-2 text-sm text-gray-600">
+              <i class="fa-solid fa-check text-[#00C3D0]"></i> Multi-tier Admin
+              Access
+            </li>
+            <li class="flex items-center gap-2 text-sm text-gray-600">
+              <i class="fa-solid fa-check text-[#00C3D0]"></i> White-label
+              Branding
+            </li>
+          </ul>
+          <button class="mt-auto text-[#008A99] font-bold hover:underline">
+            Learn More <i class="fa-solid fa-arrow-right ml-1"></i>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="px-6 md:px-20 py-20 bg-gray-50">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <h2 class="text-4xl font-bold text-[#AC7F5E] font-['Roboto_Slab'] mb-4">
+          Platform Features
+        </h2>
+        <p class="text-gray-500">
+          Everything you need to manage the modern classroom experience at
+          scale.
+        </p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div
+          class="p-8 bg-white rounded-3xl border border-gray-100 hover:border-[#00C3D0] transition shadow-sm hover:shadow-xl group"
+        >
+          <div
+            class="w-14 h-14 bg-indigo-50 text-indigo-500 rounded-xl flex items-center justify-center mb-6 group-hover:bg-[#00C3D0] group-hover:text-white transition duration-300"
+          >
+            <i class="fa-solid fa-database text-2xl"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Question Bank Management</h3>
+          <p class="text-gray-600 text-sm">
+            Organize, tag, and reuse thousands of questions across different
+            departments. Categorize by difficulty, topic, and Bloom's taxonomy
+            for consistent exam quality.
+          </p>
+        </div>
+        <div
+          class="p-8 bg-white rounded-3xl border border-gray-100 hover:border-[#00C3D0] transition shadow-sm hover:shadow-xl group"
+        >
+          <div
+            class="w-14 h-14 bg-red-50 text-red-500 rounded-xl flex items-center justify-center mb-6 group-hover:bg-red-500 group-hover:text-white transition duration-300"
+          >
+            <i class="fa-solid fa-user-shield text-2xl"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Remote Proctoring</h3>
+          <p class="text-gray-600 text-sm">
+            Ensure exam integrity with AI-driven face detection, browser
+            locking, and tab-switching monitoring technologies.
+          </p>
+        </div>
+        <div
+          class="p-8 bg-white rounded-3xl border border-gray-100 hover:border-[#00C3D0] transition shadow-sm hover:shadow-xl group"
+        >
+          <div
+            class="w-14 h-14 bg-green-50 text-green-500 rounded-xl flex items-center justify-center mb-6 group-hover:bg-green-500 group-hover:text-white transition duration-300"
+          >
+            <i class="fa-solid fa-chart-line text-2xl"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Learning Analytics</h3>
+          <p class="text-gray-600 text-sm">
+            Visualize student progress with heatmaps and trend charts. Identify
+            learning gaps before they become problems.
+          </p>
+        </div>
+        <div
+          class="p-8 bg-white rounded-3xl border border-gray-100 hover:border-[#00C3D0] transition shadow-sm hover:shadow-xl group"
+        >
+          <div
+            class="w-14 h-14 bg-purple-50 text-purple-500 rounded-xl flex items-center justify-center mb-6 group-hover:bg-purple-500 group-hover:text-white transition duration-300"
+          >
+            <i class="fa-solid fa-mobile-screen-button text-2xl"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Mobile Ready</h3>
+          <p class="text-gray-600 text-sm">
+            A fully responsive interface that works perfectly on smartphones,
+            tablets, and desktop browsers without any app installs.
+          </p>
+        </div>
+        <div
+          class="p-8 bg-white rounded-3xl border border-gray-100 hover:border-[#00C3D0] transition shadow-sm hover:shadow-xl group"
+        >
+          <div
+            class="w-14 h-14 bg-orange-50 text-orange-500 rounded-xl flex items-center justify-center mb-6 group-hover:bg-orange-500 group-hover:text-white transition duration-300"
+          >
+            <i class="fa-solid fa-cloud-arrow-up text-2xl"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Seamless Integration</h3>
+          <p class="text-gray-600 text-sm">
+            Connect with Google Classroom, Microsoft Teams, and Canvas with
+            one-click SSO and data synchronization.
+          </p>
+        </div>
+        <div
+          class="p-8 bg-white rounded-3xl border border-gray-100 hover:border-[#00C3D0] transition shadow-sm hover:shadow-xl group"
+        >
+          <div
+            class="w-14 h-14 bg-teal-50 text-teal-500 rounded-xl flex items-center justify-center mb-6 group-hover:bg-teal-500 group-hover:text-white transition duration-300"
+          >
+            <i class="fa-solid fa-language text-2xl"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Multilingual Support</h3>
+          <p class="text-gray-600 text-sm">
+            Our interface supports over 40 languages, making it suitable for
+            international institutions and ESL learners.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-20 px-6 md:px-20 bg-[#AC7F5E]/5">
+      <h2
+        class="text-4xl font-bold text-[#AC7F5E] font-['Roboto_Slab'] text-center mb-16"
+      >
+        Trusted by Educators Worldwide
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div
+          class="bg-white p-8 rounded-2xl shadow-sm border-l-4 border-l-[#F2FF64]"
+        >
+          <div class="flex gap-1 text-yellow-400 mb-4 text-sm">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i
+            ><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i
+            ><i class="fa-solid fa-star"></i>
+          </div>
+          <p class="italic text-gray-600 mb-6">
+            "Transitioning our university exams to this platform saved us
+            thousands of manual hours. The coding assessment tool is unmatched."
+          </p>
+          <div class="flex items-center gap-4">
+            <div class="w-12 h-12 rounded-full bg-gray-200"></div>
+            <div>
+              <h4 class="font-bold text-sm">Dr. Sarah Jenkins</h4>
+              <p class="text-xs text-gray-400">
+                Dean of Engineering, Tech Univ
+              </p>
+            </div>
+          </div>
+        </div>
+        <div
+          class="bg-white p-8 rounded-2xl shadow-sm border-l-4 border-l-[#00C3D0]"
+        >
+          <div class="flex gap-1 text-yellow-400 mb-4 text-sm">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i
+            ><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i
+            ><i class="fa-solid fa-star"></i>
+          </div>
+          <p class="italic text-gray-600 mb-6">
+            "The AI question generator is a game changer for my weekly quizzes.
+            I can now focus more on teaching and less on admin."
+          </p>
+          <div class="flex items-center gap-4">
+            <div class="w-12 h-12 rounded-full bg-gray-200"></div>
+            <div>
+              <h4 class="font-bold text-sm">Mark Thompson</h4>
+              <p class="text-xs text-gray-400">High School Instructor</p>
+            </div>
+          </div>
+        </div>
+        <div
+          class="bg-white p-8 rounded-2xl shadow-sm border-l-4 border-l-[#AC7F5E]"
+        >
+          <div class="flex gap-1 text-yellow-400 mb-4 text-sm">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i
+            ><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i
+            ><i class="fa-solid fa-star"></i>
+          </div>
+          <p class="italic text-gray-600 mb-6">
+            "As a student, I love having all my scores and feedback in one clear
+            dashboard. It makes studying for finals much easier."
+          </p>
+          <div class="flex items-center gap-4">
+            <div class="w-12 h-12 rounded-full bg-gray-200"></div>
+            <div>
+              <h4 class="font-bold text-sm">Elena Rodriguez</h4>
+              <p class="text-xs text-gray-400">CS Senior Student</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-20 px-6 md:px-20 bg-white">
+      <div
+        class="bg-[#00C3D0] rounded-[40px] p-10 md:p-20 text-center text-white relative overflow-hidden"
+      >
+        <div
+          class="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -mr-32 -mt-32"
+        ></div>
+        <div
+          class="absolute bottom-0 left-0 w-48 h-48 bg-black/5 rounded-full -ml-24 -mb-24"
+        ></div>
+        <h2 class="text-4xl md:text-5xl font-bold mb-6 relative z-10">
+          Ready to transform your assessment process?
+        </h2>
+        <p class="text-xl mb-10 text-blue-50 relative z-10">
+          Join over 500 institutions and start your free 14-day trial today. No
+          credit card required.
+        </p>
+        <div
+          class="flex flex-col sm:flex-row justify-center gap-4 relative z-10"
+        >
+          <button
+            id="finalgetstart"
+            class="px-10 py-4 bg-white text-[#008A99] font-bold rounded-2xl shadow-xl hover:bg-gray-100 transition"
+          >
+            Get Started Now
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <footer class="bg-[#00C8B3]/5 h-max p-10 border-t border-[#AC7F5E]">
+      <a
+        href="#"
+        class="text-xl m-4 px-8 py-3 font-['Sedan_SC'] hover:bg-black hover:text-white hover rounded"
+        ><i class="fa-solid fa-graduation-cap px-3"></i>Unified Assessment
+        Platform</a
+      >
+      <h3 class="font-['Roboto_Slab'] text-center text-sm font-light m-4">
+        Enables seamless exams, evaluations, and progress tracking for students
+        and instructors.
+      </h3>
+      <div class="grid grid-cols-5 grid-rows-3 gap-x-10 gap-y-4 m-10">
+        <h4 class="font-['Roboto_Slab'] font-bold text-[#AC7F5E]">Platform</h4>
+        <h4 class="font-['Roboto_Slab'] font-bold text-[#AC7F5E]">Solutions</h4>
+        <h4 class="font-['Roboto_Slab'] font-bold text-[#AC7F5E]">Resources</h4>
+        <h4 class="font-['Roboto_Slab'] font-bold text-[#AC7F5E]">Company</h4>
+        <h4 class="font-['Roboto_Slab'] font-bold text-[#AC7F5E]">Contact</h4>
+        <button class="text-left hover:text-[#008A99]">Features</button>
+        <button class="text-left hover:text-[#008A99]">Use Cases</button>
+        <button class="text-left hover:text-[#008A99]">Help Center</button>
+        <button class="text-left hover:text-[#008A99]">About Us</button>
+        <button class="text-left hover:text-[#008A99]">Contact Support</button>
+        <button class="text-left hover:text-[#008A99]">Pricing</button>
+        <button class="text-left hover:text-[#008A99]">Industries</button>
+        <button class="text-left hover:text-[#008A99]">Blog</button>
+        <button class="text-left hover:text-[#008A99]">Careers</button>
+        <button class="text-left hover:text-[#008A99]">Email Us</button>
+      </div>
+
+      <div
+        class="flex flex-col md:flex-row justify-between items-center border-t border-[#AC7F5E] p-6"
+      >
+        <p>© 2025 Unified Assessment Platform. All rights reserved.</p>
+        <div class="flex gap-4 text-xl">
+          <img
+            src="https://img.icons8.com/?size=100&id=118497&format=png&color=000000"
+            class="w-6 h-6 cursor-pointer"
+          />
+          <img
+            src="https://img.icons8.com/?size=100&id=BrU2BBoRXiWq&format=png&color=000000"
+            class="w-6 h-6 cursor-pointer"
+          />
+          <img
+            src="https://img.icons8.com/?size=100&id=13930&format=png&color=000000"
+            class="w-6 h-6 cursor-pointer"
+          />
+          <img
+            src="https://img.icons8.com/?size=100&id=jlpBF1fJe9fs&format=png&color=000000"
+            class="w-6 h-6 cursor-pointer"
+          />
+          <img
+            src="https://img.icons8.com/?size=100&id=37326&format=png&color=FA5252"
+            class="w-6 h-6 cursor-pointer"
+          />
+        </div>
+        <div class="flex gap-6 mt-4 md:mt-0">
+          <button class="cursor-pointer hover:text-[#008A99]">
+            Uptime Monitor
+          </button>
+          <button class="cursor-pointer hover:text-[#008A99]">Security</button>
+          <button class="cursor-pointer hover:text-[#008A99]">Privacy</button>
+          <button class="cursor-pointer hover:text-[#008A99]">Cookies</button>
+        </div>
+      </div>
+    </footer>
+    <script>
+      const menuBtn = document.getElementById("menu-btn");
+      const mobileMenu = document.getElementById("mobile-menu");
+      const loginPopup = document.getElementById("login-popup");
+      const signupPopup = document.getElementById("signup-popup");
+      const forgotPopup = document.getElementById("forgot-popup");
+      const openLogin = document.getElementById("open-login");
+      const openLoginMobile = document.getElementById("open-login-mobile");
+      const openSignup = document.getElementById("open-signup");
+      const openSignupMobile = document.getElementById("open-signup-mobile");
+      const openLoginFromSignup = document.getElementById(
+        "open-login-from-signup"
+      );
+      const openSignupFromLogin = document.getElementById(
+        "open-signup-from-login"
+      );
+      const closeLogin = document.getElementById("close-login");
+      const closeSignup = document.getElementById("close-signup");
+      const closeForgot = document.getElementById("close-forgot");
+      const signupBtn = document.getElementById("signup-btn");
+      const loginSubmit = document.getElementById("login-submit");
+      const openForgotBtn = document.getElementById("open-forgot");
+      const heroLoginBtn = document.getElementById("hero-login-btn");
+      const getStartedBtn = document.getElementById("get-started-btn");
+      const finalgetstarted = document.getElementById("finalgetstart");
+      const backToLogin = document.getElementById("back-to-login");
+
+      const signupName = document.getElementById("name");
+      const signupEmail = document.getElementById("email");
+      const signupPassword = document.getElementById("password");
+      const confirmPassword = document.getElementById("confirm-password");
+      const instCode = document.getElementById("inst-code");
+      const roleSelect = document.getElementById("role");
+
+      const nameError = document.getElementById("name-error");
+      const emailError = document.getElementById("email-error");
+      const passwordError = document.getElementById("password-error");
+      const confirmError = document.getElementById("confirm-error");
+      const instError = document.getElementById("inst-error");
+
+      const loginEmail = document.getElementById("login-email");
+      const loginPassword = document.getElementById("login-password");
+
+      const forgotEmail = document.getElementById("forgot-email");
+      const forgotEmailError = document.getElementById("forgot-email-error");
+      const newPass = document.getElementById("new-password");
+      const confirmPass = document.getElementById("confirm-new-password");
+      const newPassError = document.getElementById("newpass-error");
+      const confirmPassError = document.getElementById("confirmnew-error");
+
+      const otpInputs = forgotPopup.querySelectorAll("input[maxlength='1']");
+      const forgotButtons = forgotPopup.querySelectorAll("button");
+      const sendCodeBtn = forgotButtons[1];
+      const verifyCodeBtn = forgotButtons[2];
+      const resetPassBtn = forgotButtons[3];
+
+      let savedUser = null;
+      let dropdownOpen = false;
+      let generatedOTP = null;
+      let isVerified = false;
+
+      signupName.oninput = () => {
+        const value = signupName.value;
+        if (!/^[a-zA-Z\s]*$/.test(value)) {
+          signupName.value = value.replace(/[^a-zA-Z\s]/g, "");
+          nameError.textContent = "Name should contain characters only";
+          nameError.classList.remove("hidden");
+        } else {
+          nameError.classList.add("hidden");
+        }
+      };
+
+      instCode.oninput = () => {
+        const value = instCode.value;
+        if (!/^\d*$/.test(value)) {
+          instCode.value = value.replace(/\D/g, "");
+          instError.textContent =
+            "Institution code should contain numbers only";
+          instError.classList.remove("hidden");
+        } else {
+          instError.classList.add("hidden");
+        }
+      };
+
+      const hideAllPopups = () => {
+        loginPopup.classList.add("hidden");
+        signupPopup.classList.add("hidden");
+        forgotPopup.classList.add("hidden");
+      };
+
+      menuBtn.onclick = () => mobileMenu.classList.toggle("hidden");
+
+      const showLogin = () => {
+        hideAllPopups();
+        loginPopup.classList.remove("hidden");
+        mobileMenu.classList.add("hidden");
+      };
+
+      const showSignup = () => {
+        hideAllPopups();
+        signupPopup.classList.remove("hidden");
+        mobileMenu.classList.add("hidden");
+      };
+
+      getStartedBtn.onclick = showSignup;
+      finalgetstarted.onclick = showSignup;
+      openLogin.onclick = showLogin;
+      openLoginMobile.onclick = showLogin;
+      openLoginFromSignup.onclick = showLogin;
+      heroLoginBtn.onclick = showLogin;
+      backToLogin.onclick = showLogin;
+      openSignup.onclick = showSignup;
+      openSignupMobile.onclick = showSignup;
+      openSignupFromLogin.onclick = showSignup;
+      closeLogin.onclick = hideAllPopups;
+      closeSignup.onclick = hideAllPopups;
+      closeForgot.onclick = hideAllPopups;
+
+      openForgotBtn.onclick = () => {
+        hideAllPopups();
+        forgotPopup.classList.remove("hidden");
+      };
+
+      const loader = document.createElement("div");
+      loader.innerHTML = `<div class="fixed inset-0 bg-black/40 flex items-center justify-center z-[999]"><div class="bg-white p-6 rounded-xl text-center"><i class="fa-solid fa-spinner fa-spin text-3xl text-[#00C3D0]"></i><p class="mt-3">Processing...</p></div></div>`;
+      loader.style.display = "none";
+      document.body.appendChild(loader);
+
+      signupBtn.onclick = () => {
+        if (
+          !signupName.value ||
+          !signupEmail.value ||
+          !signupPassword.value ||
+          !confirmPassword.value ||
+          !instCode.value ||
+          !roleSelect.value
+        ) {
+          alert("Please fill all fields");
+          return;
+        }
+        if (signupPassword.value !== confirmPassword.value) {
+          confirmError.textContent = "Passwords do not match";
+          confirmError.classList.remove("hidden");
+          return;
+        }
+        confirmError.classList.add("hidden");
+        savedUser = {
+          name: signupName.value,
+          email: signupEmail.value,
+          password: signupPassword.value,
+        };
+        localStorage.setItem("userRole", roleSelect.value);
+        alert("Signup Successful");
+        loader.style.display = "flex";
+        setTimeout(() => {
+          loader.style.display = "none";
+          showLogin();
+        }, 2000);
+      };
+
+      const setLoggedInUI = () => {
+        const avatarButton = `<div class="relative">
+    <button id="profile-btn"><img src="https://i.pravatar.cc/40" class="w-9 h-9 rounded-full border"/></button>
+    <div id="profile-dropdown" class="hidden absolute right-0 mt-2 bg-white shadow-lg rounded w-40 z-50">
+      <button id="profile-home-btn" class="flex gap-2 px-4 py-2 w-full hover:bg-gray-100"><i class="fa-solid fa-user"></i>Dashboard</button>
+      <button id="logout-btn" class="flex gap-2 px-4 py-2 w-full hover:bg-red-100"><i class="fa-solid fa-right-from-bracket"></i>Logout</button>
+    </div>
+  </div>`;
+        openLogin.innerHTML = avatarButton;
+        openLoginMobile.innerHTML = avatarButton;
+        openSignup.style.display = "none";
+        openSignupMobile.style.display = "none";
+
+        const profileBtn = document.getElementById("profile-btn");
+        const dropdown = document.getElementById("profile-dropdown");
+
+        profileBtn.onclick = (e) => {
+          e.stopPropagation();
+          dropdown.classList.toggle("hidden");
+          dropdownOpen = !dropdownOpen;
+        };
+
+        document.getElementById("profile-home-btn").onclick = goToProfileHome;
+        document.getElementById("logout-btn").onclick = logoutHandler;
+
+        document.addEventListener("click", () => {
+          if (dropdownOpen) {
+            dropdown.classList.add("hidden");
+            dropdownOpen = false;
+          }
+        });
+      };
+
+      function goToProfileHome() {
+        const role = localStorage.getItem("userRole");
+        if (role === "Student") window.location.href = "./Student/home.html";
+        else if (role === "Instructor")
+          window.location.href = "./Instructor/home.html";
+        else if (role === "Admin") window.location.href = "./Admin/home.html";
+        else window.location.href = "./index.html";
+      }
+
+      loginSubmit.onclick = () => {
+        if (
+          savedUser &&
+          loginEmail.value === savedUser.email &&
+          loginPassword.value === savedUser.password
+        ) {
+          localStorage.setItem("userRole", roleSelect.value);
+          alert("Login Successful");
+          hideAllPopups();
+          setLoggedInUI();
+        } else {
+          alert("Incorrect email or password");
+        }
+      };
+
+      const logoutHandler = () => {
+        if (!confirm("Are you sure you want to logout?")) return;
+        alert("Logout Successful");
+        localStorage.clear();
+        loginEmail.value = "";
+        loginPassword.value = "";
+        hideAllPopups();
+        openLogin.innerHTML = "Login";
+        openLoginMobile.innerHTML = "Login";
+        openSignup.style.display = "inline-block";
+        openSignupMobile.style.display = "block";
+        showLogin();
+      };
+
+      sendCodeBtn.onclick = () => {
+        const emailVal = forgotEmail.value;
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(emailVal)) {
+          forgotEmailError.textContent = "Please enter a valid email address";
+          forgotEmailError.classList.remove("hidden");
+          return;
+        }
+        if (!savedUser || emailVal !== savedUser.email) {
+          forgotEmailError.textContent = "This email is not registered";
+          forgotEmailError.classList.remove("hidden");
+          return;
+        }
+        forgotEmailError.classList.add("hidden");
+        generatedOTP = Math.floor(100000 + Math.random() * 900000).toString();
+        alert("Verification code sent: " + generatedOTP);
+      };
+
+      otpInputs.forEach((input, index) => {
+        input.oninput = (e) => {
+          if (e.target.value && index < otpInputs.length - 1)
+            otpInputs[index + 1].focus();
+        };
+        input.onkeydown = (e) => {
+          if (e.key === "Backspace" && !e.target.value && index > 0)
+            otpInputs[index - 1].focus();
+        };
+      });
+
+      verifyCodeBtn.onclick = () => {
+        let enteredOTP = "";
+        otpInputs.forEach((i) => (enteredOTP += i.value));
+        if (enteredOTP === generatedOTP) {
+          isVerified = true;
+          alert("Verified");
+        } else {
+          alert("Invalid code");
+          isVerified = false;
+        }
+      };
+
+      resetPassBtn.onclick = () => {
+        if (!isVerified) {
+          alert("Verify code first");
+          return;
+        }
+        if (newPass.value.length < 6) {
+          newPassError.textContent = "Password must be at least 6 characters";
+          newPassError.classList.remove("hidden");
+          return;
+        }
+        newPassError.classList.add("hidden");
+        if (newPass.value !== confirmPass.value) {
+          confirmPassError.textContent = "Passwords do not match";
+          confirmPassError.classList.remove("hidden");
+          return;
+        }
+        confirmPassError.classList.add("hidden");
+        savedUser.password = newPass.value;
+        alert("Password updated successfully");
+        showLogin();
+      };
+
+      window.onclick = (e) => {
+        if (
+          e.target === loginPopup ||
+          e.target === signupPopup ||
+          e.target === forgotPopup
+        ) {
+          hideAllPopups();
+        }
+      };
+    </script>
+  </body>
+</html>

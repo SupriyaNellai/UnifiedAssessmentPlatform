@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us | Unified Assessment Platform</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Roboto+Slab:wght@300;400;500;700&family=Roboto+Serif&family=Sedan+SC&family=Rokkitt:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header
+      class="w-full bg-[#F2FF64]/75 flex justify-between items-center px-12 py-2 shadow relative"
+    >
+      <a href="index.html"
+        ><div class="text-xl font-['Sedan_SC']">
+          <i class="fa-solid fa-graduation-cap px-3"></i>Unified Assessment
+          Platform
+        </div></a
+      >
+      <div class="hidden md:block">
+        <nav class="flex items-center gap-6">
+          <button class="cursor-pointer px-4 py-2 font-roboto">
+            <a href="About.html">About</a>
+          </button>
+          <button class="cursor-pointer px-4 py-2 font-roboto">
+            <a href="Feature.html">Feature</a>
+          </button>
+          <button class="cursor-pointer px-4 py-2 font-roboto">
+            <a href="Contact.html">Contact</a>
+          </button>
+          <button
+            id="open-login"
+            class="cursor-pointer px-4 py-2 hover:bg-[#00C8B3]/60 text-black rounded font-roboto"
+          >
+            Login
+          </button>
+          <button
+            id="open-signup"
+            class="cursor-pointer px-4 py-2 bg-[#00C8B3]/60 text-black rounded font-roboto"
+          >
+            Sign Up
+          </button>
+        </nav>
+      </div>
+      <button id="menu-btn" class="ml-10 md:hidden text-2xl">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </header>
+
+    <div
+      id="mobile-menu"
+      class="mobile-nav hidden shadow-lg p-4 bg-[#f5ff8a] absolute"
+    >
+      <button class="w-full text-left px-4 py-2 font-roboto mb-2">
+        <a href="About.html">About</a>
+      </button>
+      <button class="w-full text-left px-4 py-2 font-roboto mb-2">
+        <a href="Feature.html">Feature</a>
+      </button>
+      <button class="w-full text-left px-4 py-2 font-roboto mb-2">
+        <a href="Contact.html">Contact</a>
+      </button>
+      <button
+        id="open-login-mobile"
+        class="w-full text-left px-4 py-2 hover:bg-[#00C8B3]/60 text-black rounded font-roboto mb-2"
+      >
+        Login
+      </button>
+      <button
+        id="open-signup-mobile"
+        class="w-full text-left px-4 py-2 bg-[#00C8B3]/60 text-black rounded font-roboto mb-2"
+      >
+        Sign Up
+      </button>
+    </div>
+
+    <div
+      id="signup-popup"
+      class="hidden bg-[#E4FFFC]/80 fixed inset-0 flex justify-center items-center z-50"
+    ></div>
+    <div
+      id="login-popup"
+      class="hidden bg-[#E4FFFC]/80 fixed inset-0 flex justify-center items-center z-50"
+    ></div>
+    <div
+      id="forgot-popup"
+      class="hidden bg-[#E4FFFC]/80 fixed inset-0 flex justify-center items-center z-50"
+    ></div>
+
+    <div
+      id="success-popup"
+      class="hidden fixed inset-0 flex justify-center items-center z-[100] bg-black/40 backdrop-blur-sm"
+    >
+      <div
+        class="bg-white p-8 rounded-2xl shadow-2xl text-center max-w-sm mx-4 transform transition-all"
+      >
+        <div
+          class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4"
+        >
+          <i class="fa-solid fa-check text-4xl text-green-500"></i>
+        </div>
+        <h2 class="text-2xl font-bold text-gray-800 mb-2 font-['Roboto_Slab']">
+          Success!
+        </h2>
+        <p class="text-gray-600 mb-6 font-roboto">
+          Your query has been sent successfully. We will get back to you
+          shortly.
+        </p>
+        <button
+          onclick="closeSuccessPopup()"
+          class="w-full py-3 bg-[#00C3D0] text-white rounded-lg font-bold hover:bg-[#008A99] transition-colors"
+        >
+          Close
+        </button>
+      </div>
+    </div>
+
+    <section class="p-10 mx-4 md:mx-10 lg:mx-20 my-10">
+      <h1
+        class="text-4xl font-bold mb-4 text-[#AC7F5E] font-['Roboto_Slab'] text-center"
+      >
+        Get In Touch
+      </h1>
+      <h3 class="text-2xl font-['Roboto_Serif'] mt-5 text-center mb-16">
+        We're here to help! Send us a message or find us using the details
+        below.
+      </h3>
+
+      <div class="flex flex-col md:flex-row justify-between gap-10">
+        <div
+          class="w-full md:w-1/2 p-6 border border-[#00C3D0] rounded-xl shadow-lg bg-[#E4FFFC]"
+        >
+          <h2
+            class="text-2xl font-bold mb-6 text-[#AC7F5E] font-['Roboto_Slab']"
+          >
+            Send a Message
+          </h2>
+          <form id="contact-form" class="space-y-4">
+            <div>
+              <label for="name" class="block text-lg font-roboto_slab mb-1"
+                >Name</label
+              >
+              <input
+                type="text"
+                id="name"
+                class="w-full p-3 border border-[#00C3D0] rounded focus:outline-none focus:border-[#008A99]"
+                placeholder="Your Name"
+                required
+              />
+            </div>
+            <div>
+              <label for="email" class="block text-lg font-roboto_slab mb-1"
+                >Email</label
+              >
+              <input
+                type="email"
+                id="email"
+                class="w-full p-3 border border-[#00C3D0] rounded focus:outline-none focus:border-[#008A99]"
+                placeholder="you@example.com"
+                required
+              />
+            </div>
+            <div>
+              <label for="subject" class="block text-lg font-roboto_slab mb-1"
+                >Subject</label
+              >
+              <input
+                type="text"
+                id="subject"
+                class="w-full p-3 border border-[#00C3D0] rounded focus:outline-none focus:border-[#008A99]"
+                placeholder="Topic of Inquiry"
+                required
+              />
+            </div>
+            <div>
+              <label for="message" class="block text-lg font-roboto_slab mb-1"
+                >Message</label
+              >
+              <textarea
+                id="message"
+                rows="4"
+                class="w-full p-3 border border-[#00C3D0] rounded focus:outline-none focus:border-[#008A99]"
+                placeholder="Your detailed message..."
+                required
+              ></textarea>
+            </div>
+            <button
+              type="submit"
+              class="w-full p-3 cursor-pointer text-center border border-black bg-[#00C3D0] text-white rounded transform transition-all duration-400 hover:scale-[1.01] hover:bg-[#008A99]"
+            >
+              Submit Inquiry
+            </button>
+          </form>
+        </div>
+
+        <div class="w-full md:w-1/2 p-6">
+          <h2
+            class="text-2xl font-bold mb-6 text-[#AC7F5E] font-['Roboto_Slab']"
+          >
+            Contact Details
+          </h2>
+          <ul class="space-y-6 text-xl font-['Roboto']">
+            <li
+              class="flex items-center gap-4 p-3 bg-[#F2FF64]/15 rounded-lg border border-[#F2FF64]"
+            >
+              <i class="fa-solid fa-envelope text-[#00C3D0]"></i>
+              <a href="mailto:support@uap.com" class="hover:text-[#008A99]"
+                >support@uap.com</a
+              >
+            </li>
+            <li
+              class="flex items-center gap-4 p-3 bg-[#F2FF64]/15 rounded-lg border border-[#F2FF64]"
+            >
+              <i class="fa-solid fa-phone text-[#00C3D0]"></i>
+              <a href="tel:+1234567890" class="hover:text-[#008A99]"
+                >+1 (234) 567-890</a
+              >
+            </li>
+            <li
+              class="flex items-start gap-4 p-3 bg-[#F2FF64]/15 rounded-lg border border-[#F2FF64]"
+            >
+              <i class="fa-solid fa-location-dot text-[#00C3D0] mt-1"></i>
+              <span
+                >Unified Assessment Platform HQ, <br />123 Learning Lane, Suite
+                400, <br />Edu City, TX 78701</span
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <footer class="bg-[#00C8B3]/5 h-max p-10 border-t border-[#AC7F5E]">
+      <a
+        href="index.html"
+        class="text-xl m-4 px-8 py-3 font-['Sedan_SC'] hover:bg-black hover:text-white hover rounded"
+        ><i class="fa-solid fa-graduation-cap px-3"></i>Unified Assessment
+        Platform</a
+      >
+      <h3 class="font-['Roboto_Slab'] text-center text-sm font-light m-4">
+        Enables seamless exams, evaluations, and progress tracking for students
+        and instructors.
+      </h3>
+      <div class="grid grid-cols-5 grid-rows-3 gap-x-10 gap-y-4 m-10">
+        <h4 class="font-['Roboto_Slab'] font-bold text-[#AC7F5E]">Platform</h4>
+        <h4 class="font-['Roboto_Slab'] font-bold text-[#AC7F5E]">Solutions</h4>
+        <h4 class="font-['Roboto_Slab'] font-bold text-[#AC7F5E]">Resources</h4>
+        <h4 class="font-['Roboto_Slab'] font-bold text-[#AC7F5E]">Company</h4>
+        <h4 class="font-['Roboto_Slab'] font-bold text-[#AC7F5E]">Contact</h4>
+        <button class="text-left hover:text-[#008A99]">Features</button>
+        <button class="text-left hover:text-[#008A99]">Use Cases</button>
+        <button class="text-left hover:text-[#008A99]">Help Center</button>
+        <button class="text-left hover:text-[#008A99]">About Us</button>
+        <button class="text-left hover:text-[#008A99]">Contact Support</button>
+        <button class="text-left hover:text-[#008A99]">Pricing</button>
+        <button class="text-left hover:text-[#008A99]">Industries</button>
+        <button class="text-left hover:text-[#008A99]">Blog</button>
+        <button class="text-left hover:text-[#008A99]">Careers</button>
+        <button class="text-left hover:text-[#008A99]">Email Us</button>
+      </div>
+      <div
+        class="flex flex-col md:flex-row justify-between items-center border-t border-[#AC7F5E] p-6"
+      >
+        <p>© 2025 Unified Assessment Platform. All rights reserved.</p>
+        <div class="flex gap-4 text-xl">
+          <img
+            src="https://img.icons8.com/?size=100&id=118497&format=png&color=000000"
+            class="w-6 h-6 cursor-pointer"
+          />
+          <img
+            src="https://img.icons8.com/?size=100&id=BrU2BBoRXiWq&format=png&color=000000"
+            class="w-6 h-6 cursor-pointer"
+          />
+          <img
+            src="https://img.icons8.com/?size=100&id=13930&format=png&color=000000"
+            class="w-6 h-6 cursor-pointer"
+          />
+          <img
+            src="https://img.icons8.com/?size=100&id=jlpBF1fJe9fs&format=png&color=000000"
+            class="w-6 h-6 cursor-pointer"
+          />
+          <img
+            src="https://img.icons8.com/?size=100&id=37326&format=png&color=FA5252"
+            class="w-6 h-6 cursor-pointer"
+          />
+        </div>
+        <div class="flex gap-6 mt-4 md:mt-0">
+          <button class="cursor-pointer hover:text-[#008A99]">
+            Uptime Monitor
+          </button>
+          <button class="cursor-pointer hover:text-[#008A99]">Security</button>
+          <button class="cursor-pointer hover:text-[#008A99]">Privacy</button>
+          <button class="cursor-pointer hover:text-[#008A99]">Cookies</button>
+        </div>
+      </div>
+    </footer>
+    <script>
+      const contactForm = document.getElementById("contact-form");
+      const successPopup = document.getElementById("success-popup");
+      const menuBtn = document.getElementById("menu-btn");
+      const mobileMenu = document.getElementById("mobile-menu");
+      menuBtn.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+      });
+      contactForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        successPopup.classList.remove("hidden");
+        contactForm.reset();
+      });
+      function closeSuccessPopup() {
+        successPopup.classList.add("hidden");
+      }
+      window.onclick = function (event) {
+        if (event.target == successPopup) {
+          closeSuccessPopup();
+        }
+      };
+    </script>
+    <script src="home.js"></script>
+  </body>
+</html>
