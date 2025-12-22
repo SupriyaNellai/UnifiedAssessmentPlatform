@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add New User</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Roboto+Slab:wght@300;400;500;700&family=Roboto+Serif&family=Sedan+SC&family=Rokkitt:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="overflow-hidden font-roboto">
+    <div class="flex min-h-screen h-screen overflow-hidden">
+      <aside
+        class="w-64 text-black p-6 bg-[radial-gradient(circle_at_30%_20%,#edd3b1_0%,#b79c82_60%,#a4886f_100%),radial-gradient(circle_at_70%_60%,#f0d6b5_0%,#b89f86_60%,#a4886f_100%),radial-gradient(circle_at_40%_80%,#efd4b2_0%,#b79c82_60%,#a4886f_100%)]"
+      >
+        <nav class="space-y-8 m-4 text-lg">
+          <button
+            onclick="window.location.href='home.html'"
+            class="w-full py-3 rounded flex justify-center items-center gap-3 hover:text-white hover:bg-black font-[roboto_condensed]"
+          >
+            <i class="fa-solid fa-house"></i>
+            Home
+          </button>
+          <button
+            onclick="window.location.href='UserManagement.html'"
+            class="w-full py-3 rounded flex justify-center items-center gap-3 hover:text-white hover:bg-black font-[roboto_condensed] bg-black/20"
+          >
+            <i class="fa-solid fa-list-check"></i>
+            Management
+          </button>
+          <button
+            onclick="window.location.href='AssessmentOverview.html'"
+            class="w-full py-3 rounded flex justify-center items-center gap-3 hover:text-white hover:bg-black font-[roboto_condensed]"
+          >
+            <i class="fa-solid fa-chart-simple"></i>
+            Overview
+          </button>
+          <button
+            onclick="window.location.href='LogsReports.html'"
+            class="w-full py-3 rounded flex justify-center items-center gap-3 hover:text-white hover:bg-black font-[roboto_condensed]"
+          >
+            <i class="fa-solid fa-database"></i>
+            Logs & Reports
+          </button>
+          <button
+            onclick="window.location.href='PlatformSettings.html'"
+            class="w-full py-3 rounded flex justify-center items-center gap-3 hover:text-white hover:bg-black font-[roboto_condensed]"
+          >
+            <i class="fa-solid fa-gear"></i>
+            Platform Settings
+          </button>
+          <button
+            onclick="window.location.href='../index.html'"
+            class="w-full py-3 rounded flex justify-center items-center gap-3 hover:text-white hover:bg-black font-[roboto_condensed]"
+          >
+            <i class="fa-solid fa-right-from-bracket"></i>
+            Logout
+          </button>
+        </nav>
+      </aside>
+      <div class="flex-1 flex flex-col overflow-hidden">
+        <header
+          class="w-full flex justify-between items-center px-8 py-4 shadow text-black bg-[radial-gradient(circle_at_30%_20%,#edd3b1_0%,#b79c82_60%,#a4886f_100%),radial-gradient(circle_at_70%_60%,#f0d6b5_0%,#b89f86_60%,#a4886f_100%),radial-gradient(circle_at_40%_80%,#efd4b2_0%,#b79c82_60%,#a4886f_100%)]"
+        >
+          <a href="#" class="text-xl text-black font-sedan_sc"
+            >Unified Assessment Platform</a
+          >
+          <div class="flex items-center space-x-12 text-2xl">
+            <div class="relative cursor-pointer">
+              <a href="Notifications.html"
+                ><i class="fa-regular fa-bell text-black text-2xl"></i
+              ></a>
+              <span
+                id="notifyCount"
+                class="absolute -top-1 -right-3 bg-red-600 text-white text-xs w-4 h-4 flex items-center justify-center rounded-full font-bold hidden"
+              >
+              </span>
+            </div>
+            <a href="AdminProfile.html"
+              ><i class="fa-solid fa-user text-black cursor-pointer"></i
+            ></a>
+          </div>
+        </header>
+        <div class="p-10 overflow-y-auto h-full space-y-8">
+          <h2 class="text-2xl text-[#AC7F5E] mb-6 font-roboto_slab">
+            Add New User
+          </h2>
+          <div
+            class="bg-white border border-[#AC7F5E] shadow-lg p-8 rounded-xl max-w-2xl mx-auto"
+          >
+            <h3 class="text-xl font-[Rokkitt] mb-6 font-bold text-[#AC7F5E]">
+              User Information
+            </h3>
+            <form id="addUserForm" class="space-y-4">
+              <div class="grid grid-cols-2 gap-4">
+                <div class="space-y-2">
+                  <label for="name" class="font-roboto_serif font-semibold"
+                    >Name</label
+                  >
+                  <input
+                    type="text"
+                    id="name"
+                    placeholder="Enter full name"
+                    class="w-full border border-gray-300 p-2 rounded focus:border-[#00C3D0] outline-none transition"
+                    required
+                  />
+                </div>
+                <div class="space-y-2">
+                  <label for="contact" class="font-roboto_serif font-semibold"
+                    >Contact</label
+                  >
+                  <input
+                    type="tel"
+                    id="contact"
+                    placeholder="Enter contact number"
+                    class="w-full border border-gray-300 p-2 rounded focus:border-[#00C3D0] outline-none transition"
+                  />
+                </div>
+              </div>
+              <div class="grid grid-cols-2 gap-4">
+                <div class="space-y-2">
+                  <label for="email" class="font-roboto_serif font-semibold"
+                    >Email</label
+                  >
+                  <input
+                    type="email"
+                    id="email"
+                    placeholder="Enter email address"
+                    class="w-full border border-gray-300 p-2 rounded focus:border-[#00C3D0] outline-none transition"
+                    required
+                  />
+                </div>
+                <div class="space-y-2">
+                  <label for="role" class="font-roboto_serif font-semibold"
+                    >Role</label
+                  >
+                  <select
+                    id="role"
+                    class="w-full border border-gray-300 p-2 rounded cursor-pointer focus:border-[#00C3D0] outline-none transition"
+                    required
+                  >
+                    <option value="Student">Student</option>
+                    <option value="Instructor">Instructor</option>
+                    <option value="Admin">Admin</option>
+                  </select>
+                </div>
+              </div>
+              <div class="space-y-2">
+                <label for="department" class="font-roboto_serif font-semibold"
+                  >Department</label
+                >
+                <input
+                  type="text"
+                  id="department"
+                  placeholder="E.g., Computer Science"
+                  class="w-full border border-gray-300 p-2 rounded focus:border-[#00C3D0] outline-none transition"
+                />
+              </div>
+              <h3
+                class="text-xl font-[Rokkitt] pt-4 mb-4 font-bold text-[#AC7F5E]"
+              >
+                Security Credentials
+              </h3>
+              <div class="grid grid-cols-2 gap-4">
+                <div class="space-y-2">
+                  <label for="password" class="font-roboto_serif font-semibold"
+                    >Password</label
+                  >
+                  <input
+                    type="password"
+                    id="password"
+                    placeholder="Enter password"
+                    class="w-full border border-gray-300 p-2 rounded focus:border-[#00C3D0] outline-none transition"
+                    required
+                  />
+                </div>
+                <div class="space-y-2">
+                  <label
+                    for="confirmPassword"
+                    class="font-roboto_serif font-semibold"
+                    >Confirm Password</label
+                  >
+                  <input
+                    type="password"
+                    id="confirmPassword"
+                    placeholder="Confirm password"
+                    class="w-full border border-gray-300 p-2 rounded focus:border-[#00C3D0] outline-none transition"
+                    required
+                  />
+                </div>
+              </div>
+              <div id="formError" class="text-red-600 text-sm hidden"></div>
+              <div class="pt-6 flex justify-end gap-4">
+                <button
+                  type="button"
+                  onclick="window.location.href='UserManagement.html'"
+                  class="border border-gray-400 text-gray-700 hover:bg-gray-100 py-2 px-6 rounded transition"
+                >
+                  Cancel
+                </button>
+                <button
+                  type="submit"
+                  class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-6 rounded transition"
+                >
+                  Save
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <footer
+          class="w-full py-4 text-center bg-white shadow-inner text-gray-600 text-sm"
+        >
+          © 2025 Unified Assessment Platform. All rights reserved.<br />
+          Test Your Limits, Track Your Growth.
+        </footer>
+      </div>
+    </div>
+
+    <script>
+      const notificationCount = 3;
+      const badge = document.getElementById("notifyCount");
+      if (notificationCount > 0) {
+        badge.innerText = notificationCount;
+        badge.classList.remove("hidden");
+      }
+      const USER_STORAGE_KEY = "assessmentPlatformUsers";
+      function getUsers() {
+        const users = localStorage.getItem(USER_STORAGE_KEY);
+        if (!users) return [];
+        try {
+          return JSON.parse(users);
+        } catch {
+          return [];
+        }
+      }
+      function saveUsers(users) {
+        localStorage.setItem(USER_STORAGE_KEY, JSON.stringify(users));
+      }
+      function formatDateTime(d) {
+        const yyyy = d.getFullYear();
+        const mm = String(d.getMonth() + 1).padStart(2, "0");
+        const dd = String(d.getDate()).padStart(2, "0");
+        const hh = String(d.getHours()).padStart(2, "0");
+        const mi = String(d.getMinutes()).padStart(2, "0");
+        return `${yyyy}-${mm}-${dd} ${hh}:${mi}`;
+      }
+      function generateRoleBasedId(role) {
+        const users = getUsers();
+        let base = 1000;
+        if (role === "Instructor") base = 2000;
+        if (role === "Admin") base = 3000;
+        const filtered = users.filter(
+          (u) => u.role === role && typeof u.id === "number"
+        );
+        if (filtered.length === 0) return base + 1;
+        const maxId = Math.max(...filtered.map((u) => u.id));
+        if (Math.floor(maxId / 1000) !== Math.floor(base / 1000)) {
+          return base + 1;
+        }
+        return maxId + 1;
+      }
+      document
+        .getElementById("addUserForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+          const name = document.getElementById("name").value.trim();
+          const contact = document.getElementById("contact").value.trim();
+          const email = document.getElementById("email").value.trim();
+          const role = document.getElementById("role").value;
+          const department = document.getElementById("department").value.trim();
+          const password = document.getElementById("password").value;
+          const confirmPassword =
+            document.getElementById("confirmPassword").value;
+          const formError = document.getElementById("formError");
+          formError.classList.add("hidden");
+          formError.textContent = "";
+          if (!name || !email || !role || !password || !confirmPassword) {
+            formError.textContent = "Please fill required fields";
+            formError.classList.remove("hidden");
+            return;
+          }
+          if (password !== confirmPassword) {
+            formError.textContent = "Passwords do not match";
+            formError.classList.remove("hidden");
+            return;
+          }
+          const users = getUsers();
+          const emailExists = users.some(
+            (u) => u.email.toLowerCase() === email.toLowerCase()
+          );
+          if (emailExists) {
+            formError.textContent = "Email already exists";
+            formError.classList.remove("hidden");
+            return;
+          }
+          const newId = generateRoleBasedId(role);
+          const newUser = {
+            id: newId,
+            name,
+            role,
+            email,
+            contact,
+            department,
+            status: "Active",
+            lastLogin: formatDateTime(new Date()),
+          };
+          users.push(newUser);
+          saveUsers(users);
+          window.location.href = "UserManagement.html";
+        });
+    </script>
+  </body>
+</html>

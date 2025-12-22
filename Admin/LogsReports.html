@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Logs & Reports</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Roboto+Slab:wght@300;400;500;700&family=Roboto+Serif&family=Sedan+SC&family=Rokkitt:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="overflow-hidden font-roboto">
+    <div class="flex min-h-screen h-screen overflow-hidden">
+      <aside
+        class="w-64 text-black p-6 bg-[radial-gradient(circle_at_30%_20%,#edd3b1_0%,#b79c82_60%,#a4886f_100%),radial-gradient(circle_at_70%_60%,#f0d6b5_0%,#b89f86_60%,#a4886f_100%),radial-gradient(circle_at_40%_80%,#efd4b2_0%,#b79c82_60%,#a4886f_100%)]"
+      >
+        <nav class="space-y-8 m-4 text-lg">
+          <button
+            onclick="window.location.href='home.html'"
+            class="w-full py-3 rounded flex justify-center items-center gap-3 hover:text-white hover:bg-black font-[roboto_condensed]"
+          >
+            <i class="fa-solid fa-house"></i>
+            Home
+          </button>
+          <button
+            onclick="window.location.href='UserManagement.html'"
+            class="w-full py-3 rounded flex justify-center items-center gap-3 hover:text-white hover:bg-black font-[roboto_condensed]"
+          >
+            <i class="fa-solid fa-list-check"></i>
+            Management
+          </button>
+          <button
+            onclick="window.location.href='AssessmentOverview.html'"
+            class="w-full py-3 rounded flex justify-center items-center gap-3 hover:text-white hover:bg-black font-[roboto_condensed]"
+          >
+            <i class="fa-solid fa-chart-simple"></i>
+            Overview
+          </button>
+          <button
+            onclick="location.reload()"
+            class="w-full py-3 rounded flex justify-center items-center gap-3 hover:text-white hover:bg-black font-[roboto_condensed] bg-black/20"
+          >
+            <i class="fa-solid fa-database"></i>
+            Logs & Reports
+          </button>
+          <button
+            onclick="window.location.href='PlatformSettings.html'"
+            class="w-full py-3 rounded flex justify-center items-center gap-3 hover:text-white hover:bg-black font-[roboto_condensed]"
+          >
+            <i class="fa-solid fa-gear"></i>
+            Platform Settings
+          </button>
+          <button
+            onclick="window.location.href='../index.html'"
+            class="w-full py-3 rounded flex justify-center items-center gap-3 hover:text-white hover:bg-black font-[roboto_condensed]"
+          >
+            <i class="fa-solid fa-right-from-bracket"></i>
+            Logout
+          </button>
+        </nav>
+      </aside>
+      <div class="flex-1 flex flex-col overflow-hidden">
+        <header
+          class="w-full flex justify-between items-center px-8 py-4 shadow text-black bg-[radial-gradient(circle_at_30%_20%,#edd3b1_0%,#b79c82_60%,#a4886f_100%),radial-gradient(circle_at_70%_60%,#f0d6b5_0%,#b89f86_60%,#a4886f_100%),radial-gradient(circle_at_40%_80%,#efd4b2_0%,#b79c82_60%,#a4886f_100%)]"
+        >
+          <a class="text-xl font-sedan_sc">Unified Assessment Platform</a>
+          <div class="flex items-center space-x-12 text-2xl">
+            <div class="relative cursor-pointer">
+              <a href="Notifications.html"
+                ><i class="fa-regular fa-bell text-black text-2xl"></i
+              ></a>
+              <span
+                id="notifyCount"
+                class="absolute -top-1 -right-3 bg-red-600 text-white text-xs w-4 h-4 flex items-center justify-center rounded-full font-bold hidden"
+              >
+              </span>
+            </div>
+            <a href="AdminProfile.html">
+              <i class="fa-solid fa-user text-black"></i>
+            </a>
+          </div>
+        </header>
+        <div class="p-10 overflow-y-auto h-full space-y-10">
+          <h3 class="font-[Rokkitt]">
+            Track all system activities, user actions, and generated reports.
+          </h3>
+          <h2 class="text-2xl text-[#AC7F5E] font-roboto_slab">
+            Logs & Reports
+          </h2>
+          <div
+            class="flex justify-between items-center bg-white p-6 border border-[#AC7F5E] rounded-xl shadow-lg"
+          >
+            <div class="relative w-full max-w-sm">
+              <input
+                id="searchInput"
+                type="text"
+                placeholder="Search ..."
+                class="w-full py-2 pl-10 pr-4 text-gray-700 bg-white border border-[#00C3D0] rounded-lg shadow-sm focus:outline-none focus:border-[#00C8B3] focus:ring-1 focus:ring-[#00C8B3] font-roboto text-sm transition duration-150 ease-in-out"
+              />
+              <i
+                class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"
+              ></i>
+            </div>
+            <select
+              id="roleFilter"
+              class="border border-[#00C3D0] rounded-lg px-4 py-2 w-[200px]"
+            >
+              <option value="all">All Roles</option>
+              <option>Admin</option>
+              <option>Instructor</option>
+              <option>User</option>
+            </select>
+            <input
+              id="dateFilter"
+              type="date"
+              class="border border-[#00C3D0] rounded-lg px-4 py-2 w-[200px]"
+            />
+            <select
+              id="actionFilter"
+              class="border border-[#00C3D0] rounded-lg px-4 py-2 w-[200px]"
+            >
+              <option value="all">All Actions</option>
+              <option>Added Assessment</option>
+              <option>Published Results</option>
+              <option>Edited Assessment</option>
+              <option>Added Student</option>
+              <option>Notification Sent</option>
+            </select>
+          </div>
+          <button
+            onclick="downloadCSV()"
+            class="px-6 py-2 bg-[#E6D3B8] hover:bg-[#D8C1A2] border border-[#A4886F] rounded-lg"
+          >
+            <i class="fa-solid fa-download mr-2"></i>Export
+          </button>
+          <div
+            class="bg-white border border-[#AC7F5E] shadow-lg p-6 rounded-xl"
+          >
+            <h3 class="text-lg font-[Rokkitt] mb-4">Activity Log Table</h3>
+
+            <table
+              class="w-full text-left border-collapse font-roboto_serif text-sm"
+            >
+              <thead>
+                <tr class="border-b" style="border-color: #00c3d0">
+                  <th class="py-3">Date</th>
+                  <th>Time</th>
+                  <th>User</th>
+                  <th>Role</th>
+                  <th>Action Performed</th>
+                  <th>Description</th>
+                </tr>
+              </thead>
+              <tbody id="reportTableBody"></tbody>
+            </table>
+          </div>
+          <h2 class="text-2xl text-[#AC7F5E] font-roboto_slab">
+            Suspicious Behavior Alerts
+          </h2>
+          <div
+            class="bg-white border border-[#AC7F5E] shadow-lg p-6 rounded-xl"
+          >
+            <div
+              class="border border-[#00C3D0] p-5 rounded-xl mb-4 transform transition duration-300 hover:scale-[1.03] hover:bg-gray-50"
+            >
+              <h4 class="font-bold text-lg mb-1">
+                <i class="fa-solid fa-bell mr-2"></i> User Activity
+              </h4>
+              <p>Too many submissions in a short time (User: John)</p>
+            </div>
+            <div
+              class="border border-[#00C3D0] p-5 rounded-xl mb-4 transform transition duration-300 hover:scale-[1.03] hover:bg-gray-50"
+            >
+              <h4 class="font-bold text-lg mb-1">
+                <i class="fa-solid fa-triangle-exclamation mr-2"></i>
+                Admin Activity
+              </h4>
+              <p>Multiple failed logins detected (User: Admin - Santhiya)</p>
+            </div>
+            <div
+              class="border border-[#00C3D0] p-5 rounded-xl transform transition duration-300 hover:scale-[1.03] hover:bg-gray-50"
+            >
+              <h4 class="font-bold text-lg mb-1">
+                <i class="fa-solid fa-exclamation mr-2"></i>
+                Instructor Activity
+              </h4>
+              <p>
+                Rapid edits in multiple assessments (User: Instructor - Balu)
+              </p>
+            </div>
+          </div>
+        </div>
+        <footer
+          class="w-full py-4 text-center bg-white shadow-inner text-gray-600 text-sm"
+        >
+          © 2025 Unified Assessment Platform. All rights reserved.<br />
+          Test Your Limits, Track Your Growth.
+        </footer>
+      </div>
+    </div>
+    <script>
+      const notificationCount = 3;
+      const badge = document.getElementById("notifyCount");
+      if (notificationCount > 0) {
+        badge.innerText = notificationCount;
+        badge.classList.remove("hidden");
+      }
+      const logsData = [
+        {date:"04/09/2025", time:"09:12 AM", user:"Pradeep", role:"Admin", action:"Added Assessment", description:"Created “Final Project”."},
+        {date:"06/09/2025", time:"02:25 PM", user:"Amudhini", role:"Instructor", action:"Published Results", description:"“Model Review” results published."},
+        {date:"10/09/2025", time:"10:10 AM", user:"Vinmadhi", role:"Instructor", action:"Edited Assessment", description:"Updated deadline for “Practical Test”."},
+        {date:"12/09/2025", time:"11:45 AM", user:"Sarvin", role:"User", action:"Notification Sent", description:"Reminder sent to new users."},
+        {date:"15/09/2025", time:"04:30 PM", user:"Vijay", role:"Instructor", action:"Added Student", description:"Deadline reminder sent."}
+      ];
+      function renderLogs(filteredLogs){
+        const tbody = document.getElementById("reportTableBody");
+        tbody.innerHTML = filteredLogs.length ? filteredLogs.map(log=>`
+          <tr class="border-b" style="border-color:#00c3d0">
+            <td class="py-3">${log.date}</td>
+            <td>${log.time}</td>
+            <td>${log.user}</td>
+            <td>${log.role}</td>
+            <td>${log.action}</td>
+            <td>${log.description}</td>
+          </tr>`).join('') : '<tr><td colspan="6" class="py-6 text-center text-gray-500">No logs found</td></tr>';
+      }
+      function filterLogs(){
+        const search = document.getElementById("searchInput").value.toLowerCase().trim();
+        const role = document.getElementById("roleFilter").value;
+        const action = document.getElementById("actionFilter").value;
+        const date = document.getElementById("dateFilter").value;
+        const filtered = logsData.filter(log=>{
+          return (role==="all"||log.role===role)
+          && (action==="all"||log.action===action)
+          && (!date||log.date===new Date(date).toLocaleDateString("en-GB"))
+          && (!search||log.user.toLowerCase().includes(search)
+              ||log.role.toLowerCase().includes(search)
+              ||log.action.toLowerCase().includes(search)
+              ||log.description.toLowerCase().includes(search));
+        }).sort((a,b)=>a.date.localeCompare(b.date)||a.time.localeCompare(b.time));
+        renderLogs(filtered);
+      }
+      document.addEventListener("DOMContentLoaded",()=>{
+        renderLogs(logsData);
+        document.getElementById("searchInput").addEventListener("input",filterLogs);
+        document.getElementById("roleFilter").addEventListener("change",filterLogs);
+        document.getElementById("actionFilter").addEventListener("change",filterLogs);
+        document.getElementById("dateFilter").addEventListener("change",filterLogs);
+      });
+      function downloadCSV(){
+        let csv="Date,Time,User,Role,Action,Description\n";
+        logsData.forEach(log=>{
+          csv+=`${log.date},${log.time},${log.user},${log.role},${log.action},${log.description}\n`;
+        });
+        let blob=new Blob([csv],{type:"text/csv"});
+        let url=URL.createObjectURL(blob);
+        let a=document.createElement("a");
+        a.href=url;
+        a.download="Logs_Report.csv";
+        a.click();
+      }
+    </script>
+  </body>
+</html>

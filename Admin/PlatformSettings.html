@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Platform Settings</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Roboto+Slab:wght@300;400;500;700&family=Roboto+Serif&family=Sedan+SC&family=Rokkitt:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="overflow-hidden font-roboto" onload="loadAllData()">
+    <div class="flex min-h-screen h-screen overflow-hidden">
+      <aside
+        class="w-64 text-black p-6 bg-[radial-gradient(circle_at_30%_20%,#edd3b1_0%,#b79c82_60%,#a4886f_100%),radial-gradient(circle_at_70%_60%,#f0d6b5_0%,#b89f86_60%,#a4886f_100%),radial-gradient(circle_at_40%_80%,#efd4b2_0%,#b79c82_60%,#a4886f_100%)]"
+      >
+        <nav class="space-y-8 m-4 text-lg">
+          <button
+            onclick="window.location.href='home.html'"
+            class="w-full py-3 rounded flex justify-center items-center gap-3 hover:text-white hover:bg-black"
+          >
+            <i class="fa-solid fa-house"></i>Home
+          </button>
+          <button
+            onclick="window.location.href='UserManagement.html'"
+            class="w-full py-3 rounded flex justify-center items-center gap-3 hover:text-white hover:bg-black"
+          >
+            <i class="fa-solid fa-list-check"></i>Management
+          </button>
+          <button
+            onclick="window.location.href='AssessmentOverview.html'"
+            class="w-full py-3 rounded flex justify-center items-center gap-3 hover:text-white hover:bg-black"
+          >
+            <i class="fa-solid fa-chart-simple"></i>Overview
+          </button>
+          <button
+            onclick="window.location.href='LogsReports.html'"
+            class="w-full py-3 rounded flex justify-center items-center gap-3 hover:text-white hover:bg-black"
+          >
+            <i class="fa-solid fa-database"></i>Logs & Reports
+          </button>
+          <button
+            onclick="location.reload()"
+            class="w-full py-3 rounded flex justify-center items-center gap-3 hover:text-white hover:bg-black bg-black/20 font-[roboto_condensed] text-black"
+          >
+            <i class="fa-solid fa-gear"></i>Platform Settings
+          </button>
+          <button
+            onclick="window.location.href='../index.html'"
+            class="w-full py-3 rounded flex justify-center items-center gap-3 hover:text-white hover:bg-black"
+          >
+            <i class="fa-solid fa-right-from-bracket"></i>Logout
+          </button>
+        </nav>
+      </aside>
+      <div class="flex-1 flex flex-col overflow-hidden">
+        <header
+          class="w-full flex justify-between items-center px-8 py-4 shadow text-black bg-[radial-gradient(circle_at_30%_20%,#edd3b1_0%,#b79c82_60%,#a4886f_100%),radial-gradient(circle_at_70%_60%,#f0d6b5_0%,#b89f86_60%,#a4886f_100%),radial-gradient(circle_at_40%_80%,#efd4b2_0%,#b79c82_60%,#a4886f_100%)]"
+        >
+          <a class="text-xl text-black font-sedan_sc"
+            >Unified Assessment Platform</a
+          >
+          <div class="flex items-center space-x-12 text-2xl">
+            <div class="relative cursor-pointer">
+              <a href="Notifications.html">
+                <i class="fa-regular fa-bell text-black text-2xl"></i>
+              </a>
+              <span
+                id="notifyCount"
+                class="absolute -top-1 -right-3 bg-red-600 text-white text-xs w-4 h-4 flex items-center justify-center rounded-full font-bold hidden"
+              ></span>
+            </div>
+            <i class="fa-solid fa-user text-black cursor-pointer"></i>
+          </div>
+        </header>
+        <div class="p-10 overflow-y-auto h-full space-y-10">
+          <h2 class="text-2xl text-[#AC7F5E] font-roboto_slab">
+            Platform Settings
+          </h2>
+          <div
+            class="bg-white border border-[#AC7F5E] shadow-lg p-6 rounded-xl"
+          >
+            <h3 class="text-lg font-rokkitt mb-4">User Roles & Permissions</h3>
+            <table
+              class="w-full text-left border-collapse font-roboto_serif text-sm"
+            >
+              <thead>
+                <tr class="border-b" style="border-color: #00c3d0">
+                  <th class="py-3">Role</th>
+                  <th>Access Level</th>
+                  <th>Description</th>
+                  <th>Manage</th>
+                </tr>
+              </thead>
+              <tbody id="rolesTable"></tbody>
+            </table>
+            <button
+              onclick="addNewRole()"
+              class="mt-4 px-4 py-2 bg-[#C7F7E9] border border-[#00C3D0] rounded hover:bg-[#9EEAD8]"
+            >
+              Add User
+            </button>
+          </div>
+          <div
+            class="bg-white border border-[#AC7F5E] shadow-lg p-6 rounded-xl"
+          >
+            <h3 class="text-lg font-rokkitt mb-4">Institution Details</h3>
+            <div id="institutionDetailsBlock" class="space-y-4"></div>
+            <div class="grid grid-cols-2 gap-4 mt-4">
+              <input
+                id="instName"
+                type="text"
+                placeholder="Institution Name"
+                class="border p-3 rounded w-full"
+              />
+              <input
+                id="instLogo"
+                type="text"
+                placeholder="Logo URL"
+                class="border p-3 rounded w-full"
+              />
+              <input
+                id="instEmail"
+                type="text"
+                placeholder="Support Email"
+                class="border p-3 rounded w-full"
+              />
+              <input
+                id="instPhone"
+                type="text"
+                placeholder="Helpline Number"
+                class="border p-3 rounded w-full"
+              />
+              <input
+                id="instWeb"
+                type="text"
+                placeholder="Website URL"
+                class="border p-3 rounded w-full"
+              />
+            </div>
+            <button
+              onclick="saveInstitution()"
+              class="mt-4 px-4 py-2 bg-[#C7F7E9] border border-[#00C3D0] rounded hover:bg-[#9EEAD8]"
+            >
+              Save Institutional Details
+            </button>
+          </div>
+        </div>
+        <footer
+          class="w-full py-4 text-center bg-white shadow-inner text-gray-600 text-sm"
+        >
+          © 2025 Unified Assessment Platform. All rights reserved.<br />Test
+          Your Limits, Track Your Growth.
+        </footer>
+      </div>
+    </div>
+    <script>
+      const count = 3;
+      const badge = document.getElementById("notifyCount");
+      if (count > 0) {
+        badge.innerText = count;
+        badge.classList.remove("hidden");
+      }
+      function loadAllData() {
+        let roles = JSON.parse(localStorage.getItem("rolesData"));
+        if (!roles) {
+          roles = [
+            {
+              role: "Admin",
+              access: "Full/Moderate",
+              desc: "Manage Users, assessments, settings",
+            },
+            {
+              role: "Instructor",
+              access: "Full/Moderate",
+              desc: "Create and grade assessments",
+            },
+            {
+              role: "User",
+              access: "Full/Moderate",
+              desc: "Attend assessments",
+            },
+          ];
+          localStorage.setItem("rolesData", JSON.stringify(roles));
+        }
+        renderRoles();
+        let inst = JSON.parse(localStorage.getItem("institutionData")) || [];
+        renderInstitution(inst);
+      }
+      function renderRoles() {
+        let roles = JSON.parse(localStorage.getItem("rolesData"));
+        let html = "";
+        roles.forEach((r, i) => {
+          html += `<tr class="border-b">
+<td class="py-3">${r.role}</td>
+<td>${r.access}</td>
+<td>${r.desc}</td>
+<td><button onclick="editRole(${i})" class="px-4 py-1 bg-[#EBFFD4] border border-[#00C3D0] rounded hover:bg-[#C5F7A1]">Edit</button></td>
+</tr>`;
+        });
+        document.getElementById("rolesTable").innerHTML = html;
+      }
+      function editRole(i) {
+        localStorage.setItem("editRoleIndex", i);
+        window.location.href = "PlatformEdit.html";
+      }
+      function addNewRole() {
+        let roles = JSON.parse(localStorage.getItem("rolesData"));
+        roles.push({ role: "New User", access: "None", desc: "" });
+        localStorage.setItem("rolesData", JSON.stringify(roles));
+        renderRoles();
+      }
+      function saveInstitution() {
+        let inst = JSON.parse(localStorage.getItem("institutionData")) || [];
+        inst.push({
+          name: document.getElementById("instName").value,
+          logo: document.getElementById("instLogo").value,
+          email: document.getElementById("instEmail").value,
+          phone: document.getElementById("instPhone").value,
+          web: document.getElementById("instWeb").value,
+        });
+        localStorage.setItem("institutionData", JSON.stringify(inst));
+        renderInstitution(inst);
+      }
+      function renderInstitution(list) {
+        let block = "";
+        list.forEach((d, i) => {
+          block += `<div class="border border-[#00C3D0] p-4 rounded-lg bg-[#D9F7F7]/30 transform transition duration-300 hover:scale-[1.03] ">
+<p><b>Name:</b> ${d.name}</p>
+<p><b>Email:</b> ${d.email}</p>
+<p><b>Phone:</b> ${d.phone}</p>
+<p><b>Website:</b> ${d.web}</p>
+<button onclick="editInstitution(${i})" class="mt-2 px-3 py-1 bg-[#EBFFD4] border border-[#00C3D0] rounded hover:bg-[#C5F7A1]">Edit</button>
+</div>`;
+        });
+        document.getElementById("institutionDetailsBlock").innerHTML = block;
+      }
+      function editInstitution(i) {
+        localStorage.setItem("editInstitutionIndex", i);
+        window.location.href = "PlatformEdit.html";
+      }
+    </script>
+  </body>
+</html>

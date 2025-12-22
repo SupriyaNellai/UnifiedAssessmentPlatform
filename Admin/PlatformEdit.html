@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Platform Edit</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Roboto+Slab:wght@300;400;500;700&family=Roboto+Serif&family=Sedan+SC&family=Rokkitt:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="overflow-hidden font-roboto" onload="loadEditData()">
+    <div class="flex min-h-screen h-screen overflow-hidden">
+      <aside
+        class="w-64 text-black p-6 bg-[radial-gradient(circle_at_30%_20%,#edd3b1_0%,#b79c82_60%,#a4886f_100%),radial-gradient(circle_at_70%_60%,#f0d6b5_0%,#b89f86_60%,#a4886f_100%),radial-gradient(circle_at_40%_80%,#efd4b2_0%,#b79c82_60%,#a4886f_100%)]"
+      >
+        <nav class="space-y-8 m-4 text-lg">
+          <button
+            onclick="window.location.href='home.html'"
+            class="w-full py-3 rounded flex justify-center items-center gap-3 hover:text-white hover:bg-black"
+          >
+            <i class="fa-solid fa-house"></i>Home
+          </button>
+          <button
+            onclick="window.location.href='UserManagement.html'"
+            class="w-full py-3 rounded flex justify-center items-center gap-3 hover:text-white hover:bg-black"
+          >
+            <i class="fa-solid fa-list-check"></i>Management
+          </button>
+          <button
+            onclick="window.location.href='AssessmentOverview.html'"
+            class="w-full py-3 rounded flex justify-center items-center gap-3 hover:text-white hover:bg-black"
+          >
+            <i class="fa-solid fa-chart-simple"></i>Overview
+          </button>
+          <button
+            onclick="window.location.href='LogsReports.html'"
+            class="w-full py-3 rounded flex justify-center items-center gap-3 hover:text-white hover:bg-black"
+          >
+            <i class="fa-solid fa-database"></i>Logs & Reports
+          </button>
+          <button
+            onclick="location.reload()"
+            class="w-full py-3 rounded flex justify-center items-center gap-3 hover:text-white hover:bg-black bg-black/20 font-[roboto_condensed] text-black"
+          >
+            <i class="fa-solid fa-gear"></i>Platform Settings
+          </button>
+          <button
+            onclick="window.location.href='../index.html'"
+            class="w-full py-3 rounded flex justify-center items-center gap-3 hover:text-white hover:bg-black"
+          >
+            <i class="fa-solid fa-right-from-bracket"></i>Logout
+          </button>
+        </nav>
+      </aside>
+      <div class="flex-1 flex flex-col overflow-hidden">
+        <header
+          class="w-full flex justify-between items-center px-8 py-4 shadow text-black bg-[radial-gradient(circle_at_30%_20%,#edd3b1_0%,#b79c82_60%,#a4886f_100%),radial-gradient(circle_at_70%_60%,#f0d6b5_0%,#b89f86_60%,#a4886f_100%),radial-gradient(circle_at_40%_80%,#efd4b2_0%,#b79c82_60%,#a4886f_100%)]"
+        >
+          <a class="text-xl text-black font-sedan_sc"
+            >Unified Assessment Platform</a
+          >
+          <div class="flex items-center space-x-12 text-2xl">
+            <div class="relative cursor-pointer">
+              <a href="Notifications.html">
+                <i class="fa-regular fa-bell text-black text-2xl"></i>
+              </a>
+              <span
+                id="notifyCount"
+                class="absolute -top-1 -right-3 bg-red-600 text-white text-xs w-4 h-4 flex items-center justify-center rounded-full font-bold hidden"
+              ></span>
+            </div>
+            <i class="fa-solid fa-user cursor-pointer"></i>
+          </div>
+        </header>
+        <div class="p-10 overflow-y-auto h-full space-y-10">
+          <h2 class="text-2xl text-[#AC7F5E] font-roboto_slab">Edit Details</h2>
+          <div
+            class="bg-white border border-[#AC7F5E] shadow-lg p-6 rounded-xl"
+            id="editContainer"
+          ></div>
+        </div>
+        <footer
+          class="w-full py-4 text-center bg-white shadow-inner text-gray-600 text-sm"
+        >
+          © 2025 Unified Assessment Platform. All rights reserved.<br />Test
+          Your Limits, Track Your Growth.
+        </footer>
+      </div>
+    </div>
+    <script>
+      const count = 3;
+      const badge = document.getElementById("notifyCount");
+      if (count > 0) {
+        badge.innerText = count;
+        badge.classList.remove("hidden");
+      }
+      let editType = "";
+      let index = -1;
+      function loadEditData() {
+        let roleIndex = localStorage.getItem("editRoleIndex");
+        let instIndex = localStorage.getItem("editInstitutionIndex");
+        let container = document.getElementById("editContainer");
+        if (roleIndex !== null) {
+          editType = "role";
+          index = parseInt(roleIndex);
+          let roles = JSON.parse(localStorage.getItem("rolesData"));
+          container.innerHTML = `<div class="grid grid-cols-3 gap-6">
+<div><label class="font-semibold">Role</label><input id="roleField" type="text" class="border p-3 rounded w-full mt-2" value="${roles[index].role}"></div>
+<div><label class="font-semibold">Access Level</label><input id="accessField" type="text" class="border p-3 rounded w-full mt-2" value="${roles[index].access}"></div>
+<div><label class="font-semibold">Description</label><input id="descField" type="text" class="border p-3 rounded w-full mt-2" value="${roles[index].desc}"></div>
+</div>
+<div class="mt-6 flex gap-4">
+<button onclick="saveChanges()" class="px-6 py-3 bg-[#C7F7E9] border border-[#00C3D0] rounded hover:bg-[#9EEAD8]">Save</button>
+<button onclick="cancelEdit()" class="px-6 py-3 bg-[#F7D1D1] border border-[#FF7F7F] rounded hover:bg-[#FFB2B2]">Cancel</button>
+</div>`;
+          localStorage.removeItem("editRoleIndex");
+          return;
+        }
+        if (instIndex !== null) {
+          editType = "institution";
+          index = parseInt(instIndex);
+          let inst = JSON.parse(localStorage.getItem("institutionData"));
+          container.innerHTML = `<div class="grid grid-cols-2 gap-4">
+<div><label class="font-semibold">Institution Name</label><input id="nameField" type="text" class="border p-3 rounded w-full mt-2" value="${inst[index].name}"></div>
+<div><label class="font-semibold">Logo URL</label><input id="logoField" type="text" class="border p-3 rounded w-full mt-2" value="${inst[index].logo}"></div>
+<div><label class="font-semibold">Support Email</label><input id="emailField" type="text" class="border p-3 rounded w-full mt-2" value="${inst[index].email}"></div>
+<div><label class="font-semibold">Helpline Number</label><input id="phoneField" type="text" class="border p-3 rounded w-full mt-2" value="${inst[index].phone}"></div>
+<div><label class="font-semibold">Website URL</label><input id="webField" type="text" class="border p-3 rounded w-full mt-2" value="${inst[index].web}"></div>
+</div>
+<div class="mt-6 flex gap-4">
+<button onclick="saveChanges()" class="px-6 py-3 bg-[#C7F7E9] border border-[#00C3D0] rounded hover:bg-[#9EEAD8]">Save</button>
+<button onclick="cancelEdit()" class="px-6 py-3 bg-[#F7D1D1] border border-[#FF7F7F] rounded hover:bg-[#FFB2B2]">Cancel</button>
+</div>`;
+          localStorage.removeItem("editInstitutionIndex");
+          return;
+        }
+      }
+      function saveChanges() {
+        if (editType === "role") {
+          let roles = JSON.parse(localStorage.getItem("rolesData"));
+          roles[index].role = document.getElementById("roleField").value;
+          roles[index].access = document.getElementById("accessField").value;
+          roles[index].desc = document.getElementById("descField").value;
+          localStorage.setItem("rolesData", JSON.stringify(roles));
+        }
+        if (editType === "institution") {
+          let inst = JSON.parse(localStorage.getItem("institutionData"));
+          inst[index].name = document.getElementById("nameField").value;
+          inst[index].logo = document.getElementById("logoField").value;
+          inst[index].email = document.getElementById("emailField").value;
+          inst[index].phone = document.getElementById("phoneField").value;
+          inst[index].web = document.getElementById("webField").value;
+          localStorage.setItem("institutionData", JSON.stringify(inst));
+        }
+        window.location.href = "PlatformSettings.html";
+      }
+      function cancelEdit() {
+        window.location.href = "PlatformSettings.html";
+      }
+    </script>
+  </body>
+</html>

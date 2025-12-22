@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Assessment Overview</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Roboto+Slab:wght@300;400;500;700&family=Roboto+Serif&family=Sedan+SC&family=Rokkitt:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body class="overflow-hidden font-roboto">
+    <div class="flex min-h-screen h-screen overflow-hidden">
+      <aside
+        class="w-64 text-black p-6 bg-[radial-gradient(circle_at_30%_20%,#edd3b1_0%,#b79c82_60%,#a4886f_100%),radial-gradient(circle_at_70%_60%,#f0d6b5_0%,#b89f86_60%,#a4886f_100%),radial-gradient(circle_at_40%_80%,#efd4b2_0%,#b79c82_60%,#a4886f_100%)]"
+      >
+        <nav class="space-y-8 m-4 text-lg font-[roboto_condensed]">
+          <button
+            onclick="window.location.href='home.html'"
+            class="w-full py-3 rounded flex justify-center items-center gap-3 hover:text-white hover:bg-black"
+          >
+            <i class="fa-solid fa-house"></i>
+            Home
+          </button>
+
+          <button
+            onclick="window.location.href='UserManagement.html'"
+            class="w-full py-3 rounded flex justify-center items-center gap-3 hover:text-white hover:bg-black"
+          >
+            <i class="fa-solid fa-list-check"></i>
+            Management
+          </button>
+
+          <button
+            onclick="location.reload()"
+            class="w-full py-3 rounded flex justify-center items-center gap-3 hover:text-white bg-black/20 hover:bg-black"
+          >
+            <i class="fa-solid fa-chart-simple"></i>
+            Overview
+          </button>
+
+          <button
+            onclick="window.location.href='LogsReports.html'"
+            class="w-full py-3 rounded flex justify-center items-center gap-3 hover:text-white hover:bg-black"
+          >
+            <i class="fa-solid fa-database"></i>
+            Logs & Reports
+          </button>
+
+          <button
+            onclick="window.location.href='PlatformSettings.html'"
+            class="w-full py-3 rounded flex justify-center items-center gap-3 hover:text-white hover:bg-black"
+          >
+            <i class="fa-solid fa-gear"></i>
+            Platform Settings
+          </button>
+
+          <button
+            onclick="window.location.href='../index.html'"
+            class="w-full py-3 rounded flex justify-center items-center gap-3 hover:text-white hover:bg-black"
+          >
+            <i class="fa-solid fa-right-from-bracket"></i>
+            Logout
+          </button>
+        </nav>
+      </aside>
+      <div class="flex-1 flex flex-col overflow-hidden">
+        <header
+          class="w-full flex justify-between items-center px-8 py-4 shadow text-black bg-[radial-gradient(circle_at_30%_20%,#edd3b1_0%,#b79c82_60%,#a4886f_100%),radial-gradient(circle_at_70%_60%,#f0d6b5_0%,#b89f86_60%,#a4886f_100%),radial-gradient(circle_at_40%_80%,#efd4b2_0%,#b79c82_60%,#a4886f_100%)]"
+        >
+          <p class="text-xl font-sedan_sc">Unified Assessment Platform</p>
+          <div class="flex items-center space-x-12 text-2xl">
+            <div class="relative cursor-pointer">
+              <a href="Notifications.html">
+                <i class="fa-regular fa-bell text-black text-2xl"></i>
+              </a>
+              <span
+                id="notifyCount"
+                class="absolute -top-1 -right-3 bg-red-600 text-white text-xs w-4 h-4 flex items-center justify-center rounded-full font-bold hidden"
+              ></span>
+            </div>
+            <i class="fa-solid fa-user cursor-pointer"></i>
+          </div>
+        </header>
+        <div class="p-10 overflow-y-auto h-full space-y-10">
+          <h2 class="text-2xl text-[#AC7F5E] mb-6 font-roboto_slab">
+            Assessment Overview
+          </h2>
+          <div
+            class="bg-white border border-[#AC7F5E] rounded-xl p-6 shadow space-y-6"
+          >
+            <h3 class="text-lg font-[Rokkitt] mb-4">Overview</h3>
+            <div class="grid grid-cols-4 gap-6">
+              <div
+                class="border border-[#AC7F5E] p-6 rounded-xl text-center shadow transform transition duration-300 hover:scale-105 hover:bg-[#FFF1C5]/40"
+              >
+                <i
+                  class="fa-solid fa-file-lines text-4xl text-[#AC7F5E] mb-2"
+                ></i>
+                <p class="text-4xl font-bold">48</p>
+                <p class="mt-2">Total Assessments</p>
+              </div>
+              <div
+                class="border border-[#AC7F5E] p-6 rounded-xl text-center shadow transform transition duration-300 hover:scale-105 hover:bg-[#D9B4F7]/40"
+              >
+                <i
+                  class="fa-solid fa-circle-check text-4xl text-[#AC7F5E] mb-2"
+                ></i>
+                <p class="text-4xl font-bold">34</p>
+                <p class="mt-2">Completed</p>
+              </div>
+              <div
+                class="border border-[#AC7F5E] p-6 rounded-xl text-center shadow transform transition duration-300 hover:scale-105 hover:bg-[#F6C7D8]/40"
+              >
+                <i class="fa-solid fa-spinner text-4xl text-[#AC7F5E] mb-2"></i>
+                <p class="text-4xl font-bold">10</p>
+                <p class="mt-2">Ongoing</p>
+              </div>
+              <div
+                class="border border-[#AC7F5E] p-6 rounded-xl text-center shadow transform duration-300 hover:scale-105 hover:bg-[#E0FFD1]/40"
+              >
+                <i
+                  class="fa-solid fa-calendar-days text-4xl text-[#AC7F5E] mb-2"
+                ></i>
+                <p class="text-4xl font-bold">04</p>
+                <p class="mt-2">Upcoming</p>
+              </div>
+            </div>
+            <div class="flex justify-center mt-4">
+              <div
+                class="w-48 border border-[#AC7F5E] p-6 rounded-xl shadow text-center transform transition duration-300 hover:scale-105 hover:bg-[#C7F7E9]/40"
+              >
+                <i
+                  class="fa-solid fa-chart-line text-4xl text-[#AC7F5E] mb-2"
+                ></i>
+                <p class="text-4xl font-bold">87%</p>
+                <p class="mt-2">Average Submission Rate</p>
+              </div>
+            </div>
+          </div>
+          <h2 class="text-2xl text-[#AC7F5E] mb-6 font-roboto_slab">
+            Active Assessments
+          </h2>
+          <div class="bg-white border border-[#AC7F5E] p-6 rounded-xl shadow">
+            <table class="w-full text-left text-base font-roboto_serif">
+              <thead class="border-b border-[#AC7F5E]">
+                <tr>
+                  <th class="py-2">Title</th>
+                  <th>Created by</th>
+                  <th>Role</th>
+                  <th>Created On</th>
+                  <th>Deadline</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y">
+                <tr class="hover:bg-[#FFF1C5]/50 transition duration-200">
+                  <td class="py-3">Angular js</td>
+                  <td>Dr.Pradeep</td>
+                  <td>Instructor</td>
+                  <td>02 Oct 2025</td>
+                  <td>10 Oct 2025</td>
+                  <td class="text-green-700">Active</td>
+                </tr>
+                <tr class="hover:bg-[#FFF1C5]/50 transition duration-200">
+                  <td class="py-3">JavaScript</td>
+                  <td>Dr.Kavin</td>
+                  <td>Instructor</td>
+                  <td>02 Oct 2025</td>
+                  <td>10 Oct 2025</td>
+                  <td class="text-green-700">Active</td>
+                </tr>
+                <tr class="hover:bg-[#FFF1C5]/50 transition duration-200">
+                  <td class="py-3">Reactjs</td>
+                  <td>Dr.Mithra</td>
+                  <td>Instructor</td>
+                  <td>05 Oct 2025</td>
+                  <td>10 Oct 2025</td>
+                  <td class="text-blue-700">Upcoming</td>
+                </tr>
+                <tr class="hover:bg-[#FFF1C5]/50 transition duration-200">
+                  <td class="py-3">Web Development</td>
+                  <td>Dr.Vinmathi</td>
+                  <td>Instructor</td>
+                  <td>18 Oct 2025</td>
+                  <td>25 Oct 2025</td>
+                  <td class="text-gray-700">Completed</td>
+                </tr>
+                <tr class="hover:bg-[#FFF1C5]/50 transition duration-200">
+                  <td class="py-3">Java Programming</td>
+                  <td>Dr.Sarvin</td>
+                  <td>Instructor</td>
+                  <td>19 Oct 2025</td>
+                  <td>26 Oct 2025</td>
+                  <td class="text-green-700">Active</td>
+                </tr>
+                <tr class="hover:bg-[#FFF1C5]/50 transition duration-200">
+                  <td class="py-3">Model Review</td>
+                  <td>Dr.Armudhini</td>
+                  <td>Instructor</td>
+                  <td>23 Oct 2025</td>
+                  <td>10 Nov 2025</td>
+                  <td class="text-green-700">Active</td>
+                </tr>
+                <tr class="hover:bg-[#FFF1C5]/50 transition duration-200">
+                  <td class="py-3">Final Project</td>
+                  <td>Dr.Sarvin</td>
+                  <td>Instructor</td>
+                  <td>02 Nov 2025</td>
+                  <td>14 Nov 2025</td>
+                  <td class="text-blue-700">Upcoming</td>
+                </tr>
+                <tr class="hover:bg-[#FFF1C5]/50 transition duration-200">
+                  <td class="py-3">Big Data Analytics</td>
+                  <td>Dr.Pradeep</td>
+                  <td>Instructor</td>
+                  <td>05 Nov 2025</td>
+                  <td>17 Nov 2025</td>
+                  <td class="text-gray-700">Scheduled</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <h2 class="text-2xl text-[#AC7F5E] mb-6 font-roboto_slab">
+            Recent Feedback Summary
+          </h2>
+          <div
+            class="bg-white border border-[#AC7F5E] p-6 rounded-xl shadow space-y-3 transform transition duration-300 hover:scale-[1.02] hover:bg-[#D9B4F7]/30"
+          >
+            <p>“Students found the Model Review assessment engaging.”</p>
+            <p>“Practical test duration can be extended.”</p>
+            <p>“Add grading rubrics for Final Project evaluation.”</p>
+          </div>
+        </div>
+        <footer
+          class="w-full py-4 text-center bg-white shadow-inner text-gray-600 text-sm"
+        >
+          © 2025 Unified Assessment Platform. All rights reserved.
+        </footer>
+      </div>
+    </div>
+    <script>
+      const count = 3;
+      const badge = document.getElementById("notifyCount");
+      if (count > 0) {
+        badge.innerText = count;
+        badge.classList.remove("hidden");
+      }
+    </script>
+  </body>
+</html>

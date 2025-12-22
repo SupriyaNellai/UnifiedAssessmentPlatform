@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profile</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Roboto+Slab:wght@300;400;500;700&family=Roboto+Serif&family=Sedan+SC&family=Rokkitt:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="overflow-hidden font-roboto">
+    <div class="flex min-h-screen h-screen overflow-hidden">
+      <aside
+        class="w-64 text-black p-6 bg-[radial-gradient(circle_at_30%_20%,#edd3b1_0%,#b79c82_60%,#a4886f_100%),radial-gradient(circle_at_70%_60%,#f0d6b5_0%,#b89f86_60%,#a4886f_100%),radial-gradient(circle_at_40%_80%,#efd4b2_0%,#b79c82_60%,#a4886f_100%)]"
+      >
+        <nav class="space-y-8 m-4 text-lg">
+          <button
+            onclick="window.location.href='home.html'"
+            class="w-full py-3 rounded flex justify-center items-center gap-3 hover:text-white hover:bg-black"
+          >
+            <i class="fa-solid fa-house"></i> Home
+          </button>
+          <button
+            onclick="window.location.href='UserManagement.html'"
+            class="w-full py-3 rounded flex justify-center items-center gap-3 hover:text-white hover:bg-black"
+          >
+            <i class="fa-solid fa-list-check"></i> Management
+          </button>
+          <button
+            onclick="window.location.href='AssessmentOverview.html'"
+            class="w-full py-3 rounded flex justify-center items-center gap-3 hover:text-white hover:bg-black"
+          >
+            <i class="fa-solid fa-chart-simple"></i> Overview
+          </button>
+          <button
+            onclick="window.location.href='LogsReports.html'"
+            class="w-full py-3 rounded flex justify-center items-center gap-3 hover:text-white hover:bg-black"
+          >
+            <i class="fa-solid fa-database"></i> Logs & Reports
+          </button>
+          <button
+            onclick="window.location.href='PlatformSettings.html'"
+            class="w-full py-3 rounded flex justify-center items-center gap-3 hover:text-white hover:bg-black"
+          >
+            <i class="fa-solid fa-gear"></i> Platform Settings
+          </button>
+          <button
+            onclick="window.location.href='../index.html'"
+            class="w-full py-3 rounded flex justify-center items-center gap-3 hover:text-white hover:bg-black"
+          >
+            <i class="fa-solid fa-right-from-bracket"></i> Logout
+          </button>
+        </nav>
+      </aside>
+
+      <div class="flex-1 flex flex-col overflow-hidden">
+        <header
+          class="w-full flex justify-between items-center px-8 py-4 shadow text-black bg-[radial-gradient(circle_at_30%_20%,#edd3b1_0%,#b79c82_60%,#a4886f_100%),radial-gradient(circle_at_70%_60%,#f0d6b5_0%,#b89f86_60%,#a4886f_100%),radial-gradient(circle_at_40%_80%,#efd4b2_0%,#b79c82_60%,#a4886f_100%)]"
+        >
+          <a class="text-xl text-black font-sedan_sc"
+            >Unified Assessment Platform</a
+          >
+          <div class="flex items-center space-x-12 text-2xl">
+            <div class="relative cursor-pointer">
+              <a href="Notifications.html">
+                <i class="fa-regular fa-bell text-black text-2xl"></i>
+              </a>
+              <span
+                id="notifyCount"
+                class="absolute -top-1 -right-3 bg-red-600 text-white text-xs w-4 h-4 flex items-center justify-center rounded-full font-bold hidden"
+              ></span>
+            </div>
+            <a><i class="fa-solid fa-user text-black cursor-pointer"></i></a>
+          </div>
+        </header>
+
+        <div class="p-10 overflow-y-auto h-full space-y-10">
+          <div
+            class="bg-white shadow-lg p-6 rounded-xl border border-[#AC7F5E] transform transition duration-300 hover:scale-[1.03]"
+          >
+            <div class="flex justify-between items-center">
+              <div class="flex gap-4">
+                <i class="fa-solid fa-user text-5xl"></i>
+                <div>
+                  <p class="text-2xl text-[#AC7F5E] font-roboto_slab">
+                    Welcome back,
+                  </p>
+                  <p
+                    class="font-roboto_slab text-xl font-semibold"
+                    id="p-display-name"
+                  >
+                    Yasra
+                  </p>
+                  <p class="text-sm text-gray-600" id="p-display-email">
+                    yasra@gmail.com
+                  </p>
+                </div>
+              </div>
+              <i
+                onclick="window.location.href='AdminEditProfile.html'"
+                class="fa-solid fa-pen cursor-pointer transform duration-300 hover:scale-125"
+              ></i>
+            </div>
+          </div>
+
+          <div
+            class="bg-white border border-[#AC7F5E] shadow-lg p-6 rounded-xl space-y-4 transform transition duration-300 hover:scale-[1.03]"
+          >
+            <h2 class="text-xl font-roboto_slab text-[#AC7F5E]">
+              Basic Information’s
+            </h2>
+            <div class="grid grid-cols-2 gap-4 font-roboto_serif">
+              <p><strong>Name :</strong> <span id="p-name">Yasra</span></p>
+              <p>
+                <strong>Email :</strong>
+                <span id="p-email">yasra@gmail.com</span>
+              </p>
+              <p><strong>Gender :</strong> <span id="p-gender">Female</span></p>
+              <p><strong>DOB :</strong> <span id="p-dob">00/00/0000</span></p>
+              <p>
+                <strong>Contact :</strong>
+                <span id="p-contact">0000000000</span>
+              </p>
+              <p>
+                <strong>Emergency Contact :</strong>
+                <span id="p-parent">0000000000</span>
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="bg-white border border-[#AC7F5E] shadow-lg p-6 rounded-xl space-y-4 transform transition duration-300 hover:scale-[1.03]"
+          >
+            <h2 class="text-xl font-roboto_slab text-[#AC7F5E]">
+              Professional Information’s
+            </h2>
+            <div class="grid grid-cols-2 gap-4 font-roboto_serif">
+              <p><strong>Admin ID :</strong> <span id="p-id">ADM001</span></p>
+              <p>
+                <strong>Department :</strong>
+                <span id="p-spec">Administration</span>
+              </p>
+              <p>
+                <strong>Admin Role :</strong>
+                <span id="p-role">System Administrator</span>
+              </p>
+              <p>
+                <strong>Office Location :</strong>
+                <span id="p-inst">Main Campus - Block A</span>
+              </p>
+              <p>
+                <strong>Years of Service :</strong>
+                <span id="p-exp">3 Years</span>
+              </p>
+              <p>
+                <strong>System Access Level :</strong>
+                <span id="p-area">Full Access</span>
+              </p>
+              <p>
+                <strong>Employment Type :</strong>
+                <span id="p-mode">Full-Time</span>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <footer
+          class="w-full py-4 text-center bg-white shadow-inner text-gray-600 text-sm"
+        >
+          © 2025 Unified Assessment Platform. All rights reserved. <br />Empower
+          Learning. Enhance Assessment.
+        </footer>
+      </div>
+    </div>
+
+    <script>
+      const notificationCount = 3;
+      const badge = document.getElementById("notifyCount");
+      if (notificationCount > 0) {
+        badge.innerText = notificationCount;
+        badge.classList.remove("hidden");
+      }
+      const savedData =
+        JSON.parse(localStorage.getItem("adminProfileData")) || {};
+      const defaults = {
+        name: "Yasra",
+        email: "yasra@gmail.com",
+        gender: "Female",
+        dob: "00/00/0000",
+        contact: "0000000000",
+        emergencyContact: "0000000000",
+        adminId: "ADM001",
+        department: "Administration",
+        adminRole: "System Administrator",
+        office: "Main Campus - Block A",
+        serviceYears: "3",
+        access: "Full Access",
+        employment: "Full-Time",
+      };
+      document.getElementById("p-display-name").innerText =
+        savedData.name || defaults.name;
+      document.getElementById("p-display-email").innerText =
+        savedData.email || defaults.email;
+      document.getElementById("p-name").innerText =
+        savedData.name || defaults.name;
+      document.getElementById("p-email").innerText =
+        savedData.email || defaults.email;
+      document.getElementById("p-gender").innerText =
+        savedData.gender || defaults.gender;
+      document.getElementById("p-dob").innerText =
+        savedData.dob || defaults.dob;
+      document.getElementById("p-contact").innerText =
+        savedData.contact || defaults.contact;
+      document.getElementById("p-parent").innerText =
+        savedData.emergencyContact || defaults.emergencyContact;
+      document.getElementById("p-id").innerText =
+        savedData.adminId || defaults.adminId;
+      document.getElementById("p-spec").innerText =
+        savedData.department || defaults.department;
+      document.getElementById("p-role").innerText =
+        savedData.adminRole || defaults.adminRole;
+      document.getElementById("p-inst").innerText =
+        savedData.office || defaults.office;
+      document.getElementById("p-exp").innerText = savedData.serviceYears
+        ? savedData.serviceYears + " Years"
+        : defaults.serviceYears + " Years";
+      document.getElementById("p-area").innerText =
+        savedData.access || defaults.access;
+      document.getElementById("p-mode").innerText =
+        savedData.employment || defaults.employment;
+    </script>
+  </body>
+</html>

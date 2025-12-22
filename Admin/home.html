@@ -1,1 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Dashboard | Home</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Roboto+Slab:wght@300;400;500;700&family=Roboto+Serif&family=Sedan+SC&family=Rokkitt:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="overflow-hidden font-roboto">
+    <div class="flex min-h-screen h-screen overflow-hidden">
+      <aside
+        class="w-64 text-black p-6 bg-[radial-gradient(circle_at_30%_20%,#edd3b1_0%,#b79c82_60%,#a4886f_100%),radial-gradient(circle_at_70%_60%,#f0d6b5_0%,#b89f86_60%,#a4886f_100%),radial-gradient(circle_at_40%_80%,#efd4b2_0%,#b79c82_60%,#a4886f_100%)]"
+      >
+        <nav class="space-y-8 m-4 text-lg">
+          <button
+            onclick="location.reload()"
+            class="w-full py-3 rounded flex justify-center items-center gap-3 hover:text-white hover:bg-black font-[roboto_condensed] bg-black/20"
+          >
+            <i class="fa-solid fa-house"></i>
+            Home
+          </button>
+          <button
+            onclick="window.location.href='UserManagement.html'"
+            class="w-full py-3 rounded flex justify-center items-center gap-3 hover:text-white hover:bg-black font-[roboto_condensed]"
+          >
+            <i class="fa-solid fa-list-check"></i>
+            Management
+          </button>
+          <button
+            onclick="window.location.href='AssessmentOverview.html'"
+            class="w-full py-3 rounded flex justify-center items-center gap-3 hover:text-white hover:bg-black font-[roboto_condensed]"
+          >
+            <i class="fa-solid fa-chart-simple"></i>
+            Overview
+          </button>
+          <button
+            onclick="window.location.href='LogsReports.html'"
+            class="w-full py-3 rounded flex justify-center items-center gap-3 hover:text-white hover:bg-black font-[roboto_condensed]"
+          >
+            <i class="fa-solid fa-database"></i>
+            Logs & Reports
+          </button>
+          <button
+            onclick="window.location.href='PlatformSettings.html'"
+            class="w-full py-3 rounded flex justify-center items-center gap-3 hover:text-white hover:bg-black font-[roboto_condensed]"
+          >
+            <i class="fa-solid fa-gear"></i>
+            Platform Settings
+          </button>
+          <button
+            onclick="window.location.href='../index.html'"
+            class="w-full py-3 rounded flex justify-center items-center gap-3 hover:text-white hover:bg-black font-[roboto_condensed]"
+          >
+            <i class="fa-solid fa-right-from-bracket"></i>
+            Logout
+          </button>
+        </nav>
+      </aside>
+      <div class="flex-1 flex flex-col overflow-hidden">
+        <header
+          class="w-full flex justify-between items-center px-8 py-4 shadow text-black bg-[radial-gradient(circle_at_30%_20%,#edd3b1_0%,#b79c82_60%,#a4886f_100%),radial-gradient(circle_at_70%_60%,#f0d6b5_0%,#b89f86_60%,#a4886f_100%),radial-gradient(circle_at_40%_80%,#efd4b2_0%,#b79c82_60%,#a4886f_100%)]"
+        >
+          <a class="text-xl text-black font-sedan_sc"
+            >Unified Assessment Platform</a
+          >
 
+          <div class="flex items-center space-x-12 text-2xl">
+            <div class="relative cursor-pointer">
+              <a href="Notifications.html"
+                ><i class="fa-regular fa-bell text-black text-2xl"></i
+              ></a>
+              <span
+                id="notifyCount"
+                class="absolute -top-1 -right-3 bg-red-600 text-white text-xs w-4 h-4 flex items-center justify-center rounded-full font-bold hidden"
+              ></span>
+            </div>
+            <a href="AdminProfile.html"
+              ><i class="fa-solid fa-user text-black cursor-pointer"></i
+            ></a>
+          </div>
+        </header>
+        <div class="p-10 overflow-y-auto h-full space-y-10">
+          <h2 class="text-2xl text-[#AC7F5E] font-roboto_slab">
+            Admin Dashboard
+          </h2>
+          <div
+            class="bg-white border border-[#AC7F5E] shadow-lg p-6 rounded-xl"
+          >
+            <h3 class="text-lg font-rokkitt font-bold mb-4">Overview</h3>
+
+            <div class="grid grid-cols-3 gap-6">
+              <div
+                class="p-6 text-center border border-[#00C3D0] rounded-lg hover:scale-105 transition bg-[#D9F7F7]/40"
+              >
+                <p class="text-3xl font-bold">1,245</p>
+                <p class="font-roboto_serif">Active Students</p>
+              </div>
+
+              <div
+                class="p-6 text-center border border-[#00C3D0] rounded-lg hover:scale-105 transition bg-[#F7E5C4]/40"
+              >
+                <p class="text-3xl font-bold">45</p>
+                <p class="font-roboto_serif">Active Instructors</p>
+              </div>
+
+              <div
+                class="p-6 text-center border border-[#00C3D0] rounded-lg hover:scale-105 transition bg-[#F7C4C4]/40"
+              >
+                <p class="text-3xl font-bold">
+                  <i class="fa-solid fa-circle-exclamation text-red-500"></i>
+                </p>
+                <p class="font-roboto_serif">Admin Announcements</p>
+              </div>
+            </div>
+          </div>
+          <div class="grid grid-cols-2 gap-10">
+            <div
+              class="bg-white border border-[#AC7F5E] shadow-lg p-6 rounded-xl"
+            >
+              <h3 class="text-lg font-rokkitt font-bold mb-4">
+                Assessment Overview
+              </h3>
+
+              <table
+                class="w-full text-left border-collapse font-roboto_serif text-sm"
+              >
+                <thead>
+                  <tr class="border-b" style="border-color: #00c3d0">
+                    <th class="py-3">Title</th>
+                    <th>Date</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="border-b">
+                    <td class="py-3">Model Review</td>
+                    <td>12/08/2025</td>
+                    <td>
+                      <button
+                        onclick="window.location.href='UserManagement.html'"
+                        class="border px-3 py-1 rounded bg-[#EBFFD4] hover:bg-[#C5F7A1]"
+                      >
+                        Manage
+                      </button>
+                    </td>
+                  </tr>
+                  <tr class="border-b">
+                    <td class="py-3">Final Project</td>
+                    <td>29/09/2025</td>
+                    <td>
+                      <button
+                        onclick="window.location.href='UserManagement.html'"
+                        class="border px-3 py-1 rounded bg-[#EBFFD4] hover:bg-[#C5F7A1]"
+                      >
+                        Manage
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="py-3">Practical</td>
+                    <td>07/01/2026</td>
+                    <td>
+                      <button
+                        onclick="window.location.href='UserManagement.html'"
+                        class="border px-3 py-1 rounded bg-[#EBFFD4] hover:bg-[#C5F7A1]"
+                      >
+                        Manage
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div
+              class="bg-white border border-[#AC7F5E] shadow-lg p-6 rounded-xl"
+            >
+              <h3 class="text-lg font-rokkitt font-bold mb-4">
+                Logs & Reports
+              </h3>
+
+              <select
+                id="roleFilter"
+                class="border border-[#00C3D0] w-[150px] rounded-lg py-2 px-3 m-2"
+              >
+                <option value="all">All Roles</option>
+                <option value="Student">Student</option>
+                <option value="Instructor">Instructor</option>
+                <option value="Admin">Admin</option>
+              </select>
+
+              <select
+                id="actionFilter"
+                class="border border-[#00C3D0] w-[150px] rounded-lg py-2 px-3 m-2"
+              >
+                <option value="all">Action</option>
+                <option value="Assessment Added">Assessment Added</option>
+                <option value="User Suspended">User Suspended</option>
+                <option value="Published Results">Published Results</option>
+              </select>
+
+              <select
+                id="dateFilter"
+                class="border border-[#00C3D0] w-[150px] rounded-lg py-2 px-3 m-2"
+              >
+                <option value="all">Date</option>
+                <option value="2025-09-04">2025-09-04</option>
+                <option value="2025-11-20">2025-11-20</option>
+                <option value="2025-11-29">2025-11-29</option>
+              </select>
+
+              <table
+                id="logsTable"
+                class="w-full text-left border-collapse font-roboto_serif text-sm"
+              >
+                <thead>
+                  <tr class="border-b" style="border-color: #00c3d0">
+                    <th>Role</th>
+                    <th class="py-3">Date</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr
+                    class="log-row"
+                    data-role="Instructor"
+                    data-action="Assessment Added"
+                    data-date="2025-09-04"
+                  >
+                    <td>Instructor</td>
+                    <td class="py-3">04/09/2025</td>
+                    <td>Added Assessment</td>
+                  </tr>
+                  <tr
+                    class="log-row"
+                    data-role="Admin"
+                    data-action="User Suspended"
+                    data-date="2025-11-20"
+                  >
+                    <td>Admin</td>
+                    <td class="py-3">20/11/2025</td>
+                    <td>User Suspended</td>
+                  </tr>
+                  <tr
+                    class="log-row"
+                    data-role="Instructor"
+                    data-action="Published Results"
+                    data-date="2025-11-29"
+                  >
+                    <td>Instructor</td>
+                    <td class="py-3">29/11/2025</td>
+                    <td>Published Results</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div
+            class="bg-white border border-[#AC7F5E] shadow-lg p-6 rounded-xl"
+          >
+            <h3 class="text-lg font-rokkitt font-bold mb-4">
+              Platform Settings
+            </h3>
+            <div class="grid grid-cols-2 gap-6">
+              <input
+                type="text"
+                placeholder="Enter Your Institution Name"
+                class="border p-3 rounded w-full"
+              />
+              <input
+                type="text"
+                placeholder="Insert the Logo of your Institution"
+                class="border p-3 rounded w-full"
+              />
+            </div>
+            <div class="flex gap-6 mt-6">
+              <button
+                class="border border-blue-300 bg-blue-100 px-5 py-2 rounded hover:bg-blue-200"
+              >
+                Reset Data
+              </button>
+              <button
+                class="border border-red-300 bg-red-200 px-5 py-2 rounded hover:bg-red-300"
+              >
+                Archive Data
+              </button>
+            </div>
+          </div>
+        </div>
+        <footer
+          class="w-full py-4 text-center bg-white shadow-inner text-gray-600 text-sm"
+        >
+          © 2025 Unified Assessment Platform. All rights reserved.<br />
+          Test Your Limits, Track Your Growth.
+        </footer>
+      </div>
+    </div>
+    <script>
+      const badge = document.getElementById("notifyCount");
+      const count = 3;
+      if (count > 0) {
+        badge.innerText = count;
+        badge.classList.remove("hidden");
+      }
+      const roleFilter = document.getElementById("roleFilter");
+      const actionFilter = document.getElementById("actionFilter");
+      const dateFilter = document.getElementById("dateFilter");
+      const rows = document.querySelectorAll(".log-row");
+
+      function filterTable() {
+        const roleVal = roleFilter.value;
+        const actionVal = actionFilter.value;
+        const dateVal = dateFilter.value;
+
+        rows.forEach((row) => {
+          const rowRole = row.getAttribute("data-role");
+          const rowAction = row.getAttribute("data-action");
+          const rowDate = row.getAttribute("data-date");
+
+          const roleMatch = roleVal === "all" || rowRole === roleVal;
+          const actionMatch = actionVal === "all" || rowAction === actionVal;
+          const dateMatch = dateVal === "all" || rowDate === dateVal;
+
+          if (roleMatch && actionMatch && dateMatch) {
+            row.style.display = "";
+          } else {
+            row.style.display = "none";
+          }
+        });
+      }
+
+      roleFilter.addEventListener("change", filterTable);
+      actionFilter.addEventListener("change", filterTable);
+      dateFilter.addEventListener("change", filterTable);
+    </script>
+  </body>
+</html>
