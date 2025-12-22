@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Evaluation</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Roboto+Slab:wght@300;400;500;700&family=Roboto+Serif&family=Sedan+SC&family=Rokkitt:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="overflow-hidden font-roboto">
+    <div class="flex min-h-screen h-screen overflow-hidden">
+      <aside
+        class="w-64 text-black p-6 bg-[linear-gradient(to_bottom,#FFF1C5_10%,#f6c7d8_50%,#D9B4F7_100%)]"
+      >
+        <nav class="space-y-8 m-4 text-lg">
+          <button
+            onclick="window.location.href='home.html'"
+            class="w-full py-3 rounded flex justify-center items-center gap-3 hover:text-white hover:bg-black font-[roboto_condensed]"
+          >
+            <i class="fa-solid fa-house"></i>
+            Home
+          </button>
+          <button
+            onclick="window.location.href='Management.html'"
+            class="w-full py-3 rounded flex justify-center items-center gap-3 hover:text-white hover:bg-black font-[roboto_condensed]"
+          >
+            <i class="fa-solid fa-list-check"></i>
+            Management
+          </button>
+          <button
+            onclick="window.location.href='Evaluation.html'"
+            class="w-full py-3 rounded flex justify-center items-center gap-3 hover:text-white hover:bg-black font-[roboto_condensed] bg-black/20"
+          >
+            <i class="fa-solid fa-pen-to-square"></i>
+            Evaluation
+          </button>
+          <button
+            onclick="window.location.href='Overview.html'"
+            class="w-full py-3 rounded flex justify-center items-center gap-3 hover:text-white hover:bg-black font-[roboto_condensed]"
+          >
+            <i class="fa-solid fa-chart-simple"></i>
+            Overview
+          </button>
+          <button
+            onclick="window.location.href='InstructorProfile.html'"
+            class="w-full py-3 rounded flex justify-center items-center gap-3 hover:text-white hover:bg-black font-[roboto_condensed]"
+          >
+            <i class="fa-solid fa-user"></i>
+            Profile
+          </button>
+          <button
+            onclick="window.location.href='CreateAssessment.html'"
+            class="w-full py-3 rounded flex justify-center items-center gap-3 hover:text-white hover:bg-black font-[roboto_condensed]"
+          >
+            <i class="fa-solid fa-circle-plus"></i>
+            Build Assessment
+          </button>
+          <button
+            onclick="window.location.href='../index.html'"
+            class="w-full py-3 rounded flex justify-center items-center gap-3 hover:text-white hover:bg-black font-[roboto_condensed]"
+          >
+            <i class="fa-solid fa-right-from-bracket"></i>
+            Logout
+          </button>
+        </nav>
+      </aside>
+      <div class="flex-1 flex flex-col overflow-hidden">
+        <header
+          class="w-full flex justify-between items-center px-8 py-4 shadow text-black"
+          style="background: #fff1c5"
+        >
+          <a href="#" class="text-xl text-black font-sedan_sc">
+            Unified Assessment Platform
+          </a>
+
+          <div class="flex items-center space-x-12 text-2xl">
+            <div class="relative cursor-pointer">
+              <a href="Notifications.html"
+                ><i class="fa-regular fa-bell text-black text-2xl"></i
+              ></a>
+              <span
+                id="notifyCount"
+                class="absolute -top-1 -right-3 bg-red-600 text-white text-xs w-4 h-4 flex items-center justify-center rounded-full font-bold hidden"
+              >
+              </span>
+            </div>
+            <a href="profile.html"
+              ><i class="fa-solid fa-user text-black cursor-pointer"></i
+            ></a>
+          </div>
+        </header>
+        <div class="p-10 overflow-y-auto h-full space-y-8">
+          <h2 class="text-3xl text-[#AC7F5E] font-roboto_slab">
+            Evaluation Submissions
+          </h2>
+
+          <div
+            class="bg-white border border-[#AC7F5E] shadow-lg p-6 rounded-xl space-y-6"
+          >
+            <h3 class="text-xl font-[Rokkitt] font-bold">Filter Submissions</h3>
+            <div class="grid grid-cols-4 gap-4">
+              <select
+                class="border border-[#00C3D0] cursor-pointer w-full rounded p-2 bg-white text-gray-700 font-roboto_serif hover:scale-[1.03] transition"
+              >
+                <option disabled selected>Assessment</option>
+                <option>JavaScript Fundamentals</option>
+                <option>React Deep Dive</option>
+                <option>MongoDB Basics</option>
+              </select>
+              <select
+                class="border border-[#00C3D0] cursor-pointer w-full rounded p-2 bg-white text-gray-700 font-roboto_serif hover:scale-[1.03] transition"
+              >
+                <option disabled selected>Subject</option>
+                <option>Web Essentials</option>
+                <option>Database Systems</option>
+              </select>
+              <select
+                class="border border-[#00C3D0] cursor-pointer w-full rounded p-2 bg-white text-gray-700 font-roboto_serif hover:scale-[1.03] transition"
+              >
+                <option disabled selected>Type</option>
+                <option>Short Answer</option>
+                <option>Long Answer</option>
+              </select>
+            </div>
+          </div>
+
+          <div
+            class="bg-white border border-[#AC7F5E] shadow-lg p-6 rounded-xl"
+          >
+            <h3 class="text-xl font-[Rokkitt] mb-4 font-bold">
+              Submissions Requiring Review
+            </h3>
+            <table class="w-full text-left border-collapse font-roboto_serif">
+              <tr class="border-b" style="border-color: #00c3d0">
+                <th class="py-4 px-3">Assessment Title</th>
+                <th class="px-3">Student Name</th>
+                <th class="px-3">Type</th>
+                <th class="px-3">Submitted On</th>
+                <th class="px-3">Marks</th>
+                <th class="px-3">Action</th>
+              </tr>
+              <tr class="border-b" style="border-color: #00c3d0">
+                <td class="py-4 px-3">React Deep Dive</td>
+                <td class="px-3">Sarvin</td>
+                <td class="px-3">Long Answer</td>
+                <td class="px-3">25 Nov 2025</td>
+                <td class="px-6">23/30</td>
+                <td class="px-3">
+                  <button
+                    onclick="window.location.href='EditEvaluation.html'"
+                    class="bg-[#A1FFA1] px-3 py-1 rounded text-black font-bold hover:bg-green-400 hover:scale-105 transition text-sm"
+                  >
+                    Edit
+                  </button>
+                </td>
+              </tr>
+              <tr class="border-b" style="border-color: #00c3d0">
+                <td class="py-4 px-3">Database Systems</td>
+                <td class="px-3">Ammudhini</td>
+                <td class="px-3">Short Answer</td>
+                <td class="px-3">24 Nov 2025</td>
+                <td class="px-6">- - -</td>
+                <td class="px-3">
+                  <button
+                    onclick="window.location.href='Review.html'"
+                    class="bg-[#A1FFA1] px-3 py-1 rounded text-black font-bold hover:bg-green-400 hover:scale-105 transition text-sm"
+                  >
+                    Review
+                  </button>
+                </td>
+              </tr>
+              <tr class="border-b" style="border-color: #00c3d0">
+                <td class="py-4 px-3">Web Essentials</td>
+                <td class="px-3">Viyan</td>
+                <td class="px-3">Long Answer</td>
+                <td class="px-3">22 Nov 2025</td>
+                <td class="px-6">- - -</td>
+                <td class="px-3">
+                  <button
+                    onclick="window.location.href='Review.html'"
+                    class="bg-[#A1FFA1] px-3 py-1 rounded text-black font-bold hover:bg-green-400 hover:scale-105 transition text-sm"
+                  >
+                    Review
+                  </button>
+                </td>
+              </tr>
+              <tr class="border-b" style="border-color: #00c3d0">
+                <td class="py-4 px-3">Node.js Backend</td>
+                <td class="px-3">Harshini</td>
+                <td class="px-3">Short Answer</td>
+                <td class="px-3">26 Nov 2025</td>
+                <td class="px-6">22/25</td>
+                <td class="px-3">
+                  <button
+                    onclick="window.location.href='EditEvaluation.html'"
+                    class="bg-yellow-300 px-3 py-1 rounded text-black font-bold hover:bg-yellow-400 hover:scale-105 transition text-sm"
+                  >
+                    Edit
+                  </button>
+                </td>
+              </tr>
+              <tr class="border-b" style="border-color: #00c3d0">
+                <td class="py-4 px-3">JavaScript Fundamentals</td>
+                <td class="px-3">Sreeja</td>
+                <td class="px-3">MCQ + Long</td>
+                <td class="px-3">27 Nov 2025</td>
+                <td class="px-6">44/50</td>
+                <td class="px-3">
+                  <button
+                    onclick="window.location.href='EditEvaluation.html'"
+                    class="bg-yellow-300 px-3 py-1 rounded text-black font-bold hover:bg-yellow-400 hover:scale-105 transition text-sm"
+                  >
+                    Edit
+                  </button>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+
+        <footer
+          class="w-full py-4 text-center bg-white shadow-inner text-gray-600 text-sm"
+        >
+          © 2025 Unified Assessment Platform. All rights reserved. <br />
+          Empower Learning. Enhance Assessment.
+        </footer>
+      </div>
+    </div>
+
+    <script>
+      const notificationCount = 3;
+      const badge = document.getElementById("notifyCount");
+      if (notificationCount > 0) {
+        badge.innerText = notificationCount;
+        badge.classList.remove("hidden");
+      }
+      const evaluated = localStorage.getItem("evaluated");
+      const marks = localStorage.getItem("finalMarks");
+
+      if (evaluated === "true") {
+        const actionCell = document.querySelector(
+          "table tr:nth-child(2) td:last-child"
+        );
+        actionCell.innerHTML = `
+      <button onclick="window.location.href='EditEvaluation.html'"
+        class="bg-yellow-300 px-3 py-1 rounded text-black font-bold hover:bg-yellow-400 hover:scale-105 transition text-sm">
+        Edit
+      </button>
+    `;
+        console.log("Updated Marks:", marks);
+      }
+      const selects = document.querySelectorAll("select");
+      const rows = document.querySelectorAll("table tr:not(:first-child)");
+      selects.forEach((select) => {
+        select.addEventListener("change", applyFilters);
+      });
+      function applyFilters() {
+        const assessment = selects[0].value;
+        const subject = selects[1].value;
+        const type = selects[2].value;
+        rows.forEach((row) => {
+          const assessmentText = row.children[0].innerText;
+          const typeText = row.children[2].innerText;
+          let assessmentMatch =
+            assessment === "Assessment" || assessmentText.includes(assessment);
+          let typeMatch = type === "Type" || typeText.includes(type);
+          let subjectMatch =
+            subject === "Subject" || mapSubject(assessmentText) === subject;
+          row.style.display =
+            assessmentMatch && typeMatch && subjectMatch ? "" : "none";
+        });
+      }
+      function mapSubject(assessment) {
+        if (
+          assessment.includes("React") ||
+          assessment.includes("JavaScript") ||
+          assessment.includes("Web")
+        )
+          return "Web Essentials";
+        if (assessment.includes("Database") || assessment.includes("MongoDB"))
+          return "Database Systems";
+        return "";
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profile</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Roboto+Slab:wght@300;400;500;700&family=Roboto+Serif&family=Sedan+SC&family=Rokkitt:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="overflow-hidden font-roboto">
+    <div class="flex min-h-screen h-screen overflow-hidden">
+      <aside
+        class="w-64 text-black p-6 bg-[linear-gradient(to_bottom,#FFF1C5_10%,#f6c7d8_50%,#D9B4F7_100%)]"
+      >
+        <nav class="space-y-8 m-4 text-lg">
+          <button
+            onclick="window.location.href='home.html'"
+            class="w-full py-3 rounded flex justify-center items-center gap-3 hover:text-white hover:bg-black font-[roboto_condensed]"
+          >
+            <i class="fa-solid fa-house"></i>
+            Home
+          </button>
+          <button
+            onclick="window.location.href='Management.html'"
+            class="w-full py-3 rounded flex justify-center items-center gap-3 hover:text-white hover:bg-black font-[roboto_condensed]"
+          >
+            <i class="fa-solid fa-list-check"></i>
+            Management
+          </button>
+          <button
+            onclick="window.location.href='Evaluation.html'"
+            class="w-full py-3 rounded flex justify-center items-center gap-3 hover:text-white hover:bg-black font-[roboto_condensed]"
+          >
+            <i class="fa-solid fa-pen-to-square"></i>
+            Evaluation
+          </button>
+          <button
+            onclick="window.location.href='Overview.html'"
+            class="w-full py-3 rounded flex justify-center items-center gap-3 hover:text-white hover:bg-black font-[roboto_condensed]"
+          >
+            <i class="fa-solid fa-chart-simple"></i>
+            Overview
+          </button>
+          <button
+            onclick="location.reload()"
+            class="w-full py-3 rounded flex justify-center items-center gap-3 hover:text-white hover:bg-black font-[roboto_condensed] bg-black/20"
+          >
+            <i class="fa-solid fa-user"></i>
+            Profile
+          </button>
+          <button
+            onclick="window.location.href='CreateAssessment.html'"
+            class="w-full py-3 rounded flex justify-center items-center gap-3 hover:text-white hover:bg-black font-[roboto_condensed]"
+          >
+            <i class="fa-solid fa-circle-plus"></i>
+            Build Assessment
+          </button>
+          <button
+            onclick="window.location.href='../index.html'"
+            class="w-full py-3 rounded flex justify-center items-center gap-3 hover:text-white hover:bg-black font-[roboto_condensed]"
+          >
+            <i class="fa-solid fa-right-from-bracket"></i>
+            Logout
+          </button>
+        </nav>
+      </aside>
+      <div class="flex-1 flex flex-col overflow-hidden">
+        <header
+          class="w-full flex justify-between items-center px-8 py-4 shadow text-black"
+          style="background: #fff1c5"
+        >
+          <a href="#" class="text-xl text-black font-sedan_sc">
+            Unified Assessment Platform
+          </a>
+
+          <div class="flex items-center space-x-12 text-2xl">
+            <div class="relative cursor-pointer">
+              <a href="Notifications.html"><i class="fa-regular fa-bell text-black text-2xl"></i></a>
+              <span
+                id="notifyCount"
+                class="absolute -top-1 -right-3 bg-red-600 text-white text-xs w-4 h-4 flex items-center justify-center rounded-full font-bold hidden"
+              >
+              </span>
+            </div>
+            <a href="#"><i class="fa-solid fa-user text-black cursor-pointer"></i></a>
+          </div>
+        </header>
+        <div class="p-10 overflow-y-auto h-full space-y-10">
+          <div
+            class="bg-white shadow-lg p-6 rounded-xl border border-[#AC7F5E] transform transition duration-300 hover:scale-[1.03]"
+          >
+            <div class="flex justify-between items-center">
+              <div class="flex gap-4">
+                <i class="fa-solid fa-user text-5xl"></i>
+                <div>
+                  <p class="text-2xl text-[#AC7F5E] font-roboto_slab">
+                    Welcome back,
+                  </p>
+                  <p
+                    class="font-roboto_slab text-xl font-semibold profile-name"
+                    id="p-display-name"
+                  >
+                    Pradeep
+                  </p>
+                  <p
+                    class="text-sm text-gray-600 profile-email"
+                    id="p-display-email"
+                  >
+                    pradeep@gmail.com
+                  </p>
+                </div>
+              </div>
+              <i
+                onclick="window.location.href='EditProfile.html'"
+                class="fa-solid fa-pen cursor-pointer transform duration-300 hover:scale-125"
+              >
+              </i>
+            </div>
+          </div>
+          <div
+            class="bg-white border border-[#AC7F5E] shadow-lg p-6 rounded-xl space-y-4 transform transition duration-300 hover:scale-[1.03]"
+          >
+            <h2 class="text-xl font-roboto_slab text-[#AC7F5E]">
+              Basic Information’s
+            </h2>
+            <div class="grid grid-cols-2 gap-4 font-roboto_serif">
+              <p><strong>Name :</strong> <span id="p-name">Pradeep</span></p>
+              <p>
+                <strong>Email :</strong>
+                <span id="p-email">pradeep@gmail.com</span>
+              </p>
+              <p><strong>Gender :</strong> <span id="p-gender">Male</span></p>
+              <p><strong>DOB :</strong> <span id="p-dob">00/00/0000</span></p>
+              <p>
+                <strong>Contact :</strong>
+                <span id="p-contact">0123456789</span>
+              </p>
+              <p>
+                <strong>Father’s Name :</strong>
+                <span id="p-father">Sakthivel</span>
+              </p>
+              <p>
+                <strong>Mother’s Name :</strong>
+                <span id="p-mother">Arasi</span>
+              </p>
+              <p>
+                <strong>Parent’s Contact :</strong>
+                <span id="p-parent">0123456789</span>
+              </p>
+            </div>
+          </div>
+          <div
+            class="bg-white border border-[#AC7F5E] shadow-lg p-6 rounded-xl space-y-4 transform transition duration-300 hover:scale-[1.03]"
+          >
+            <h2 class="text-xl font-roboto_slab text-[#AC7F5E]">
+              Professional Information’s
+            </h2>
+            <div class="grid grid-cols-2 gap-4 font-roboto_serif">
+              <p>
+                <strong>Employee id / Staff Code :</strong>
+                <span id="p-id">CSE4515</span>
+              </p>
+              <p>
+                <strong>Specification :</strong>
+                <span id="p-spec">B.E - CSE</span>
+              </p>
+              <p>
+                <strong>Faculty Role :</strong>
+                <span id="p-role">Professor</span>
+              </p>
+              <p>
+                <strong>Institution Name :</strong>
+                <span id="p-inst">Institute of Technology</span>
+              </p>
+              <p>
+                <strong>Years of Experience :</strong>
+                <span id="p-exp">5 Years</span>
+              </p>
+              <p>
+                <strong>Area of Expertise :</strong>
+                <span id="p-area">Web Development</span>
+              </p>
+              <p>
+                <strong>Working Mode :</strong>
+                <span id="p-mode">Full-Time</span>
+              </p>
+            </div>
+          </div>
+          <div
+            class="bg-white border border-[#AC7F5E] shadow-lg p-6 rounded-xl space-y-6"
+          >
+            <h2 class="text-xl font-roboto_slab text-[#AC7F5E]">
+              Achievements
+            </h2>
+            <div class="grid grid-cols-2 gap-6">
+              <div
+                class="border border-[#00C3D0] p-4 rounded-lg space-y-3 font-roboto_serif transform transition duration-300 hover:scale-[1.03]"
+                id="badges-container"
+              >
+                <h3 class="font-[Rokkitt] text-lg">
+                  Professional Achievements
+                </h3>
+                <p>
+                  <strong>Uniersity Top Ranker 🏆</strong><br />Secured a
+                  University Rank in postgraduate.
+                </p>
+                <p>
+                  <strong>Best Faculty of the Year (2024) ⚡</strong
+                  ><br />Recognized for outstanding teaching excellence and
+                  student mentorship.
+                </p>
+                <p>
+                  <strong>Project Mentor 🎯</strong><br />Guided students to win
+                  Intercollege Project Competitions with innovative research
+                  solutions.
+                </p>
+              </div>
+              <div
+                class="border border-[#00C3D0] p-4 rounded-lg font-roboto_serif space-y-3 transform transition duration-300 hover:scale-[1.03]"
+                id="research-container"
+              >
+                <h3 class="font-[Rokkitt] text-lg">Technical / Research</h3>
+                <p>
+                  <strong>Assessment Developer 📘</strong><br />Designed and
+                  deployed Web Applications for student assessment and
+                  analytics.
+                </p>
+                <p>
+                  <strong>Technical Trainer ⏳</strong><br />Conducted hands-ib
+                  Workshops on Web Development and IoT for students and peers.
+                </p>
+                <p>
+                  <strong>Innovation Leader 👥</strong><br />Developed an
+                  AI-based Smart Waste Management System for sustainable
+                  automation.
+                </p>
+              </div>
+            </div>
+            <div
+              class="border border-[#00C3D0] p-4 rounded-lg font-roboto_serif transform transition duration-300 hover:scale-[1.03]"
+              id="teaching-container"
+            >
+              <h3 class="font-[Rokkitt] text-lg mb-2">
+                Teaching & Institutional
+              </h3>
+              <p>
+                <strong>EdTech Innovator :</strong>
+                <span id="p-innovator"
+                  >Designed Online Assessment Tools to enhance continuous
+                  evaluation efficiency.</span
+                >
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <footer
+          class="w-full py-4 text-center bg-white shadow-inner text-gray-600 text-sm"
+        >
+          © 2025 Unified Assessment Platform. All rights reserved. <br />
+          Empower Learning. Enhance Assessment.
+        </footer>
+      </div>
+    </div>
+
+    <script>
+      const notificationCount = 3;
+      const badge = document.getElementById("notifyCount");
+      if (notificationCount > 0) {
+        badge.innerText = notificationCount;
+        badge.classList.remove("hidden");
+      }
+      const savedData = JSON.parse(localStorage.getItem("instructorProfileData"));
+      if (savedData) {
+        document.getElementById("p-display-name").innerText = savedData.name || "Pradeep";
+        document.getElementById("p-display-email").innerText = savedData.email || "pradeep@gmail.com";
+        document.getElementById("p-name").innerText = savedData.name || "Pradeep";
+        document.getElementById("p-email").innerText = savedData.email || "pradeep@gmail.com";
+        document.getElementById("p-gender").innerText = savedData.gender || "Male";
+        document.getElementById("p-dob").innerText = savedData.dob || "00/00/0000";
+        document.getElementById("p-contact").innerText = savedData.contact || "0123456789";
+        document.getElementById("p-father").innerText = savedData.father || "Sakthivel";
+        document.getElementById("p-mother").innerText = savedData.mother || "Arasi";
+        document.getElementById("p-parent").innerText = savedData.parentContact || "0123456789";
+        document.getElementById("p-id").innerText = savedData.id || "CSE4515";
+        document.getElementById("p-spec").innerText = savedData.spec || "B.E - CSE";
+        document.getElementById("p-role").innerText = savedData.role || "Professor"; 
+        document.getElementById("p-inst").innerText = savedData.inst || "Institute of Technology";
+        document.getElementById("p-exp").innerText = (savedData.year ? savedData.year + " Years" : "5 Years");
+        document.getElementById("p-area").innerText = savedData.area || "Web Development";
+        document.getElementById("p-mode").innerText = savedData.workingMode || "Full-Time";
+        document.getElementById("p-innovator").innerText = savedData.innovator || "Designed Online Assessment Tools to enhance continuous evaluation efficiency.";
+      }
+
+    </script>
+  </body>
+</html>

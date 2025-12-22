@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Assessment Management</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Roboto+Slab:wght@300;400;500;700&family=Roboto+Serif&family=Sedan+SC&family=Rokkitt:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="overflow-hidden font-roboto">
+    <div class="flex min-h-screen h-screen overflow-hidden">
+      <aside
+        class="w-64 text-black p-6 bg-[linear-gradient(to_bottom,#FFF1C5_10%,#f6c7d8_50%,#D9B4F7_100%)]"
+      >
+        <nav class="space-y-8 m-4 text-lg">
+          <button
+            onclick="window.location.href='home.html'"
+            class="w-full py-3 rounded flex justify-center items-center gap-3 hover:text-white hover:bg-black font-[roboto_condensed]"
+          >
+            <i class="fa-solid fa-house"></i> Home
+          </button>
+          <button
+            onclick="location.reload()"
+            class="w-full py-3 rounded flex justify-center items-center gap-3 hover:text-white hover:bg-black font-[roboto_condensed] bg-black/20"
+          >
+            <i class="fa-solid fa-list-check"></i> Management
+          </button>
+          <button
+            onclick="window.location.href='Evaluation.html'"
+            class="w-full py-3 rounded flex justify-center items-center gap-3 hover:text-white hover:bg-black font-[roboto_condensed]"
+          >
+            <i class="fa-solid fa-pen-to-square"></i> Evaluation
+          </button>
+          <button
+            onclick="window.location.href='Overview.html'"
+            class="w-full py-3 rounded flex justify-center items-center gap-3 hover:text-white hover:bg-black font-[roboto_condensed]"
+          >
+            <i class="fa-solid fa-chart-simple"></i> Overview
+          </button>
+          <button
+            onclick="window.location.href='InstructorProfile.html'"
+            class="w-full py-3 rounded flex justify-center items-center gap-3 hover:text-white hover:bg-black font-[roboto_condensed]"
+          >
+            <i class="fa-solid fa-user"></i> Profile
+          </button>
+          <button
+            onclick="window.location.href='CreateAssessment.html'"
+            class="w-full py-3 rounded flex justify-center items-center gap-3 hover:text-white hover:bg-black font-[roboto_condensed]"
+          >
+            <i class="fa-solid fa-circle-plus"></i> Build Assessment
+          </button>
+          <button
+            onclick="window.location.href='../index.html'"
+            class="w-full py-3 rounded flex justify-center items-center gap-3 hover:text-white hover:bg-black font-[roboto_condensed]"
+          >
+            <i class="fa-solid fa-right-from-bracket"></i> Logout
+          </button>
+        </nav>
+      </aside>
+      <div class="flex-1 flex flex-col overflow-hidden">
+        <header
+          class="w-full flex justify-between items-center px-8 py-4 shadow text-black"
+          style="background: #fff1c5"
+        >
+          <a class="text-xl font-sedan_sc">Unified Assessment Platform</a>
+          <div class="flex items-center space-x-12 text-2xl">
+            <div class="relative cursor-pointer">
+              <a href="Notifications.html"
+                ><i class="fa-regular fa-bell text-black text-2xl"></i
+              ></a>
+              <span
+                id="notifyCount"
+                class="absolute -top-1 -right-3 bg-red-600 text-white text-xs w-4 h-4 flex items-center justify-center rounded-full font-bold hidden"
+              ></span>
+            </div>
+            <a href="InstructorProfile.html"
+              ><i class="fa-solid fa-user text-black cursor-pointer"></i
+            ></a>
+          </div>
+        </header>
+        <div class="p-10 overflow-y-auto h-full space-y-8">
+          <h2 class="text-2xl text-[#AC7F5E] font-roboto_slab">
+            Assessment Management
+          </h2>
+          <p class="text-gray-700 font-roboto_serif">
+            Manage all assessments efficiently.
+          </p>
+          <div class="grid grid-cols-2 gap-6">
+            <div
+              class="bg-white border border-[#AC7F5E] shadow-md p-6 rounded-xl transform transition duration-300 hover:scale-[1.03]"
+            >
+              <h3 class="text-lg font-[Rokkitt] font-bold mb-4">
+                Assessment Overview
+              </h3>
+              <div class="space-y-2 text-gray-700 font-roboto_serif">
+                <p>
+                  <strong>Total Assessments:</strong>
+                  <span id="totalAssessments">0</span>
+                </p>
+                <p>
+                  <strong>Active Assessments:</strong>
+                  <span id="activeAssessments">0</span>
+                </p>
+                <p>
+                  <strong>Upcoming Assessments:</strong>
+                  <span id="upcomingAssessments">0</span>
+                </p>
+                <p><strong>Total Students Assigned:</strong> 320</p>
+              </div>
+            </div>
+            <div
+              class="bg-white border border-[#AC7F5E] shadow-md p-6 rounded-xl"
+            >
+              <h3 class="text-lg font-[Rokkitt] font-bold mb-4">Mini Stats</h3>
+              <div class="grid grid-cols-3 gap-4">
+                <div
+                  class="p-4 bg-[#F6F1FF] text-center rounded-lg border border-[#D9B4F7] transform transition duration-300 hover:scale-105"
+                >
+                  <p class="text-2xl font-bold" id="mcqCount">0</p>
+                  <p class="text-sm text-gray-600">MCQ</p>
+                </div>
+                <div
+                  class="p-4 bg-[#E8FDF8] text-center rounded-lg border border-[#00C3D0] transform transition duration-300 hover:scale-105"
+                >
+                  <p class="text-2xl font-bold" id="shortCount">0</p>
+                  <p class="text-sm text-gray-600">Short</p>
+                </div>
+                <div
+                  class="p-4 bg-[#FFF3EA] text-center rounded-lg border border-[#F5CBA7] transform transition duration-300 hover:scale-105"
+                >
+                  <p class="text-2xl font-bold" id="pendingCount">0</p>
+                  <p class="text-sm text-gray-600">Feedback Pending</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="bg-white border border-[#AC7F5E] shadow-lg p-6 rounded-xl"
+          >
+            <h3 class="text-lg font-[Rokkitt] mb-4 font-bold">
+              Managing Assessments
+            </h3>
+            <table class="w-full text-left border-collapse font-roboto_serif">
+              <thead>
+                <tr class="border-b" style="border-color: #00c3d0">
+                  <th class="py-3 px-6">Title</th>
+                  <th class="px-6">Type</th>
+                  <th class="px-6">Created On</th>
+                  <th class="px-6">Deadline</th>
+                  <th class="px-6">Status</th>
+                  <th class="px-6">Action</th>
+                </tr>
+              </thead>
+              <tbody id="assessmentRows"></tbody>
+            </table>
+          </div>
+        </div>
+        <footer
+          class="w-full py-4 text-center bg-white shadow-inner text-gray-600 text-sm"
+        >
+          © 2025 Unified Assessment Platform. All rights reserved. <br />
+          Empower Learning. Enhance Assessment.
+        </footer>
+      </div>
+    </div>
+    <script>
+      function formatDate(d) {
+        const dt = new Date(d);
+        const day = String(dt.getDate()).padStart(2, "0");
+        const monthNames = [
+          "Jan",
+          "Feb",
+          "Mar",
+          "Apr",
+          "May",
+          "Jun",
+          "Jul",
+          "Aug",
+          "Sep",
+          "Oct",
+          "Nov",
+          "Dec",
+        ];
+        const month = monthNames[dt.getMonth()];
+        const year = dt.getFullYear();
+        return `${day} ${month} ${year}`;
+      }
+      let assessments = JSON.parse(localStorage.getItem("assessments") || "[]");
+      function stats() {
+        document.getElementById("totalAssessments").innerText =
+          assessments.length;
+        document.getElementById("activeAssessments").innerText =
+          assessments.filter((a) => a.status === "Active").length;
+        document.getElementById("upcomingAssessments").innerText =
+          assessments.filter((a) => a.status === "Scheduled").length;
+        const mcqCount = assessments.reduce(
+          (s, a) =>
+            s +
+            (a.questions
+              ? a.questions.filter((q) => q.type === "mcq").length
+              : 0),
+          0
+        );
+        const shortCount = assessments.reduce(
+          (s, a) =>
+            s +
+            (a.questions
+              ? a.questions.filter((q) => q.type === "short").length
+              : 0),
+          0
+        );
+        document.getElementById("mcqCount").innerText = mcqCount;
+        document.getElementById("shortCount").innerText = shortCount;
+        document.getElementById("pendingCount").innerText = assessments.reduce(
+          (s, a) => s + (a.status === "Draft" ? 1 : 0),
+          0
+        );
+      }
+      function renderAssessments() {
+        const tbody = document.getElementById("assessmentRows");
+        tbody.innerHTML = "";
+        assessments.forEach((a, index) => {
+          const tr = document.createElement("tr");
+          tr.className = "border-b";
+          tr.style.borderColor = "#00c3d0";
+          const titleTd = document.createElement("td");
+          titleTd.className = "py-3 px-6";
+          titleTd.innerText = a.title;
+          const typeTd = document.createElement("td");
+          typeTd.className = "px-6";
+          typeTd.innerText = a.type || "";
+          const createdTd = document.createElement("td");
+          createdTd.className = "px-6";
+          createdTd.innerText = a.createdOn || formatDate(new Date());
+          const deadlineTd = document.createElement("td");
+          deadlineTd.className = "px-6";
+          deadlineTd.innerText = a.deadline || "";
+          const statusTd = document.createElement("td");
+          statusTd.className = "px-6 status";
+          statusTd.innerText = a.status || "Draft";
+          const actionTd = document.createElement("td");
+          actionTd.className = "px-6 space-x-5 action-buttons";
+          if (a.status === "Active") {
+            const editBtn = document.createElement("button");
+            editBtn.className =
+              "px-3 py-1 border border-[#D9B4F7] bg-[#D9B4F7]/50 rounded transform transition duration-300 hover:scale-[1.02] text-sm";
+            editBtn.innerHTML =
+              '<i class="fa-solid fa-pen-to-square fa-xs mx-1"></i> Edit';
+            editBtn.addEventListener("click", () => {
+              localStorage.setItem("editIndex", index);
+              window.location.href = "EditAssessment.html";
+            });
+            const delBtn = document.createElement("button");
+            delBtn.className =
+              "px-3 py-1 border border-red-300 bg-red-200 rounded transform transition duration-300 hover:scale-[1.02] text-sm";
+            delBtn.innerHTML =
+              '<i class="fa-solid fa-trash fa-xs mx-1"></i> Delete';
+            delBtn.addEventListener("click", () => {
+              if (confirm("Are you sure you want to delete this assessment?")) {
+                assessments.splice(index, 1);
+                localStorage.setItem(
+                  "assessments",
+                  JSON.stringify(assessments)
+                );
+                renderAssessments();
+                stats();
+              }
+            });
+            actionTd.appendChild(editBtn);
+            actionTd.appendChild(delBtn);
+          } else if (a.status === "Draft") {
+            const pubBtn = document.createElement("button");
+            pubBtn.className =
+              "px-3 py-1 border border-green-400 bg-green-200 rounded transform transition duration-300 hover:scale-[1.02] text-sm";
+            pubBtn.innerHTML =
+              '<i class="fa-solid fa-upload fa-xs mx-1"></i> Publish';
+            pubBtn.addEventListener("click", () => {
+              assessments[index].status = "Active";
+              localStorage.setItem("assessments", JSON.stringify(assessments));
+              renderAssessments();
+              stats();
+            });
+            const editBtn = document.createElement("button");
+            editBtn.className =
+              "px-3 py-1 border border-[#D9B4F7] bg-[#D9B4F7]/50 rounded transform transition duration-300 hover:scale-[1.02] text-sm";
+            editBtn.innerHTML =
+              '<i class="fa-solid fa-pen-to-square fa-xs mx-1"></i> Edit';
+            editBtn.addEventListener("click", () => {
+              localStorage.setItem("editIndex", index);
+              window.location.href = "EditAssessment.html";
+            });
+            actionTd.appendChild(pubBtn);
+            actionTd.appendChild(editBtn);
+          } else if (a.status === "Scheduled") {
+            const resBtn = document.createElement("button");
+            resBtn.className =
+              "px-3 py-1 border border-blue-400 bg-blue-200 rounded transform transition duration-300 hover:scale-[1.02] text-sm";
+            resBtn.innerHTML =
+              '<i class="fa-solid fa-clock-rotate-left fa-xs mx-1"></i> Reschedule';
+            resBtn.addEventListener("click", () => {
+              const newDeadline = prompt("Enter new deadline (YYYY-MM-DD)");
+              if (newDeadline) {
+                assessments[index].deadline = formatDate(new Date(newDeadline));
+                localStorage.setItem(
+                  "assessments",
+                  JSON.stringify(assessments)
+                );
+                renderAssessments();
+              }
+            });
+            actionTd.appendChild(resBtn);
+          }
+          tr.appendChild(titleTd);
+          tr.appendChild(typeTd);
+          tr.appendChild(createdTd);
+          tr.appendChild(deadlineTd);
+          tr.appendChild(statusTd);
+          tr.appendChild(actionTd);
+          document.getElementById("assessmentRows").appendChild(tr);
+        });
+      }
+      window.addEventListener("load", () => {
+        assessments = JSON.parse(localStorage.getItem("assessments") || "[]");
+        renderAssessments();
+        stats();
+        const badge = document.getElementById("notifyCount");
+        const notificationCount = 3;
+        if (notificationCount > 0) {
+          badge.innerText = notificationCount;
+          badge.classList.remove("hidden");
+        }
+      });
+    </script>
+  </body>
+</html>

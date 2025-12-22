@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit Assessment</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Roboto+Slab:wght@300;400;500;700&family=Roboto+Serif&family=Sedan+SC&family=Rokkitt:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="overflow-hidden font-roboto">
+    <div class="flex min-h-screen h-screen overflow-hidden">
+      <aside
+        class="w-64 text-black p-6 bg-[linear-gradient(to_bottom,#FFF1C5_10%,#f6c7d8_50%,#D9B4F7_100%)]"
+      >
+        <nav class="space-y-8 m-4 text-lg">
+          <button
+            onclick="window.location.href='home.html'"
+            class="w-full py-3 rounded flex justify-center items-center gap-3 hover:text-white hover:bg-black font-[roboto_condensed]"
+          >
+            <i class="fa-solid fa-house"></i> Home
+          </button>
+          <button
+            onclick="window.location.href='Management.html'"
+            class="w-full py-3 rounded flex justify-center items-center gap-3 hover:text-white hover:bg-black font-[roboto_condensed] bg-black/20"
+          >
+            <i class="fa-solid fa-list-check"></i> Management
+          </button>
+          <button
+            onclick="window.location.href='Evaluation.html'"
+            class="w-full py-3 rounded flex justify-center items-center gap-3 hover:text-white hover:bg-black font-[roboto_condensed]"
+          >
+            <i class="fa-solid fa-pen-to-square"></i> Evaluation
+          </button>
+          <button
+            onclick="window.location.href='Overview.html'"
+            class="w-full py-3 rounded flex justify-center items-center gap-3 hover:text-white hover:bg-black font-[roboto_condensed]"
+          >
+            <i class="fa-solid fa-chart-simple"></i> Overview
+          </button>
+          <button
+            onclick="window.location.href='InstructorProfile.html'"
+            class="w-full py-3 rounded flex justify-center items-center gap-3 hover:text-white hover:bg-black font-[roboto_condensed]"
+          >
+            <i class="fa-solid fa-user"></i> Profile
+          </button>
+          <button
+            onclick="window.location.href='CreateAssessment.html'"
+            class="w-full py-3 rounded flex justify-center items-center gap-3 hover:text-white hover:bg-black font-[roboto_condensed]"
+          >
+            <i class="fa-solid fa-circle-plus"></i> Build Assessment
+          </button>
+          <button
+            onclick="window.location.href='../index.html'"
+            class="w-full py-3 rounded flex justify-center items-center gap-3 hover:text-white hover:bg-black font-[roboto_condensed]"
+          >
+            <i class="fa-solid fa-right-from-bracket"></i> Logout
+          </button>
+        </nav>
+      </aside>
+      <div class="flex-1 flex flex-col overflow-hidden">
+        <header
+          class="w-full flex justify-between items-center px-8 py-4 shadow text-black"
+          style="background: #fff1c5"
+        >
+          <a class="text-xl font-sedan_sc">Unified Assessment Platform</a>
+          <div class="flex items-center space-x-12 text-2xl">
+            <div class="relative cursor-pointer">
+              <a href="Notifications.html"
+                ><i class="fa-regular fa-bell text-black text-2xl"></i
+              ></a>
+              <span
+                id="notifyCount"
+                class="absolute -right-2 bg-red-500 text-white text-xs w-5 h-3 flex items-center justify-center rounded-full font-bold hidden"
+              ></span>
+            </div>
+            <a href="InstructorProfile.html"
+              ><i class="fa-solid fa-user text-black cursor-pointer"></i
+            ></a>
+          </div>
+        </header>
+        <div class="p-10 overflow-y-auto h-full space-y-8">
+          <h2 class="text-2xl text-[#AC7F5E] font-roboto_slab">
+            Edit Assessment
+          </h2>
+          <p class="text-gray-700 font-roboto_serif">
+            Modify assessment details and questions.
+          </p>
+          <div
+            class="bg-white border border-[#AC7F5E] shadow-md p-6 rounded-xl"
+          >
+            <h3 class="text-lg font-[Rokkitt] font-bold mb-4">
+              Assessment Details
+            </h3>
+            <div class="grid grid-cols-2 gap-6 mb-6">
+              <div>
+                <label class="block mb-2 text-gray-600 font-roboto_serif"
+                  >Assessment Title</label
+                >
+                <input
+                  type="text"
+                  id="title"
+                  class="w-full border border-gray-300 rounded px-3 py-2"
+                />
+              </div>
+              <div>
+                <label class="block mb-2 text-gray-600 font-roboto_serif"
+                  >Assessment Type</label
+                >
+                <select
+                  id="type"
+                  class="w-full border border-gray-300 rounded px-3 py-2"
+                >
+                  <option>MCQ</option>
+                  <option>Short Answer</option>
+                  <option>Long Answer</option>
+                  <option>Short + MCQ</option>
+                </select>
+              </div>
+            </div>
+            <div class="grid grid-cols-2 gap-6 mb-6">
+              <div>
+                <label class="block mb-2 text-gray-600 font-roboto_serif"
+                  >Total Marks</label
+                >
+                <input
+                  type="number"
+                  id="marks"
+                  class="w-full border border-gray-300 rounded px-3 py-2"
+                />
+              </div>
+              <div>
+                <label class="block mb-2 text-gray-600 font-roboto_serif"
+                  >Description</label
+                >
+                <textarea
+                  id="desc"
+                  class="w-full border border-gray-300 rounded px-3 py-2"
+                ></textarea>
+              </div>
+            </div>
+            <h3 class="text-lg font-[Rokkitt] font-bold mb-4">
+              Question Management
+            </h3>
+            <table class="w-full border border-gray-300 text-left rounded mb-4">
+              <thead class="bg-gray-100">
+                <tr>
+                  <th class="py-2 px-4 border-b">Question</th>
+                  <th class="py-2 px-4 border-b">Type</th>
+                  <th class="py-2 px-4 border-b">Marks</th>
+                </tr>
+              </thead>
+              <tbody id="questionBody"></tbody>
+            </table>
+            <div class="flex gap-4">
+              <button
+                id="saveBtn"
+                class="px-6 py-2 bg-teal-400 text-white rounded hover:bg-teal-500"
+              >
+                Save Changes
+              </button>
+              <button
+                onclick="window.location.href='Management.html'"
+                class="px-6 py-2 bg-gray-300 rounded hover:bg-gray-400"
+              >
+                Cancel & Go Back
+              </button>
+            </div>
+          </div>
+        </div>
+        <footer
+          class="w-full py-4 text-center bg-white shadow-inner text-gray-600 text-sm"
+        >
+          © 2025 Unified Assessment Platform. All rights reserved. <br />Empower
+          Learning. Enhance Assessment.
+        </footer>
+      </div>
+    </div>
+    <script>
+      let editIndex = localStorage.getItem("editIndex");
+      let assessments = JSON.parse(localStorage.getItem("assessments") || "[]");
+      let assessment = assessments[editIndex] || { questions: [] };
+      document.getElementById("title").value = assessment.title || "";
+      document.getElementById("type").value = assessment.type || "";
+      document.getElementById("marks").value = assessment.totalMarks || "";
+      document.getElementById("desc").value = assessment.description || "";
+      function loadQuestions() {
+        const tbody = document.getElementById("questionBody");
+        tbody.innerHTML = "";
+        (assessment.questions || []).forEach((q, i) => {
+          const tr = document.createElement("tr");
+          const tdQ = document.createElement("td");
+          tdQ.innerHTML = `<input class="w-full border px-2 py-1" value="${q.question}" onchange="updateQuestion(${i}, 'question', this.value)">`;
+          const tdType = document.createElement("td");
+          tdType.innerHTML = `<select class="border px-2 py-1" onchange="updateQuestion(${i}, 'type', this.value)">
+            <option ${q.type === "mcq" ? "selected" : ""}>mcq</option>
+            <option ${q.type === "short" ? "selected" : ""}>short</option>
+            <option ${q.type === "long" ? "selected" : ""}>long</option>
+          </select>`;
+          const tdMarks = document.createElement("td");
+          tdMarks.innerHTML = `<input type="number" class="w-20 border px-2 py-1" value="${q.marks}" onchange="updateQuestion(${i}, 'marks', this.value)">`;
+          tr.append(tdQ, tdType, tdMarks);
+          tbody.appendChild(tr);
+        });
+      }
+      function updateQuestion(i, field, value) {
+        assessment.questions[i][field] = value;
+      }
+
+      loadQuestions();
+
+      document.getElementById("saveBtn").addEventListener("click", () => {
+        assessment.title = document.getElementById("title").value;
+        assessment.type = document.getElementById("type").value;
+        assessment.totalMarks = document.getElementById("marks").value;
+        assessment.description = document.getElementById("desc").value;
+        assessments[editIndex] = assessment;
+        localStorage.setItem("assessments", JSON.stringify(assessments));
+        window.location.href = "Management.html";
+      });
+    </script>
+  </body>
+</html>

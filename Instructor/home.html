@@ -1,1 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Instructor Dashboard | Home</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Roboto+Slab:wght@300;400;500;700&family=Roboto+Serif&family=Sedan+SC&family=Rokkitt:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="overflow-hidden font-roboto">
+    <div class="flex min-h-screen h-screen overflow-hidden">
+      <aside
+        class="w-64 text-black p-6 bg-[linear-gradient(to_bottom,#FFF1C5_10%,#f6c7d8_50%,#D9B4F7_100%)]"
+      >
+        <nav class="space-y-8 m-4 text-lg">
+          <button
+            onclick="location.reload()"
+            class="w-full py-3 rounded flex justify-center items-center gap-3 hover:text-white hover:bg-black font-[roboto_condensed] bg-black/20"
+          >
+            <i class="fa-solid fa-house"></i>
+            Home
+          </button>
+          <button
+            onclick="window.location.href='Management.html'"
+            class="w-full py-3 rounded flex justify-center items-center gap-3 hover:text-white hover:bg-black font-[roboto_condensed]"
+          >
+            <i class="fa-solid fa-list-check"></i>
+            Management
+          </button>
+          <button
+            onclick="window.location.href='Evaluation.html'"
+            class="w-full py-3 rounded flex justify-center items-center gap-3 hover:text-white hover:bg-black font-[roboto_condensed]"
+          >
+            <i class="fa-solid fa-pen-to-square"></i>
+            Evaluation
+          </button>
+          <button
+            onclick="window.location.href='Overview.html'"
+            class="w-full py-3 rounded flex justify-center items-center gap-3 hover:text-white hover:bg-black font-[roboto_condensed]"
+          >
+            <i class="fa-solid fa-chart-simple"></i>
+            Overview
+          </button>
+          <button
+            onclick="window.location.href='InstructorProfile.html'"
+            class="w-full py-3 rounded flex justify-center items-center gap-3 hover:text-white hover:bg-black font-[roboto_condensed]"
+          >
+            <i class="fa-solid fa-user"></i>
+            Profile
+          </button>
+          <button
+            onclick="window.location.href='CreateAssessment.html'"
+            class="w-full py-3 rounded flex justify-center items-center gap-3 hover:text-white hover:bg-black font-[roboto_condensed]"
+          >
+            <i class="fa-solid fa-circle-plus"></i>
+            Build Assessment
+          </button>
+          <button
+            onclick="window.location.href='../index.html'"
+            class="w-full py-3 rounded flex justify-center items-center gap-3 hover:text-white hover:bg-black font-[roboto_condensed]"
+          >
+            <i class="fa-solid fa-right-from-bracket"></i>
+            Logout
+          </button>
+        </nav>
+      </aside>
+      <div class="flex-1 flex flex-col overflow-hidden">
+        <header
+          class="w-full flex justify-between items-center px-8 py-4 shadow text-black"
+          style="background: #fff1c5"
+        >
+          <a href="#" class="text-xl text-black font-sedan_sc">
+            Unified Assessment Platform
+          </a>
 
+          <div class="flex items-center space-x-12 text-2xl">
+            <div class="relative cursor-pointer">
+              <a href="Notifications.html"
+                ><i class="fa-regular fa-bell text-black text-2xl"></i
+              ></a>
+              <span
+                id="notifyCount"
+                class="absolute -top-1 -right-3 bg-red-600 text-white text-xs w-4 h-4 flex items-center justify-center rounded-full font-bold hidden"
+              >
+              </span>
+            </div>
+            <a href="InstructorProfile.html"
+              ><i class="fa-solid fa-user text-black cursor-pointer"></i
+            ></a>
+          </div>
+        </header>
+        <div class="p-10 grid grid-cols-3 gap-6 overflow-y-auto h-full">
+          <div class="col-span-2 space-y-6">
+            <div
+              class="bg-white shadow-lg p-6 rounded-xl transform transition duration-300 hover:scale-105"
+            >
+              <h2 class="text-2xl text-[#AC7F5E] mb-4 font-roboto_slab">
+                Instructor Dashboard
+              </h2>
+              <div class="flex items-center gap-4 text-xl">
+                <i class="fa-solid fa-user text-5xl"></i>
+                <p class="font-roboto_slab">Welcome, Pradeep</p>
+              </div>
+            </div>
+            <div
+              class="bg-white border border-[#AC7F5E] shadow-lg p-6 rounded-xl"
+            >
+              <h3 class="text-lg font-[Rokkitt] mb-4 font-bold">Quick Stats</h3>
+              <div class="grid grid-cols-3 gap-4">
+                <div
+                  class="border border-[#00C3D0] p-4 rounded-lg text-center transform transition duration-300 hover:scale-105 hover:bg-[#D9B4F7]/40"
+                >
+                  <span class="text-3xl font-bold">12</span>
+                  <p class="font-roboto_serif">Assessments Created</p>
+                </div>
+                <div
+                  class="border border-[#00C3D0] p-4 rounded-lg text-center transform transition duration-300 hover:scale-105 hover:bg-[#f6c7d8]/40"
+                >
+                  <span class="text-3xl font-bold">3</span>
+                  <p class="font-roboto_serif">Pending Reviews</p>
+                </div>
+                <button  onclick="window.location.href='CreateAssessment.html'"
+                  class="border border-black p-4 rounded-lg bg-[#90D6FF] hover:bg-[#6CC9FF] hover:scale-105 transition text-center"
+                >
+                  Create New <br />
+                  Assessment<br />
+                  <i class="fa-solid fa-circle-plus fa-lg mt-5"></i>
+                </button>
+              </div>
+            </div>
+            <div
+              class="bg-white border border-[#AC7F5E] shadow-lg p-6 rounded-xl transform transition duration-300 hover:scale-[1.03]"
+            >
+              <h3 class="text-lg font-[Rokkitt] mb-4 font-bold">
+                Managing Assessment
+              </h3>
+              <table class="w-full text-left border-collapse font-roboto_serif">
+                <tr class="border-b" style="border-color: #00c3d0">
+                  <th class="py-4 px-3">Title</th>
+                  <th class="px-3">Date</th>
+                  <th class="px-3">Type</th>
+                  <th class="px-3">Submission Count</th>
+                </tr>
+                <tr class="border-b" style="border-color: #00c3d0">
+                  <td class="py-4 px-3">JavaScript</td>
+                  <td class="px-3">Nov 2025</td>
+                  <td class="px-3">MCQ</td>
+                  <td class="px-3">24</td>
+                </tr>
+                <tr class="border-b" style="border-color: #00c3d0">
+                  <td class="py-4 px-3">ReactJS</td>
+                  <td class="px-3">Oct 2025</td>
+                  <td class="px-3">S.A</td>
+                  <td class="px-3">18</td>
+                </tr>
+              </table>
+            </div>
+            <div
+              class="bg-white border border-[#AC7F5E] shadow-lg p-6 rounded-xl transform transition duration-300 hover:scale-105"
+            >
+              <h3 class="text-lg font-[Rokkitt] mb-4 font-bold">Evaluation</h3>
+              <div class="grid grid-cols-3 gap-4">
+                <select
+                  class="border border-[#00C3D0] cursor-pointer hover:scale-[1.03] p-2 rounded font-roboto_serif"
+                >
+                  <option>Subject</option>
+                  <option>JavaScript</option>
+                  <option>ReactJS</option>
+                </select>
+                <select
+                  class="border border-[#00C3D0] cursor-pointer hover:scale-[1.03] p-2 rounded font-roboto_serif"
+                >
+                  <option>Student</option>
+                  <option>Sarvin</option>
+                  <option>Viyan</option>
+                </select>
+                <button
+                  class="bg-[#A1FFA1]/70 border px-4 py-2 rounded hover:border-green-500 hover:scale-105 transition"
+                >
+                  Submit Evaluation
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="col-span-1 space-y-6">
+            <div
+              class="bg-white border border-[#AC7F5E] shadow-lg p-6 rounded-xl"
+            >
+              <h3 class="text-xl font-[Rokkitt] mb-4 font-bold">
+                Student Overview
+              </h3>
+              <div class="space-y-3 font-roboto_serif">
+                <div>
+                  <p>Sarvin</p>
+                  <div
+                    class="w-full my-2 h-2 bg-gray-200 rounded hover:scale-[1.03] transition"
+                  >
+                    <div class="h-full w-3/4 bg-[#00C3D0] rounded"></div>
+                  </div>
+                </div>
+                <div>
+                  <p>Ammudhini</p>
+                  <div
+                    class="w-full my-2 h-2 bg-gray-200 rounded hover:scale-[1.03] transition"
+                  >
+                    <div class="h-full w-1/2 bg-[#00C3D0] rounded"></div>
+                  </div>
+                </div>
+                <div>
+                  <p>Viyan</p>
+                  <div
+                    class="w-full my-2 h-2 bg-gray-200 rounded hover:scale-[1.03] transition"
+                  >
+                    <div class="h-full w-2/3 bg-[#00C3D0] rounded"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="bg-white border border-[#AC7F5E] shadow-lg p-6 rounded-xl transform transition duration-300 hover:scale-105"
+            >
+              <div class="flex justify-between items-center mb-4">
+                <h3 class="text-lg font-[Rokkitt] font-bold">
+                  Profile Section
+                </h3>
+                <button  onclick="window.location.href='EditProfile.html'">
+                  <i class="fa-solid fa-pen hover:scale-125 transition"></i>
+                </button>
+              </div>
+              <div class="space-y-4 font-roboto_serif">
+                <div class="border border-[#00C3D0] p-2 rounded-lg">
+                  <strong>Name : </strong>Instructor Name
+                </div>
+                <div class="border border-[#00C3D0] p-2 rounded-lg">
+                  <strong>Email : </strong>instructor@gmail.com
+                </div>
+                <div class="border border-[#00C3D0] p-2 rounded-lg">
+                  <strong>Role : </strong>Instructor
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <footer
+          class="w-full py-4 text-center bg-white shadow-inner text-gray-600 text-sm"
+        >
+          © 2025 Unified Assessment Platform. All rights reserved. <br />
+          Empower Learning. Enhance Assessment.
+        </footer>
+      </div>
+    </div>
+
+    <script>
+      const notificationCount = 3;
+      const badge = document.getElementById("notifyCount");
+      if (notificationCount > 0) {
+        badge.innerText = notificationCount;
+        badge.classList.remove("hidden");
+      }
+    </script>
+  </body>
+</html>

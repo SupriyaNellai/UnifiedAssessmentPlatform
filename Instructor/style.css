@@ -1,0 +1,34 @@
+.font-roboto {
+  font-family: "Roboto", sans-serif;
+}
+.font-roboto_slab {
+  font-family: "Roboto Slab", serif;
+}
+.font-roboto_serif {
+  font-family: "Roboto Serif", serif;
+}
+.font-sedan_sc {
+ font-family: "Sedan SC", serif;
+}
+.font-roboto_condensed{
+  font-family: "Roboto Condensed",serif;
+}
+.font-rokkitt{
+  font-family: "Rokkitt", serif;
+}
+.text-accent {
+  color: #ac7f5e;
+}
+.border-accent {
+  border-color: #ac7f5e !important;
+}
+.rounded-4xl {
+  border-radius: 28px;
+}
+@media print {
+    .sidebar,
+    .navbar,
+    .footer {
+        display: none !important;
+    }
+}

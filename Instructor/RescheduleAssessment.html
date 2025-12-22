@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reschedule Assessment</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Roboto+Slab:wght@300;400;500;700&family=Roboto+Serif&family=Sedan+SC&family=Rokkitt:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="overflow-hidden font-roboto">
+    <div class="flex min-h-screen h-screen overflow-hidden">
+      <aside
+        class="w-64 text-black p-6 bg-[linear-gradient(to_bottom,#FFF1C5_10%,#f6c7d8_50%,#D9B4F7_100%)]"
+      >
+        <nav class="space-y-8 m-4 text-lg">
+          <button
+            onclick="window.location.href='home.html'"
+            class="w-full py-3 rounded flex justify-center items-center gap-3 hover:text-white hover:bg-black font-[roboto_condensed]"
+          >
+            <i class="fa-solid fa-house"></i> Home
+          </button>
+          <button
+            onclick="window.location.href='Management.html'"
+            class="w-full py-3 rounded flex justify-center items-center gap-3 hover:text-white hover:bg-black font-[roboto_condensed] bg-black/20"
+          >
+            <i class="fa-solid fa-list-check"></i> Management
+          </button>
+          <button
+            onclick="window.location.href='Evaluation.html'"
+            class="w-full py-3 rounded flex justify-center items-center gap-3 hover:text-white hover:bg-black font-[roboto_condensed]"
+          >
+            <i class="fa-solid fa-pen-to-square"></i> Evaluation
+          </button>
+          <button
+            onclick="window.location.href='Overview.html'"
+            class="w-full py-3 rounded flex justify-center items-center gap-3 hover:text-white hover:bg-black font-[roboto_condensed]"
+          >
+            <i class="fa-solid fa-chart-simple"></i> Overview
+          </button>
+          <button
+            onclick="window.location.href='InstructorProfile.html'"
+            class="w-full py-3 rounded flex justify-center items-center gap-3 hover:text-white hover:bg-black font-[roboto_condensed]"
+          >
+            <i class="fa-solid fa-user"></i> Profile
+          </button>
+          <button
+            onclick="window.location.href='CreateAssessment.html'"
+            class="w-full py-3 rounded flex justify-center items-center gap-3 hover:text-white hover:bg-black font-[roboto_condensed]"
+          >
+            <i class="fa-solid fa-circle-plus"></i> Build Assessment
+          </button>
+          <button
+            onclick="window.location.href='../index.html'"
+            class="w-full py-3 rounded flex justify-center items-center gap-3 hover:text-white hover:bg-black font-[roboto_condensed]"
+          >
+            <i class="fa-solid fa-right-from-bracket"></i> Logout
+          </button>
+        </nav>
+      </aside>
+      <div class="flex-1 flex flex-col overflow-hidden">
+        <header
+          class="w-full flex justify-between items-center px-8 py-4 shadow text-black"
+          style="background: #fff1c5"
+        >
+          <a class="text-xl font-sedan_sc">Unified Assessment Platform</a>
+          <div class="flex items-center space-x-12 text-2xl">
+            <div class="relative cursor-pointer">
+              <a href="Notifications.html"
+                ><i class="fa-regular fa-bell text-black text-2xl"></i
+              ></a>
+              <span
+                id="notifyCount"
+                class="absolute -top-1 -right-3 bg-red-600 text-white text-xs w-4 h-4 flex items-center justify-center rounded-full font-bold hidden"
+              >
+              </span>
+            </div>
+            <a href="InstructorProfile.html"
+              ><i class="fa-solid fa-user text-black cursor-pointer"></i
+            ></a>
+          </div>
+        </header>
+
+        <div class="p-10 overflow-y-auto h-full space-y-8">
+          <h2 class="text-2xl text-[#AC7F5E] font-roboto_slab">
+            Reschedule Assessment
+          </h2>
+          <p class="text-gray-700 font-roboto_serif">
+            Adjust the schedule for this assessment.
+          </p>
+          <div
+            class="bg-white border border-[#AC7F5E] shadow-md p-6 rounded-xl"
+          >
+            <h3 class="text-lg font-[Rokkitt] font-bold mb-4">
+              Current Schedule
+            </h3>
+            <div class="grid grid-cols-2 gap-6 mb-6">
+              <div>
+                <label class="block mb-2 text-gray-600 font-roboto_serif"
+                  >Created On</label
+                >
+                <input
+                  type="date"
+                  value="05-10-2025"
+                  class="w-full border border-gray-300 rounded px-3 py-2"
+                />
+              </div>
+              <div>
+                <label class="block mb-2 text-gray-600 font-roboto_serif"
+                  >Existing Deadline</label
+                >
+                <input
+                  type="date"
+                  value="10-10-2025"
+                  class="w-full border border-gray-300 rounded px-3 py-2"
+                />
+              </div>
+            </div>
+            <div class="mb-6">
+              <label class="block mb-2 text-gray-600 font-roboto_serif"
+                >Status</label
+              >
+              <input
+                type="text"
+                value="Scheduled"
+                class="w-full border border-gray-300 rounded px-3 py-2"
+              />
+            </div>
+            <h3 class="text-lg font-[Rokkitt] font-bold mb-4">New Schedule</h3>
+            <div class="grid grid-cols-2 gap-6 mb-6">
+              <div>
+                <label class="block mb-2 text-gray-600 font-roboto_serif"
+                  >Start Date</label
+                >
+                <input
+                  type="date"
+                  value="05-10-2025"
+                  class="w-full border border-gray-300 rounded px-3 py-2"
+                />
+              </div>
+              <div>
+                <label class="block mb-2 text-gray-600 font-roboto_serif"
+                  >End Date</label
+                >
+                <input
+                  type="date"
+                  value="10-10-2025"
+                  class="w-full border border-gray-300 rounded px-3 py-2"
+                />
+              </div>
+            </div>
+            <div class="mb-6">
+              <label class="inline-flex items-center gap-2 font-roboto_serif">
+                <input type="checkbox" class="form-checkbox" /> Notify Students
+              </label>
+            </div>
+            <div class="mb-6">
+              <label class="block mb-2 text-gray-600 font-roboto_serif"
+                >Reason for Rescheduling (Optional)</label
+              >
+              <textarea
+                class="w-full border border-gray-300 rounded px-3 py-2"
+                placeholder="Provide reason here..."
+              ></textarea>
+            </div>
+            <button
+              class="px-6 py-2 bg-teal-400 text-white rounded hover:bg-teal-500"
+            >
+              Update Schedule
+            </button>
+          </div>
+        </div>
+        <footer
+          class="w-full py-4 text-center bg-white shadow-inner text-gray-600 text-sm"
+        >
+          © 2025 Unified Assessment Platform. All rights reserved. <br />
+          Empower Learning. Enhance Assessment.
+        </footer>
+      </div>
+    </div>
+
+    <script>
+      const notificationCount = 3;
+      const badge = document.getElementById("notifyCount");
+      if (notificationCount > 0) {
+        badge.innerText = notificationCount;
+        badge.classList.remove("hidden");
+      }
+
+      let editIndex = localStorage.getItem("editIndex");
+      let assessments = JSON.parse(localStorage.getItem("assessments"));
+      const assessment = assessments[editIndex];
+      document.querySelectorAll('input[type="date"]')[0].value =
+        assessment.createdOn;
+      document.querySelectorAll('input[type="date"]')[1].value =
+        assessment.deadline;
+      document.querySelector('input[type="text"]').value = assessment.status;
+      document
+        .querySelector("button.bg-teal-400")
+        .addEventListener("click", () => {
+          assessment.createdOn =
+            document.querySelectorAll('input[type="date"]')[0].value;
+          assessment.deadline =
+            document.querySelectorAll('input[type="date"]')[1].value;
+          assessment.status =
+            document.querySelector('input[type="text"]').value;
+          assessments[editIndex] = assessment;
+          localStorage.setItem("assessments", JSON.stringify(assessments));
+          window.location.href = "Management.html";
+        });
+    </script>
+  </body>
+</html>

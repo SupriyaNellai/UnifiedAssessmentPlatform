@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Overview</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Roboto+Slab:wght@300;400;500;700&family=Roboto+Serif&family=Sedan+SC&family=Rokkitt:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="overflow-hidden font-roboto">
+    <div class="flex min-h-screen h-screen overflow-hidden">
+      <aside
+        class="w-64 text-black p-6 bg-[linear-gradient(to_bottom,#FFF1C5_10%,#f6c7d8_50%,#D9B4F7_100%)]"
+      >
+        <nav class="space-y-8 m-4 text-lg">
+          <button
+            onclick="window.location.href='home.html'"
+            class="w-full py-3 rounded flex justify-center items-center gap-3 hover:text-white hover:bg-black font-[roboto_condensed]"
+          >
+            <i class="fa-solid fa-house"></i>
+            Home
+          </button>
+          <button
+            onclick="window.location.href='Management.html'"
+            class="w-full py-3 rounded flex justify-center items-center gap-3 hover:text-white hover:bg-black font-[roboto_condensed]"
+          >
+            <i class="fa-solid fa-list-check"></i>
+            Management
+          </button>
+          <button
+            onclick="window.location.href='Evaluation.html'"
+            class="w-full py-3 rounded flex justify-center items-center gap-3 hover:text-white hover:bg-black font-[roboto_condensed]"
+          >
+            <i class="fa-solid fa-pen-to-square"></i>
+            Evaluation
+          </button>
+          <button
+            onclick="location.reload()"
+            class="w-full py-3 rounded flex justify-center items-center gap-3 hover:text-white hover:bg-black font-[roboto_condensed] bg-black/20"
+          >
+            <i class="fa-solid fa-chart-simple"></i>
+            Overview
+          </button>
+          <button
+            onclick="window.location.href='InstructorProfile.html'"
+            class="w-full py-3 rounded flex justify-center items-center gap-3 hover:text-white hover:bg-black font-[roboto_condensed]"
+          >
+            <i class="fa-solid fa-user"></i>
+            Profile
+          </button>
+          <button
+            onclick="window.location.href='CreateAssessment.html'"
+            class="w-full py-3 rounded flex justify-center items-center gap-3 hover:text-white hover:bg-black font-[roboto_condensed]"
+          >
+            <i class="fa-solid fa-circle-plus"></i>
+            Build Assessment
+          </button>
+          <button
+            onclick="window.location.href='../index.html'"
+            class="w-full py-3 rounded flex justify-center items-center gap-3 hover:text-white hover:bg-black font-[roboto_condensed]"
+          >
+            <i class="fa-solid fa-right-from-bracket"></i>
+            Logout
+          </button>
+        </nav>
+      </aside>
+      <div class="flex-1 flex flex-col overflow-hidden">
+        <header
+          class="w-full flex justify-between items-center px-8 py-4 shadow text-black"
+          style="background: #fff1c5"
+        >
+          <a href="#" class="text-xl text-black font-sedan_sc">
+            Unified Assessment Platform
+          </a>
+          <div class="flex items-center space-x-12 text-2xl">
+            <div class="relative cursor-pointer">
+              <a href="Notifications.html"
+                ><i class="fa-regular fa-bell text-black text-2xl"></i
+              ></a>
+              <span
+                id="notifyCount"
+                class="absolute -top-1 -right-3 bg-red-600 text-white text-xs w-4 h-4 flex items-center justify-center rounded-full font-bold hidden"
+              >
+              </span>
+            </div>
+            <a href="InstructorProfile.html"
+              ><i class="fa-solid fa-user text-black cursor-pointer"></i
+            ></a>
+          </div>
+        </header>
+        <div class="p-10 overflow-y-auto h-full space-y-8">
+          <h2 class="text-2xl text-[#AC7F5E] mb-6 font-roboto_slab">
+            Overview
+          </h2>
+          <button
+            onclick="printInstructorPage()"
+            class="px-6 py-2 bg-[#FDE8FF] hover:bg-[#F7D0FF] border border-[#D9B4F7] rounded-lg mb-4"
+          >
+            <i class="fa-solid fa-download mr-2"></i>Export
+          </button>
+          <div
+            class="bg-white border border-[#AC7F5E] shadow-lg p-6 rounded-xl"
+          >
+            <h3 class="text-lg font-[Rokkitt] mb-4 font-bold">Quick Stats</h3>
+            <div class="grid grid-cols-4 gap-4">
+              <div
+                class="border border-[#00C3D0] p-4 rounded-lg text-center transform transition duration-300 hover:scale-105 hover:bg-[#D9B4F7]/40"
+              >
+                <span class="text-3xl font-bold">23</span>
+                <p class="font-roboto_serif">Total Assessments</p>
+              </div>
+              <div
+                class="border border-[#00C3D0] p-4 rounded-lg text-center transform transition duration-300 hover:scale-105 hover:bg-[#FFF1C5]/40"
+              >
+                <span class="text-3xl font-bold">145</span>
+                <p class="font-roboto_serif">Students Enrolled</p>
+              </div>
+              <div
+                class="border border-[#00C3D0] p-4 rounded-lg text-center transform transition duration-300 hover:scale-105 hover:bg-[#f6c7d8]/40"
+              >
+                <span class="text-3xl font-bold">18</span>
+                <p class="font-roboto_serif">Pending Reviews</p>
+              </div>
+              <div
+                class="border border-[#00C3D0] p-4 rounded-lg text-center transform transition duration-300 hover:scale-105 hover:bg-green-100"
+              >
+                <span class="text-3xl font-bold">82 %</span>
+                <p class="font-roboto_serif">Average Percentage</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-2 gap-6">
+            <div
+              class="bg-white border border-[#AC7F5E] shadow-lg p-6 rounded-xl"
+            >
+              <h3 class="text-lg font-[Rokkitt] mb-4 font-bold">
+                Teaching Insights
+              </h3>
+              <div
+                class="flex justify-center items-center border border-gray-200 rounded"
+              >
+                <p
+                  class="text-gray-500 transition duration-300 hover:scale-[1.03]"
+                >
+                  <img src="linegraph.png" alt="" />
+                </p>
+              </div>
+            </div>
+            <div
+              class="bg-white border border-[#AC7F5E] shadow-lg p-6 rounded-xl"
+            >
+              <h3 class="text-lg font-[Rokkitt] mb-4 font-bold">
+                Student Feedback Distribution
+              </h3>
+              <div
+                class="flex justify-center items-center border border-gray-200 rounded"
+              >
+                <p
+                  class="text-gray-500 transition duration-300 hover:scale-[1.03]"
+                >
+                  <img src="pie chart.png" alt="" />
+                </p>
+              </div>
+            </div>
+            <div
+              class="bg-white border border-[#AC7F5E] shadow-lg p-6 rounded-xl"
+            >
+              <h3 class="text-lg font-[Rokkitt] mb-4 font-bold">Performance</h3>
+              <div
+                class="flex justify-center items-center border border-gray-200 rounded"
+              >
+                <p
+                  class="text-gray-500 transition duration-300 hover:scale-[1.03]"
+                >
+                  <img src="bar graph.png" alt="" />
+                </p>
+              </div>
+            </div>
+            <div
+              class="bg-white border border-[#AC7F5E] shadow-lg p-6 rounded-xl"
+            >
+              <h3 class="text-lg font-[Rokkitt] mb-4 font-bold">
+                Course Assessment Distribution
+              </h3>
+              <div
+                class="flex justify-center items-center border border-gray-200 rounded"
+              >
+                <p
+                  class="text-gray-500 transition duration-300 hover:scale-[1.03]"
+                >
+                  <img src="multicolorbargraph.png" alt="" />
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-2 gap-6">
+            <div
+              class="bg-white border border-[#AC7F5E] shadow-lg p-6 rounded-xl"
+            >
+              <h3 class="text-lg font-[Rokkitt] mb-4 font-bold">
+                Review Summary
+              </h3>
+              <div class="space-y-4">
+                <div
+                  class="border border-[#00C3D0] p-3 rounded-lg flex justify-between items-center bg-yellow-50"
+                >
+                  <p class="font-roboto_serif">Assessments Managed</p>
+                  <span class="font-bold text-xl text-[#AC7F5E]">5</span>
+                </div>
+                <div
+                  class="border border-[#00C3D0] p-3 rounded-lg flex justify-between items-center bg-yellow-50"
+                >
+                  <p class="font-roboto_serif">Pending Evaluations</p>
+                  <span class="font-bold text-xl text-[#AC7F5E]">12</span>
+                </div>
+                <div
+                  class="border border-[#00C3D0] p-3 rounded-lg flex justify-between items-center bg-yellow-50"
+                >
+                  <p class="font-roboto_serif">Students Engaged</p>
+                  <span class="font-bold text-xl text-[#AC7F5E]">120</span>
+                </div>
+                <div
+                  class="border border-[#00C3D0] p-3 rounded-lg flex justify-between items-center bg-yellow-50"
+                >
+                  <p class="font-roboto_serif">Feedback Given</p>
+                  <span class="font-bold text-xl text-[#AC7F5E]">325</span>
+                </div>
+                <div
+                  class="border border-[#00C3D0] p-3 rounded-lg flex justify-between items-center bg-yellow-50"
+                >
+                  <p class="font-roboto_serif">Avg. Student Wellness</p>
+                  <span class="font-bold text-xl text-[#AC7F5E]">85%</span>
+                </div>
+              </div>
+            </div>
+            <div
+              class="bg-white border border-[#AC7F5E] shadow-lg p-6 rounded-xl"
+            >
+              <h3 class="text-lg font-[Rokkitt] mb-4 font-bold">
+                Notifications & Announcements
+              </h3>
+              <div class="space-y-4">
+                <div
+                  class="flex gap-4 items-start border border-[#00C3D0] transform transition duration-300 hover:scale-[1.03] p-3 rounded-lg hover:bg-gray-50 transition"
+                >
+                  <i class="fa-solid fa-bell text-3xl"></i>
+                  <div>
+                    <p class="font-roboto_serif font-semibold">System</p>
+                    <p class="text-sm text-gray-600">
+                      New error report for ReactJS batch's quiz is available.
+                    </p>
+                    <p class="text-xs text-gray-500 mt-1">28 Nov 2025</p>
+                  </div>
+                </div>
+                <div
+                  class="flex gap-4 items-start border border-[#00C3D0] transform transition duration-300 hover:scale-[1.03] p-3 rounded-lg hover:bg-gray-50 transition"
+                >
+                  <i class="fa-solid fa-file-alt text-3xl"></i>
+                  <div>
+                    <p class="font-roboto_serif font-semibold">Admin</p>
+                    <p class="text-sm text-gray-600">
+                      Please submit your feedback form by 1/12/2025.
+                    </p>
+                    <p class="text-xs text-gray-500 mt-1">27 Nov 2025</p>
+                  </div>
+                </div>
+                <div
+                  class="flex gap-4 items-start border border-[#00C3D0] transform transition duration-300 hover:scale-[1.03] p-3 rounded-lg hover:bg-gray-50 transition"
+                >
+                  <i class="fa-solid fa-graduation-cap text-3xl"></i>
+                  <div>
+                    <p class="font-roboto_serif font-semibold">Student</p>
+                    <p class="text-sm text-gray-600">
+                      A student submitted a query on CSS Quizzes.
+                    </p>
+                    <p class="text-xs text-gray-500 mt-1">20 Nov 2025</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <footer
+          class="w-full py-4 text-center bg-white shadow-inner text-gray-600 text-sm"
+        >
+          © 2025 Unified Assessment Platform. All rights reserved. <br />
+          Empower Learning. Enhance Assessment.
+        </footer>
+      </div>
+    </div>
+    <script>
+      const notificationCount = 3;
+      const badge = document.getElementById("notifyCount");
+      if (notificationCount > 0) {
+        badge.innerText = notificationCount;
+        badge.classList.remove("hidden");
+      }
+      function printInstructorPage() {
+        window.print();
+      }
+    </script>
+  </body>
+</html>

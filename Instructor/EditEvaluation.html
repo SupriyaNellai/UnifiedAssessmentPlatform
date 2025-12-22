@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit Evaluation</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Roboto+Slab:wght@300;400;500;700&family=Roboto+Serif&family=Sedan+SC&family=Rokkitt:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="overflow-hidden font-roboto">
+    <div class="flex min-h-screen h-screen overflow-hidden">
+      <aside
+        class="w-64 text-black p-6 bg-[linear-gradient(to_bottom,#FFF1C5_10%,#f6c7d8_50%,#D9B4F7_100%)]"
+      >
+        <nav class="space-y-8 m-4 text-lg">
+          <button
+            onclick="window.location.href='home.html'"
+            class="w-full py-3 rounded flex justify-center items-center gap-3 hover:text-white hover:bg-black font-[roboto_condensed]"
+          >
+            <i class="fa-solid fa-house"></i>
+            Home
+          </button>
+          <button
+            onclick="window.location.href='Management.html'"
+            class="w-full py-3 rounded flex justify-center items-center gap-3 hover:text-white hover:bg-black font-[roboto_condensed]"
+          >
+            <i class="fa-solid fa-list-check"></i>
+            Management
+          </button>
+          <button
+            onclick="window.location.href='Evaluation.html'"
+            class="w-full py-3 rounded flex justify-center items-center gap-3 hover:text-white hover:bg-black font-[roboto_condensed] bg-black/20"
+          >
+            <i class="fa-solid fa-pen-to-square"></i>
+            Evaluation
+          </button>
+          <button
+            onclick="window.location.href='Overview.html'"
+            class="w-full py-3 rounded flex justify-center items-center gap-3 hover:text-white hover:bg-black font-[roboto_condensed]"
+          >
+            <i class="fa-solid fa-chart-simple"></i>
+            Overview
+          </button>
+          <button
+            onclick="window.location.href='InstructorProfile.html'"
+            class="w-full py-3 rounded flex justify-center items-center gap-3 hover:text-white hover:bg-black font-[roboto_condensed]"
+          >
+            <i class="fa-solid fa-user"></i>
+            Profile
+          </button>
+          <button
+            onclick="window.location.href='CreateAssessment.html'"
+            class="w-full py-3 rounded flex justify-center items-center gap-3 hover:text-white hover:bg-black font-[roboto_condensed]"
+          >
+            <i class="fa-solid fa-circle-plus"></i>
+            Build Assessment
+          </button>
+          <button
+            onclick="window.location.href='../index.html'"
+            class="w-full py-3 rounded flex justify-center items-center gap-3 hover:text-white hover:bg-black font-[roboto_condensed]"
+          >
+            <i class="fa-solid fa-right-from-bracket"></i>
+            Logout
+          </button>
+        </nav>
+      </aside>
+      <div class="flex-1 flex flex-col overflow-hidden">
+        <header
+          class="w-full flex justify-between items-center px-8 py-4 shadow text-black"
+          style="background: #fff1c5"
+        >
+          <a href="#" class="text-xl text-black font-sedan_sc">
+            Unified Assessment Platform
+          </a>
+          <div class="flex items-center space-x-12 text-2xl">
+            <div class="relative cursor-pointer">
+              <a href="Notifications.html"
+                ><i class="fa-regular fa-bell text-black text-2xl"></i
+              ></a>
+              <span
+                id="notifyCount"
+                class="absolute -top-1 -right-3 bg-red-600 text-white text-xs w-4 h-4 flex items-center justify-center rounded-full font-bold hidden"
+              >
+              </span>
+            </div>
+            <a href="InstructorProfile.html"
+              ><i class="fa-solid fa-user text-black cursor-pointer"></i
+            ></a>
+          </div>
+        </header>
+        <div class="p-10 overflow-y-auto h-full space-y-8">
+          <h2 class="text-2xl text-[#AC7F5E] mb-6 font-roboto_slab">
+            Evaluate Assessment
+          </h2>
+
+          <div
+            class="bg-white border-4 border-green-500 shadow-lg p-6 rounded-xl"
+          >
+            <h3 class="font-bold text-lg mb-4 text-green-700">MCQ</h3>
+            <p class="mb-4">
+              1. What is **HTML** used for to link an external **CSS** file to a
+              webpage?
+            </p>
+            <p class="font-bold text-sm mb-2">Student's Answer:</p>
+            <div class="bg-gray-100 p-3 rounded mb-4">
+              <p>&lt;link rel="stylesheet" href="style.css"&gt;</p>
+            </div>
+            <div class="flex items-center gap-4">
+              <div class="flex items-center gap-2">
+                <label>Marks:</label>
+                <input
+                  type="number"
+                  value="10"
+                  min="0"
+                  max="10"
+                  class="border p-1 w-16 rounded text-center"
+                />
+                <label>/ 10</label>
+              </div>
+              <button
+                class="bg-yellow-200 hover:bg-yellow-300 px-4 py-2 rounded transition"
+              >
+                Remark
+              </button>
+            </div>
+          </div>
+
+          <div
+            class="bg-white border-4 border-blue-500 shadow-lg p-6 rounded-xl"
+          >
+            <h3 class="font-bold text-lg mb-4 text-blue-700">Short Answer</h3>
+            <p class="mb-4">
+              2. What is the difference between inline, internal, and external
+              CSS?
+            </p>
+            <p class="font-bold text-sm mb-2">Student's Answer:</p>
+            <div class="bg-gray-100 p-3 rounded mb-4">
+              <p>
+                Inline CSS applies to a single HTML element. Internal CSS is
+                defined in the &lt;head&gt; section using &lt;style&gt; tags.
+                External CSS is a separate .css file linked to the HTML.
+              </p>
+            </div>
+            <p class="font-bold text-sm mb-2">Instructor Feedback:</p>
+            <textarea
+              rows="3"
+              class="w-full border p-2 rounded mb-4"
+              placeholder="Add feedback for the student..."
+            >
+Good explanation, clear separation of concepts. Mentioning the selectors used in each would make it perfect.</textarea
+            >
+            <div class="flex items-center gap-4">
+              <div class="flex items-center gap-2">
+                <label>Marks:</label>
+                <input
+                  type="number"
+                  value="18"
+                  min="0"
+                  max="20"
+                  class="border p-1 w-16 rounded text-center"
+                />
+                <label>/ 20</label>
+              </div>
+              <button
+                class="bg-yellow-200 hover:bg-yellow-300 px-4 py-2 rounded transition"
+              >
+                Remark
+              </button>
+            </div>
+          </div>
+
+          <div
+            class="bg-white border-4 border-gray-500 shadow-lg p-6 rounded-xl"
+          >
+            <h3 class="font-bold text-lg mb-4 text-gray-700">Long Answer</h3>
+            <p class="mb-4">
+              3. Explain the Document Object Model (DOM) and its role in web
+              development, including a simple JavaScript example to manipulate a
+              DOM element.
+            </p>
+            <p class="font-bold text-sm mb-2">Student's Answer:</p>
+            <div class="bg-gray-100 p-3 rounded mb-4">
+              <p>
+                The DOM represents the structure of an HTML or XML document as a
+                tree of objects. It provides a programming interface that allows
+                scripts like JavaScript to dynamically read, modify, and update
+                the content and structure of a webpage. It is crucial for
+                interactive web pages. For example,
+                document.getElementById('myId').innerHTML = 'New Content'
+                changes the text content of an element.
+              </p>
+            </div>
+            <p class="font-bold text-sm mb-2">Instructor Feedback:</p>
+            <textarea
+              rows="3"
+              class="w-full border p-2 rounded mb-4"
+              placeholder="Add feedback for the student..."
+            >
+Comprehensive answer covering the structure, purpose, and providing a relevant example. Excellent.</textarea
+            >
+            <div class="flex items-center gap-4">
+              <div class="flex items-center gap-2">
+                <label>Marks:</label>
+                <input
+                  type="number"
+                  value="30"
+                  min="0"
+                  max="30"
+                  class="border p-1 w-16 rounded text-center"
+                />
+                <label>/ 30</label>
+              </div>
+              <button
+                class="bg-yellow-200 hover:bg-yellow-300 px-4 py-2 rounded transition"
+              >
+                Remark
+              </button>
+            </div>
+          </div>
+
+          <div class="flex justify-end pt-4">
+            <button
+              onclick="window.location.href='Evaluation.html'"
+              class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-6 rounded transition"
+            >
+              Submit Evaluation
+            </button>
+          </div>
+        </div>
+        <footer
+          class="w-full py-4 text-center bg-white shadow-inner text-gray-600 text-sm"
+        >
+          © 2025 Unified Assessment Platform. All rights reserved. <br />
+          Empower Learning. Enhance Assessment.
+        </footer>
+      </div>
+    </div>
+    <script>
+      const notificationCount = 3;
+      const badge = document.getElementById("notifyCount");
+      if (notificationCount > 0) {
+        badge.innerText = notificationCount;
+        badge.classList.remove("hidden");
+      }
+    </script>
+  </body>
+</html>

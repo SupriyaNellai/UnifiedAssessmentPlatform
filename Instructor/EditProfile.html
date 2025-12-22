@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit Profile</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Roboto+Slab:wght@300;400;500;700&family=Roboto+Serif&family=Sedan+SC&family=Rokkitt:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="bg-[#00C8B3]/40 font-roboto">
+    <div
+      class="max-w-4xl mx-auto mt-10 mb-10 bg-white p-10 rounded-xl shadow-lg border border-[#AC7F5E]"
+    >
+      <h2 class="text-3xl font-roboto_slab text-[#AC7F5E] mb-6">
+        Edit Profile
+      </h2>
+      <form id="editForm" class="space-y-6">
+        <h3 class="font-roboto_slab text-xl text-[#AC7F5E]">
+          Basic Information
+        </h3>
+        <div class="grid grid-cols-2 gap-4">
+          <div>
+            <label class="font-semibold">Name</label
+            ><input type="text" id="name" class="w-full border p-2 rounded" />
+          </div>
+          <div>
+            <label class="font-semibold">Email</label
+            ><input type="email" id="email" class="w-full border p-2 rounded" />
+          </div>
+          <div>
+            <label class="font-semibold">Gender</label
+            ><input
+              type="text"
+              id="gender"
+              class="w-full border p-2 rounded"
+              placeholder="Male, Female, or Others"
+            />
+          </div>
+          <div>
+            <label class="font-semibold">DOB</label
+            ><input type="date" id="dob" class="w-full border p-2 rounded" />
+          </div>
+          <div>
+            <label class="font-semibold">Contact</label
+            ><input
+              type="text"
+              id="contact"
+              class="w-full border p-2 rounded"
+            />
+          </div>
+          <div>
+            <label class="font-semibold">Father's Name</label
+            ><input type="text" id="father" class="w-full border p-2 rounded" />
+          </div>
+          <div>
+            <label class="font-semibold">Mother's Name</label
+            ><input type="text" id="mother" class="w-full border p-2 rounded" />
+          </div>
+          <div>
+            <label class="font-semibold">Parent Contact</label
+            ><input
+              type="text"
+              id="parentContact"
+              class="w-full border p-2 rounded"
+            />
+          </div>
+        </div>
+        <h3 class="font-roboto_slab text-xl text-[#AC7F5E]">
+          Professional Information
+        </h3>
+        <div class="grid grid-cols-2 gap-4">
+          <div>
+            <label class="font-semibold">Employee id /Staff Code</label
+            ><input type="text" id="id" class="w-full border p-2 rounded" />
+          </div>
+          <div>
+            <label class="font-semibold">Specification</label
+            ><input type="text" id="spec" class="w-full border p-2 rounded" />
+          </div>
+          <div>
+            <label class="font-semibold">Faculty Role</label
+            ><input type="text" id="role" class="w-full border p-2 rounded" />
+          </div>
+          <div>
+            <label class="font-semibold">Institution Name</label
+            ><input type="text" id="inst" class="w-full border p-2 rounded" />
+          </div>
+
+          <div>
+            <label class="font-semibold">Years of Experience</label
+            ><input type="text" id="year" class="w-full border p-2 rounded" />
+          </div>
+          <div>
+            <label class="font-semibold">Area of Expertise</label
+            ><input type="text" id="area" class="w-full border p-2 rounded" />
+          </div>
+          <div>
+            <label class="font-semibold">Working Mode</label
+            ><input
+              type="text"
+              id="Workingmode"
+              class="w-full border p-2 rounded"
+            />
+          </div>
+        </div>
+        <div
+          class="bg-white border border-[#AC7F5E] shadow-lg p-6 rounded-xl space-y-6"
+        >
+          <h2 class="text-xl font-roboto_slab text-[#AC7F5E]">Achievements</h2>
+
+          <h3 class="font-roboto_slab text-lg text-[#AC7F5E]">
+            Professional Achievements
+          </h3>
+          <div id="badgeBox" class="space-y-3"></div>
+          <button
+            type="button"
+            onclick="addBadge()"
+            class="px-4 py-1 bg-[#53afaa] text-white rounded hover:bg-[#439690] transition"
+          >
+            + Add More Badge
+          </button>
+          <h3 class="font-roboto_slab text-lg text-[#AC7F5E]">
+            Technical / Research
+          </h3>
+          <div id="milestoneBox" class="space-y-3"></div>
+          <button
+            type="button"
+            onclick="addMilestone()"
+            class="px-4 py-1 bg-[#53afaa] text-white rounded hover:bg-[#439690] transition"
+          >
+            + Add More
+          </button>
+          <h3 class="font-roboto_slab text-lg text-[#AC7F5E]">
+            Teaching & Institutional
+          </h3>
+          <div class="grid grid-cols-2 gap-4">
+            <div>
+              <label class="font-semibold">EdTech Innovator</label>
+              <input
+                type="text"
+                id="innovator"
+                class="w-full border p-2 rounded"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="flex justify-end gap-4 pt-6">
+          <button
+            type="button"
+            onclick="window.location.href='InstructorProfile.html'"
+            class="px-6 py-2 bg-gray-300 rounded-lg hover:bg-gray-400 font-semibold transition"
+          >
+            Cancel
+          </button>
+          <button
+            type="submit"
+            class="px-6 py-2 bg-[#50C878] text-white rounded-lg hover:bg-[#3da463] font-semibold transition"
+          >
+            Update
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <script>
+      const nameInputs = ["name", "father", "mother"];
+      const textOnlyInputs = [
+        "inst",
+        "spec",
+        "area",
+        "Workingmode",
+        "role",
+        "innovator",
+      ];
+      const numericInputs = ["contact", "parentContact", "year"];
+
+      function validateInput(id, regex, message) {
+        const el = document.getElementById(id);
+        if (!el) return;
+        el.addEventListener("input", function () {
+          if (regex.test(this.value)) {
+            this.value = this.value.replace(regex, "");
+            this.setCustomValidity(message);
+            this.reportValidity();
+          } else {
+            this.setCustomValidity("");
+          }
+        });
+      }
+
+      nameInputs.forEach((id) =>
+        validateInput(id, /[^a-zA-Z\s]/g, "Only characters are allowed")
+      );
+      textOnlyInputs.forEach((id) =>
+        validateInput(
+          id,
+          /[^a-zA-Z\s.\-]/g,
+          "Only characters, dots and hyphens are allowed"
+        )
+      );
+
+      numericInputs.forEach((id) => {
+        const el = document.getElementById(id);
+        el.addEventListener("input", function () {
+          if (/\D/g.test(this.value)) {
+            this.value = this.value.replace(/\D/g, "");
+            this.setCustomValidity("Only numbers are allowed");
+            this.reportValidity();
+          } else if (
+            (id === "contact" || id === "parentContact") &&
+            this.value.length !== 10
+          ) {
+            this.setCustomValidity("Must be exactly 10 digits");
+            this.reportValidity();
+          } else {
+            this.setCustomValidity("");
+          }
+        });
+      });
+
+      const genderEl = document.getElementById("gender");
+      genderEl.addEventListener("input", function () {
+        const val = this.value.toLowerCase();
+        const validOptions = ["male", "female", "others"];
+        const isPartialMatch = validOptions.some((opt) => opt.startsWith(val));
+
+        if (!isPartialMatch && val !== "") {
+          this.value = this.value.slice(0, -1);
+          this.setCustomValidity("Only Male, Female, or Others allowed");
+          this.reportValidity();
+        } else {
+          this.setCustomValidity("");
+        }
+      });
+
+      function loadInstructorData() {
+        const saved = JSON.parse(localStorage.getItem("instructorProfileData"));
+        if (saved) {
+          document.getElementById("name").value = saved.name || "";
+          document.getElementById("email").value = saved.email || "";
+          document.getElementById("gender").value = saved.gender || "";
+          document.getElementById("dob").value = saved.dob || "";
+          document.getElementById("contact").value = saved.contact || "";
+          document.getElementById("father").value = saved.father || "";
+          document.getElementById("mother").value = saved.mother || "";
+          document.getElementById("parentContact").value =
+            saved.parentContact || "";
+          document.getElementById("id").value = saved.id || "";
+          document.getElementById("spec").value = saved.spec || "";
+          document.getElementById("role").value = saved.role || "";
+          document.getElementById("inst").value = saved.inst || "";
+          document.getElementById("year").value = saved.year || "";
+          document.getElementById("area").value = saved.area || "";
+          document.getElementById("Workingmode").value =
+            saved.workingMode || "";
+          document.getElementById("innovator").value = saved.innovator || "";
+
+          if (saved.badges) saved.badges.forEach((b) => addBadge(b));
+          if (saved.milestones)
+            saved.milestones.forEach((m) => addMilestone(m));
+        }
+      }
+
+      function addBadge(value = "") {
+        const box = document.getElementById("badgeBox");
+        const div = document.createElement("div");
+        div.className = "flex gap-2 items-center";
+        div.innerHTML = `<input type="text" class="w-full border p-2 rounded badge-input" value="${value}" /><button type="button" onclick="this.parentElement.remove()" class="px-2 py-1 bg-red-500 text-white rounded">Delete</button>`;
+        box.appendChild(div);
+      }
+
+      function addMilestone(value = "") {
+        const box = document.getElementById("milestoneBox");
+        const div = document.createElement("div");
+        div.className = "flex gap-2 items-center";
+        div.innerHTML = `<input type="text" class="w-full border p-2 rounded milestone-input" value="${value}" /><button type="button" onclick="this.parentElement.remove()" class="px-2 py-1 bg-red-500 text-white rounded">Delete</button>`;
+        box.appendChild(div);
+      }
+
+      loadInstructorData();
+
+      document
+        .getElementById("editForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+          const contact = document.getElementById("contact").value;
+          const pContact = document.getElementById("parentContact").value;
+          const gender = document.getElementById("gender").value.toLowerCase();
+
+          if (contact.length !== 10 || pContact.length !== 10) {
+            alert("Contact numbers must be 10 digits");
+            return;
+          }
+          if (!["male", "female", "others"].includes(gender)) {
+            alert("Gender must be Male, Female, or Others");
+            return;
+          }
+
+          const updatedData = {
+            name: document.getElementById("name").value,
+            email: document.getElementById("email").value,
+            gender: document.getElementById("gender").value,
+            dob: document.getElementById("dob").value,
+            contact: contact,
+            father: document.getElementById("father").value,
+            mother: document.getElementById("mother").value,
+            parentContact: pContact,
+            id: document.getElementById("id").value,
+            spec: document.getElementById("spec").value,
+            role: document.getElementById("role").value,
+            inst: document.getElementById("inst").value,
+            year: document.getElementById("year").value,
+            area: document.getElementById("area").value,
+            workingMode: document.getElementById("Workingmode").value,
+            innovator: document.getElementById("innovator").value,
+            badges: Array.from(document.querySelectorAll(".badge-input")).map(
+              (i) => i.value
+            ),
+            milestones: Array.from(
+              document.querySelectorAll(".milestone-input")
+            ).map((i) => i.value),
+          };
+          localStorage.setItem(
+            "instructorProfileData",
+            JSON.stringify(updatedData)
+          );
+          alert("Profile updated successfully!");
+          window.location.href = "InstructorProfile.html";
+        });
+    </script>
+  </body>
+</html>
